@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وصفة طبية - وزارة الصحة</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/healthcare.css">
+  <style>
+    @media print {
+      aside, header .header-actions, .document-actions {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">💊</span>
+        <span>وزارة الصحة - الوصفات الطبية</span>
+      </div>
+      <div class="header-actions">
+        <button class="logout-btn" onclick="window.location.href='healthcare.html'">عودة للسجل</button>
+      </div>
+    </div>
+  </header>
+  
+  <aside>
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    <nav class="sidebar-nav">
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      <ul>
+        <li><a href="dashboard.html"><span>🏠</span> الرئيسية</a></li>
+        <li><a href="school.html"><span>📚</span> مدرستي</a></li>
+        <li><a href="healthcare.html" class="active"><span>🏥</span> صحتي</a></li>
+        <li><a href="university.html"><span>🎓</span> زدني علماً</a></li>
+        <li><a href="tourism.html"><span>✈️</span> السياحة</a></li>
+        <li><a href="traffic-violations.html"><span>🚨</span> الشؤون الداخليه</a></li>
+        <li><a href="awqaf.html"><span>🕌</span> وزارة الأوقاف</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <main>
+    
+    <div class="medical-document">
+      
+      <!-- Document Header -->
+      <div class="document-header">
+        <div class="document-logo">💊</div>
+        <h1 class="document-title">الجمهورية العربية السورية<br>وزارة الصحة</h1>
+        <h2 class="document-subtitle">وصفة طبية</h2>
+        <p style="color: var(--dark-gray); margin-top: var(--spacing-md);">
+          <strong>رقم الوصفة:</strong> PRES-2026-007890
+        </p>
+      </div>
+      
+      <!-- Doctor Information -->
+      <div class="patient-info" style="background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%); border: 2px solid var(--gold);">
+        <h3 style="color: var(--dark-olive);">بيانات الطبيب</h3>
+        <div class="info-row">
+          <span class="info-label">اسم الطبيب:</span>
+          <span class="info-value">د. محمد حسن أحمد</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">التخصص:</span>
+          <span class="info-value">أمراض القلب والأوعية الدموية</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">رقم الترخيص:</span>
+          <span class="info-value">DOC-SY-2018-4523</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">الجهة الطبية:</span>
+          <span class="info-value">مشفى الأسد الجامعي - قسم القلب</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">العنوان:</span>
+          <span class="info-value">دمشق - المزة - شارع الجامعة</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">الهاتف:</span>
+          <span class="info-value">011-2345678</span>
+        </div>
+      </div>
+      
+      <!-- Patient Information -->
+      <div class="patient-info">
+        <h3>بيانات المريض</h3>
+        <div class="info-row">
+          <span class="info-label">الاسم الكامل:</span>
+          <span class="info-value">أحمد محمد علي</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">الرقم الوطني:</span>
+          <span class="info-value">12345678901</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">العمر:</span>
+          <span class="info-value">35 سنة</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">تاريخ الوصفة:</span>
+          <span class="info-value">2026-01-02</span>
+        </div>
+      </div>
+      
+      <!-- Prescription Details -->
+      <div class="document-content">
+        <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg); font-size: 1.5rem;">
+          ℞ الأدوية الموصوفة
+        </h3>
+        
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th style="width: 5%;">#</th>
+              <th style="width: 30%;">اسم الدواء</th>
+              <th style="width: 20%;">التركيز</th>
+              <th style="width: 25%;">الجرعة</th>
+              <th style="width: 20%;">المدة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><strong>أتورفاستاتين</strong><br><small>(Atorvastatin)</small></td>
+              <td>20 ملغ</td>
+              <td>حبة واحدة يومياً مساءً</td>
+              <td>شهر واحد</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><strong>راميبريل</strong><br><small>(Ramipril)</small></td>
+              <td>5 ملغ</td>
+              <td>حبة واحدة يومياً صباحاً</td>
+              <td>شهر واحد</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><strong>أسبرين</strong><br><small>(Aspirin)</small></td>
+              <td>100 ملغ</td>
+              <td>حبة واحدة يومياً بعد الطعام</td>
+              <td>شهر واحد</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Instructions -->
+      <div style="background: #fff9e6; border: 2px solid var(--gold); padding: var(--spacing-xl); border-radius: var(--radius-md); margin: var(--spacing-2xl) 0;">
+        <h4 style="color: var(--dark-olive); margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
+          <span style="font-size: 1.5rem;">⚠️</span>
+          تعليمات مهمة
+        </h4>
+        <ul style="margin-right: var(--spacing-xl); color: var(--text-dark); line-height: 2;">
+          <li>تناول الأدوية في الأوقات المحددة بانتظام</li>
+          <li>لا تتوقف عن تناول الأدوية دون استشارة الطبيب</li>
+          <li>في حال ظهور أي أعراض جانبية، راجع الطبيب فوراً</li>
+          <li>احفظ الأدوية في مكان بارد وجاف بعيداً عن متناول الأطفال</li>
+          <li>موعد المراجعة القادم: 2026-02-02</li>
+        </ul>
+      </div>
+      
+      <!-- Diagnosis -->
+      <div style="background: var(--light-gray); padding: var(--spacing-xl); border-radius: var(--radius-md); margin-bottom: var(--spacing-2xl);">
+        <h4 style="color: var(--dark-olive); margin-bottom: var(--spacing-md);">التشخيص:</h4>
+        <p style="color: var(--text-dark); font-weight: 600; line-height: 1.8;">
+          ارتفاع خفيف في ضغط الدم - ارتفاع في الكوليسترول - وقاية قلبية
+        </p>
+      </div>
+      
+      <!-- Document Footer -->
+      <div class="document-footer">
+        <p style="color: var(--dark-gray); margin-bottom: var(--spacing-xl);">
+          <strong>تاريخ الإصدار:</strong> 2026-01-02<br>
+          <strong>صالحة لمدة:</strong> شهر واحد (حتى 2026-02-02)<br>
+          <strong>رقم الوثيقة:</strong> PRES-2026-007890
+        </p>
+        
+        <div class="signature-section">
+          <div class="signature-box">
+            <div class="signature-line">📝</div>
+            <p style="font-weight: 600;">توقيع الطبيب</p>
+            <small>د. محمد حسن أحمد</small>
+          </div>
+          
+          <div class="signature-box">
+            <div class="signature-line">✅</div>
+            <p style="font-weight: 600;">ختم العيادة</p>
+            <small>مشفى الأسد الجامعي</small>
+          </div>
+        </div>
+        
+        <div style="margin-top: var(--spacing-2xl); padding: var(--spacing-lg); background: #f5f5f5; border-radius: var(--radius-md);">
+          <p style="color: var(--text-dark); font-size: 0.85rem; text-align: center; line-height: 1.6;">
+            <strong>تنبيه:</strong> هذه الوصفة الطبية صادرة إلكترونياً من وزارة الصحة السورية وتعتبر رسمية.<br>
+            يمكن صرف الأدوية من أي صيدلية معتمدة بإبراز الرقم الوطني وهذه الوصفة.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="document-actions print-hide">
+        <button class="btn btn-primary" onclick="window.print()">
+          🖨️ طباعة الوصفة
+        </button>
+        <button class="btn btn-outline" onclick="downloadPDF()">
+          📥 تحميل PDF
+        </button>
+        <button class="btn btn-outline" onclick="sendToPharmacy()">
+          💊 إرسال للصيدلية
+        </button>
+        <button class="btn btn-outline" onclick="window.location.href='healthcare.html'">
+          ↩️ عودة للسجل
+        </button>
+      </div>
+      
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script>
+    function downloadPDF() {
+      alert('سيتم تحميل الوصفة بصيغة PDF');
+    }
+    
+    function sendToPharmacy() {
+      alert('سيتم إرسال الوصفة للصيدلية المختارة');
+    }
+  </script>
+  
+</body>
+</html>
+

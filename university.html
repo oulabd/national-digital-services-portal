@@ -1,0 +1,690 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة الجامعات - بوابة الخدمات الرقمية</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/university.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>بوابة الخدمات الوطنية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    <nav class="sidebar-nav">
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      <ul>
+        <li><a href="dashboard.html"><span>🏠</span> الرئيسية</a></li>
+        <li><a href="school.html"><span>📚</span> مدرستي</a></li>
+        <li><a href="healthcare.html"><span>🏥</span> صحتي</a></li>
+        <li><a href="university.html" class="active"><span>🎓</span> زدني علماً</a></li>
+        <li><a href="tourism.html"><span>✈️</span> السياحة</a></li>
+        <li><a href="traffic-violations.html"><span>🚨</span> الشؤون الداخليه</a></li>
+        <li><a href="awqaf.html"><span>🕌</span> وزارة الأوقاف</a></li>
+      </ul>
+      <div class="sidebar-title">إضافي</div>
+      <ul>
+        <li><a href="#settings"><span>⚙️</span> الإعدادات</a></li>
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">🎓 بوابة الجامعات</h1>
+      <p style="color: var(--dark-gray); font-size: 1rem;">برامج أكاديمية، درجات، مقررات دراسية، وخدمات جامعية</p>
+    </section>
+    
+    <!-- University Accordion Sections -->
+    <div class="university-accordion">
+      
+      <!-- ========== SECTION 1: PUBLIC UNIVERSITIES ========== -->
+      <div class="accordion-section active">
+        <button class="accordion-header" onclick="toggleUniversityAccordion('publicUniversities')">
+          <div class="header-content">
+            <span class="header-icon">🏛️</span>
+            <div class="header-text">
+              <h2>الجامعات العامة</h2>
+              <p>الجامعات الحكومية والخدمات الأكاديمية</p>
+            </div>
+          </div>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        
+        <div id="publicUniversities" class="accordion-content">
+          
+          <!-- Selection Section -->
+          <section style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-2xl);">
+            <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">اختيار الجامعة والتخصص</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg);">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="university">الجامعة</label>
+                <select id="university" name="university" onchange="loadUniversityCourses(event)">
+                  <option value="">-- اختر الجامعة --</option>
+                  <option value="damascus">جامعة دمشق</option>
+                  <option value="baath">جامعة البعث</option>
+                  <option value="aleppo">جامعة حلب</option>
+                  <option value="tishreen">جامعة التشرين</option>
+                  <option value="latakia">جامعة اللاذقية</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="faculty">الكلية / المعهد</label>
+                <select id="faculty" name="faculty">
+                  <option value="">-- اختر الكلية --</option>
+                  <option value="engineering">الهندسة</option>
+                  <option value="medicine">الطب</option>
+                  <option value="science">العلوم</option>
+                  <option value="arts">الآداب</option>
+                  <option value="law">القانون</option>
+                  <option value="business">إدارة الأعمال</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="year">السنة الدراسية</label>
+                <select id="year" name="year">
+                  <option value="">-- اختر السنة --</option>
+                  <option value="1">السنة الأولى</option>
+                  <option value="2">السنة الثانية</option>
+                  <option value="3">السنة الثالثة</option>
+                  <option value="4">السنة الرابعة</option>
+                  <option value="5">السنة الخامسة</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Student Info Card -->
+          <section style="background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl); box-shadow: var(--shadow-lg);">
+            <h3 style="color: var(--light-gold); margin-bottom: var(--spacing-lg);">معلومات الطالب</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-xl);">
+              <div>
+                <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">الاسم</div>
+                <div style="font-size: 1.25rem; font-weight: 600;">أحمد محمد علي</div>
+              </div>
+              <div>
+                <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">رقم الطالب</div>
+                <div style="font-size: 1.25rem; font-weight: 600;">20210001234</div>
+              </div>
+              <div>
+                <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">المعدل التراكمي</div>
+                <div style="font-size: 1.25rem; font-weight: 600; color: var(--light-gold);">3.85 / 4.00</div>
+              </div>
+              <div>
+                <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">الحالة</div>
+                <div style="font-size: 1.25rem; font-weight: 600; color: #10B981;">✓ مسجل</div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Public University Tabs -->
+          <section>
+            <div class="tabs" data-tab-group="university">
+              <button type="button" class="tab" data-tab-group="university">المقررات الدراسية</button>
+              <button type="button" class="tab" data-tab-group="university">الدرجات</button>
+              <button type="button" class="tab" data-tab-group="university">الجدول الزمني</button>
+              <button type="button" class="tab" data-tab-group="university">التسجيل</button>
+            </div>
+            
+            <!-- Courses Tab -->
+            <div data-tab-content="university" data-tab="0" class="tab-content">
+              <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">المقررات الدراسية - الفصل الأول</h2>
+              <div style="overflow-x: auto;">
+                <table data-table="courses">
+                  <thead>
+                    <tr>
+                      <th>المقرر</th>
+                      <th>المدرس</th>
+                      <th>الساعات</th>
+                      <th>الشعبة</th>
+                      <th>الموقع</th>
+                      <th>الحالة</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>برمجة الويب</td>
+                      <td>د. أحمد محمد</td>
+                      <td><span class="badge badge-info">3 ساعات</span></td>
+                      <td>أ</td>
+                      <td>قاعة 101</td>
+                      <td><span class="badge badge-success">مسجل</span></td>
+                    </tr>
+                    <tr>
+                      <td>هياكل البيانات</td>
+                      <td>أ.د فاطمة علي</td>
+                      <td><span class="badge badge-info">3 ساعات</span></td>
+                      <td>ب</td>
+                      <td>قاعة 205</td>
+                      <td><span class="badge badge-success">مسجل</span></td>
+                    </tr>
+                    <tr>
+                      <td>قواعد البيانات</td>
+                      <td>د. محمود إسماعيل</td>
+                      <td><span class="badge badge-info">4 ساعات</span></td>
+                      <td>أ</td>
+                      <td>قاعة 301</td>
+                      <td><span class="badge badge-success">مسجل</span></td>
+                    </tr>
+                    <tr>
+                      <td>الخوارزميات</td>
+                      <td>أ.د علي مصطفى</td>
+                      <td><span class="badge badge-info">3 ساعات</span></td>
+                      <td>أ</td>
+                      <td>قاعة 102</td>
+                      <td><span class="badge badge-success">مسجل</span></td>
+                    </tr>
+                    <tr>
+                      <td>الشبكات</td>
+                      <td>د. ليندا فارس</td>
+                      <td><span class="badge badge-info">3 ساعات</span></td>
+                      <td>ب</td>
+                      <td>قاعة 206</td>
+                      <td><span class="badge badge-success">مسجل</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md);">
+                <strong>إجمالي الساعات المسجلة:</strong> 16 ساعة
+              </div>
+            </div>
+            
+            <!-- Grades Tab -->
+            <div data-tab-content="university" data-tab="1" class="tab-content">
+              <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">درجات المقررات</h2>
+              <div style="overflow-x: auto;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>المقرر</th>
+                      <th>الامتحان النهائي</th>
+                      <th>الأعمال الفصلية</th>
+                      <th>المشروع</th>
+                      <th>الدرجة النهائية</th>
+                      <th>التقدير</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>برمجة الويب</td>
+                      <td>82</td>
+                      <td>18</td>
+                      <td>20</td>
+                      <td><strong>88</strong></td>
+                      <td><span class="badge" style="background-color: #DBEAFE; color: #0C4A6E;">ممتاز</span></td>
+                    </tr>
+                    <tr>
+                      <td>هياكل البيانات</td>
+                      <td>75</td>
+                      <td>16</td>
+                      <td>18</td>
+                      <td><strong>81</strong></td>
+                      <td><span class="badge" style="background-color: #DBEAFE; color: #0C4A6E;">جيد جداً</span></td>
+                    </tr>
+                    <tr>
+                      <td>قواعد البيانات</td>
+                      <td>88</td>
+                      <td>19</td>
+                      <td>20</td>
+                      <td><strong>92</strong></td>
+                      <td><span class="badge" style="background-color: #D1FAE5; color: #065F46;">ممتاز جداً</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- Schedule Tab -->
+            <div data-tab-content="university" data-tab="2" class="tab-content">
+              <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الجدول الزمني</h2>
+              <div style="background-color: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+                  <div style="padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md); border-right: 4px solid var(--gold);">
+                    <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm);">السبت</div>
+                    <div style="font-size: 0.9rem; color: var(--dark-gray);">
+                      <div>09:00 - 10:30 برمجة الويب</div>
+                      <div style="margin-top: var(--spacing-sm);">11:00 - 12:30 قواعد البيانات</div>
+                    </div>
+                  </div>
+                  <div style="padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md); border-right: 4px solid var(--gold);">
+                    <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm);">الأحد</div>
+                    <div style="font-size: 0.9rem; color: var(--dark-gray);">
+                      <div>09:00 - 10:30 هياكل البيانات</div>
+                      <div style="margin-top: var(--spacing-sm);">14:00 - 15:30 الخوارزميات</div>
+                    </div>
+                  </div>
+                  <div style="padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md); border-right: 4px solid var(--gold);">
+                    <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm);">الاثنين</div>
+                    <div style="font-size: 0.9rem; color: var(--dark-gray);">
+                      <div>11:00 - 12:30 الشبكات</div>
+                      <div style="margin-top: var(--spacing-sm);">14:00 - 15:30 برمجة الويب</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Registration Tab -->
+            <div data-tab-content="university" data-tab="3" class="tab-content">
+              <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">التسجيل للفصل الثاني</h2>
+              <div style="background-color: #FEF3C7; border-right: 4px solid #92400E; padding: var(--spacing-lg); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+                <strong style="color: #92400E;">⚠️ معلومة:</strong> فترة التسجيل من 15 يناير إلى 28 يناير 2024
+              </div>
+              <form style="background-color: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                <div class="form-group">
+                  <label>المقررات المتاحة للتسجيل</label>
+                  <div class="checkbox-group">
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="course" value="web2">
+                      برمجة الويب المتقدمة (3 ساعات)
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="course" value="ai">
+                      الذكاء الاصطناعي (3 ساعات)
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="course" value="security">
+                      أمن المعلومات (4 ساعات)
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="course" value="graphics">
+                      رسوميات الحاسوب (3 ساعات)
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">تسجيل المقررات</button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+      
+      <!-- ========== SECTION 2: PRIVATE UNIVERSITIES ========== -->
+      <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleUniversityAccordion('privateUniversities')">
+          <div class="header-content">
+            <span class="header-icon">🎓</span>
+            <div class="header-text">
+              <h2>الجامعات الخاصة</h2>
+              <p>البرامج الأكاديمية والخدمات المالية</p>
+            </div>
+          </div>
+          <span class="accordion-arrow">◀</span>
+        </button>
+        
+        <div id="privateUniversities" class="accordion-content">
+          
+          <!-- Search Section for Private Universities -->
+          <section style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-2xl);">
+            <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">البحث في الجامعات الخاصة</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg);">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="privateUniversity">اسم الجامعة</label>
+                <select id="privateUniversity" name="privateUniversity" onchange="filterPrivateUniversities()">
+                  <option value="">-- جميع الجامعات --</option>
+                  <option value="giu">الجامعة الألمانية الدولية</option>
+                  <option value="qassyoun">جامعة قاصيون</option>
+                  <option value="rafidain">جامعة الرافدين الدولية</option>
+                  <option value="damascus-intl">جامعة دمشق الدولية</option>
+                  <option value="arab-intl">الجامعة العربية الدولية</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="privateCity">المحافظة</label>
+                <select id="privateCity" name="privateCity" onchange="filterPrivateUniversities()">
+                  <option value="">-- جميع المحافظات --</option>
+                  <option value="damascus">دمشق</option>
+                  <option value="aleppo">حلب</option>
+                  <option value="homs">حمص</option>
+                  <option value="lattakia">اللاذقية</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="privateSpecialization">التخصص</label>
+                <select id="privateSpecialization" name="privateSpecialization" onchange="filterPrivateUniversities()">
+                  <option value="">-- جميع التخصصات --</option>
+                  <option value="engineering">الهندسة</option>
+                  <option value="medicine">الطب والعلوم الصحية</option>
+                  <option value="business">إدارة الأعمال</option>
+                  <option value="it">تكنولوجيا المعلومات</option>
+                  <option value="law">القانون</option>
+                  <option value="pharmacy">الصيدلة</option>
+                </select>
+              </div>
+            </div>
+            <div style="margin-top: var(--spacing-lg); text-align: center;">
+              <button class="btn btn-outline" onclick="clearPrivateFilters()">🔄 إعادة تعيين</button>
+            </div>
+          </section>
+          
+          <!-- Private University Selection -->
+          <section style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-2xl);">
+            <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الجامعات الخاصة المتاحة</h2>
+            <div id="privateUniversitiesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg);">
+              <div class="private-university-card">
+                <div class="university-card-header">
+                  <div class="university-icon">🏢</div>
+                  <h3>الجامعة الألمانية الدولية</h3>
+                </div>
+                <div class="university-card-content">
+                  <p><strong>الموقع:</strong> دمشق - منطقة الضاحية</p>
+                  <p><strong>التخصصات:</strong> الهندسة، إدارة الأعمال، الحاسوب</p>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="selectPrivateUniversity('giu', 'الجامعة الألمانية الدولية')">عرض التفاصيل</button>
+              </div>
+              <div class="private-university-card">
+                <div class="university-card-header">
+                  <div class="university-icon">🏢</div>
+                  <h3>جامعة قاصيون</h3>
+                </div>
+                <div class="university-card-content">
+                  <p><strong>الموقع:</strong> دمشق - جرمانا</p>
+                  <p><strong>التخصصات:</strong> الطب، الصيدلة، التمريض</p>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="selectPrivateUniversity('qassyoun', 'جامعة قاصيون')">عرض التفاصيل</button>
+              </div>
+              <div class="private-university-card">
+                <div class="university-card-header">
+                  <div class="university-icon">🏢</div>
+                  <h3>جامعة الرافدين الدولية</h3>
+                </div>
+                <div class="university-card-content">
+                  <p><strong>الموقع:</strong> حلب - القصور</p>
+                  <p><strong>التخصصات:</strong> القانون، الاقتصاد، العلاقات الدولية</p>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="selectPrivateUniversity('rafidain', 'جامعة الرافدين الدولية')">عرض التفاصيل</button>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Private University Tabs -->
+          <section>
+            <div class="tabs" data-tab-group="private-university">
+              <button type="button" class="tab" data-tab-group="private-university">الخدمات الأكاديمية</button>
+              <button type="button" class="tab" data-tab-group="private-university">القسط الفصلي</button>
+            </div>
+            
+            <!-- Academic Services Tab -->
+            <div data-tab-content="private-university" data-tab="0" class="tab-content">
+              <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الخدمات الأكاديمية</h2>
+              <div class="subtabs" style="margin-bottom: var(--spacing-xl);">
+                <button class="subtab active" onclick="switchPrivateTab('courses')">المقررات المسجلة</button>
+                <button class="subtab" onclick="switchPrivateTab('grades')">الدرجات</button>
+                <button class="subtab" onclick="switchPrivateTab('schedule')">الجدول الدراسي</button>
+                <button class="subtab" onclick="switchPrivateTab('registration')">تسجيل المواد</button>
+              </div>
+              
+              <!-- Courses Subtab -->
+              <div id="courses-private" class="subtab-content" style="display: block;">
+                <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">المقررات الدراسية - الفصل الأول</h3>
+                <div style="overflow-x: auto;">
+                  <table data-table="private-courses">
+                    <thead>
+                      <tr>
+                        <th>المقرر</th>
+                        <th>المدرس</th>
+                        <th>الساعات</th>
+                        <th>الشعبة</th>
+                        <th>الحالة</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>برمجة الويب المتقدمة</td>
+                        <td>د. محمد علي</td>
+                        <td><span class="badge badge-info">3 ساعات</span></td>
+                        <td>أ</td>
+                        <td><span class="badge badge-success">مسجل</span></td>
+                      </tr>
+                      <tr>
+                        <td>قواعد البيانات المتقدمة</td>
+                        <td>أ.د فاطمة محمود</td>
+                        <td><span class="badge badge-info">4 ساعات</span></td>
+                        <td>ب</td>
+                        <td><span class="badge badge-success">مسجل</span></td>
+                      </tr>
+                      <tr>
+                        <td>الذكاء الاصطناعي</td>
+                        <td>د. علي محمد</td>
+                        <td><span class="badge badge-info">3 ساعات</span></td>
+                        <td>أ</td>
+                        <td><span class="badge badge-success">مسجل</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <!-- Grades Subtab -->
+              <div id="grades-private" class="subtab-content" style="display: none;">
+                <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الدرجات - الفصل الأول</h3>
+                <div style="overflow-x: auto;">
+                  <table data-table="private-grades">
+                    <thead>
+                      <tr>
+                        <th>المقرر</th>
+                        <th>الاختبار الأول</th>
+                        <th>الاختبار الثاني</th>
+                        <th>الاختبار النهائي</th>
+                        <th>المعدل</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>برمجة الويب المتقدمة</td>
+                        <td>18/20</td>
+                        <td>17/20</td>
+                        <td>35/40</td>
+                        <td><span class="badge badge-info">90/100</span></td>
+                      </tr>
+                      <tr>
+                        <td>قواعد البيانات المتقدمة</td>
+                        <td>19/20</td>
+                        <td>18/20</td>
+                        <td>36/40</td>
+                        <td><span class="badge badge-info">93/100</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <!-- Schedule Subtab -->
+              <div id="schedule-private" class="subtab-content" style="display: none;">
+                <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الجدول الدراسي</h3>
+                <div style="overflow-x: auto;">
+                  <table data-table="private-schedule">
+                    <thead>
+                      <tr>
+                        <th>الساعة</th>
+                        <th>الأحد</th>
+                        <th>الاثنين</th>
+                        <th>الثلاثاء</th>
+                        <th>الأربعاء</th>
+                        <th>الخميس</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong>08:00 - 09:30</strong></td>
+                        <td>برمجة الويب</td>
+                        <td>قواعد البيانات</td>
+                        <td>برمجة الويب</td>
+                        <td>الذكاء الاصطناعي</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td><strong>10:00 - 11:30</strong></td>
+                        <td>قواعد البيانات</td>
+                        <td>الذكاء الاصطناعي</td>
+                        <td>قواعد البيانات</td>
+                        <td>برمجة الويب</td>
+                        <td>-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <!-- Registration Subtab -->
+              <div id="registration-private" class="subtab-content" style="display: none;">
+                <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">تسجيل المواد للفصل الثاني</h3>
+                <div style="background-color: #FEF3C7; border-right: 4px solid #92400E; padding: var(--spacing-lg); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+                  <strong style="color: #92400E;">⚠️ معلومة:</strong> فترة التسجيل من 15 يناير إلى 28 يناير 2024
+                </div>
+                <form style="background-color: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+                  <div class="form-group">
+                    <label>المقررات المتاحة للتسجيل</label>
+                    <div class="checkbox-group">
+                      <label class="checkbox-label">
+                        <input type="checkbox" name="course" value="security">
+                        أمن المعلومات (3 ساعات)
+                      </label>
+                      <label class="checkbox-label">
+                        <input type="checkbox" name="course" value="graphics">
+                        رسوميات الحاسوب (3 ساعات)
+                      </label>
+                      <label class="checkbox-label">
+                        <input type="checkbox" name="course" value="networks">
+                        الشبكات المتقدمة (4 ساعات)
+                      </label>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-lg">تسجيل المقررات</button>
+                </form>
+              </div>
+            </div>
+            
+            <!-- Tuition Tab -->
+            <div data-tab-content="private-university" data-tab="1" class="tab-content">
+              <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">القسط الفصلي</h2>
+              
+              <!-- Tuition Summary Cards -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-2xl);">
+                <div class="tuition-card">
+                  <div class="tuition-icon">💰</div>
+                  <h3>قيمة القسط الفصلي</h3>
+                  <div class="tuition-value">3,500 ل.س</div>
+                  <p style="color: var(--dark-gray); margin-top: var(--spacing-sm);">الفصل الدراسي الأول</p>
+                </div>
+                <div class="tuition-card">
+                  <div class="tuition-icon">✅</div>
+                  <h3>حالة الدفع</h3>
+                  <div class="tuition-status paid">مدفوع</div>
+                  <p style="color: var(--dark-gray); margin-top: var(--spacing-sm);">تم الدفع في 2026-01-05</p>
+                </div>
+                <div class="tuition-card">
+                  <div class="tuition-icon">📅</div>
+                  <h3>آخر موعد للدفع</h3>
+                  <div class="tuition-deadline">2026-01-15</div>
+                  <p style="color: var(--dark-gray); margin-top: var(--spacing-sm);">للفصل الثاني</p>
+                </div>
+              </div>
+              
+              <!-- Payment History Table -->
+              <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">سجل الدفعات الربعية</h3>
+              <div style="overflow-x: auto;">
+                <table data-table="tuition-payments">
+                  <thead>
+                    <tr>
+                      <th>الربع (الدفعة)</th>
+                      <th>قيمة القسط</th>
+                      <th>الحالة</th>
+                      <th>تاريخ الاستحقاق</th>
+                      <th>تاريخ الدفع</th>
+                      <th>الإجراءات</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Q1 2026 (الربع الأول)</td>
+                      <td>2,500 ل.س</td>
+                      <td><span class="badge badge-success">مدفوع</span></td>
+                      <td>2025-12-31</td>
+                      <td>2025-12-20</td>
+                      <td><button class="action-btn" onclick="viewPaymentReceipt('RECEIPT-Q1-2026')">📄</button></td>
+                    </tr>
+                    <tr>
+                      <td>Q2 2026 (الربع الثاني)</td>
+                      <td>2,500 ل.س</td>
+                      <td><span class="badge badge-success">مدفوع</span></td>
+                      <td>2026-03-31</td>
+                      <td>2026-03-18</td>
+                      <td><button class="action-btn" onclick="viewPaymentReceipt('RECEIPT-Q2-2026')">📄</button></td>
+                    </tr>
+                    <tr>
+                      <td>Q3 2026 (الربع الثالث)</td>
+                      <td>2,500 ل.س</td>
+                      <td><span class="badge badge-warning">قيد الانتظار</span></td>
+                      <td>2026-06-15</td>
+                      <td>-</td>
+                      <td><button class="action-btn" onclick="openPaymentInterface('TUITION-Q3-2026')">💳</button></td>
+                    </tr>
+                    <tr>
+                      <td>Q4 2026 (الربع الرابع)</td>
+                      <td>2,500 ل.س</td>
+                      <td><span class="badge badge-secondary">لم يستحق</span></td>
+                      <td>2026-09-15</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>رسم التسجيل الإضافي</td>
+                      <td>500 ل.س</td>
+                      <td><span class="badge badge-success">مدفوع</span></td>
+                      <td>2025-11-30</td>
+                      <td>2025-11-28</td>
+                      <td><button class="action-btn" onclick="viewPaymentReceipt('RECEIPT-REG-FEE')">📄</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <!-- Payment Alerts -->
+              <div style="margin-top: var(--spacing-2xl); padding: var(--spacing-lg); background-color: #FEE2E2; border-right: 4px solid #DC2626; border-radius: var(--radius-md);">
+                <h4 style="color: #991B1B; margin-bottom: var(--spacing-sm);">⚠️ تنبيه مهم</h4>
+                <ul style="color: #7F1D1D; margin: 0; padding-right: var(--spacing-lg);">
+                  <li>يرجى تسديد القسط قبل موعد الاستحقاق لتجنب إيقاف التسجيل</li>
+                  <li>الدفع المتأخر قد يترتب عليه رسوم إضافية</li>
+                  <li>للدفع أونلاين استخدم الخيار المتاح في جدول الدفعات</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script src="js/university.js"></script>
+  
+</body>
+</html>
+

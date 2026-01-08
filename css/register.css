@@ -1,0 +1,520 @@
+/* ============================================
+   Registration Form Styles
+   Arabic RTL - Citizen Digital Identity
+   ============================================ */
+
+.register-body {
+  background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%);
+  min-height: 100vh;
+}
+
+.register-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: var(--spacing-2xl);
+  align-items: start;
+}
+
+/* ============================================
+   Progress Steps
+   ============================================ */
+.progress-steps {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-2xl);
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  position: relative;
+  opacity: 0.5;
+  transition: var(--transition);
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step.active .step-number {
+  background: var(--gold);
+  color: var(--dark-olive);
+  transform: scale(1.1);
+}
+
+.step.completed .step-number {
+  background: var(--light-gold);
+  color: var(--dark-olive);
+}
+
+.step.completed::after {
+  background: var(--gold);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.step-label {
+  color: var(--white);
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ============================================
+   Registration Card
+   ============================================ */
+.register-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.step-form {
+  display: none;
+  animation: fadeInSlide 0.4s ease;
+}
+
+.step-form.active {
+  display: block;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-header {
+  background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%);
+  color: var(--white);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.form-header h2 {
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--light-gold);
+}
+
+.form-header p {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.form-body {
+  padding: var(--spacing-2xl);
+}
+
+.form-footer {
+  padding: var(--spacing-xl);
+  background: var(--light-gray);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.form-footer .btn {
+  flex: 1;
+}
+
+/* ============================================
+   Form Elements
+   ============================================ */
+.form-group {
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--dark-olive);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.required {
+  color: var(--danger);
+  margin-right: var(--spacing-xs);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid var(--gray);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition);
+  background: var(--white);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200, 162, 74, 0.1);
+}
+
+.form-input.error {
+  border-color: var(--danger);
+}
+
+.form-input.success {
+  border-color: var(--success);
+}
+
+.form-help {
+  display: block;
+  margin-top: var(--spacing-xs);
+  color: var(--dark-gray);
+  font-size: 0.85rem;
+}
+
+.error-message {
+  display: none;
+  margin-top: var(--spacing-sm);
+  color: var(--danger);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.error-message.show {
+  display: block;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* ============================================
+   Password Strength Indicator
+   ============================================ */
+.password-strength {
+  margin-top: var(--spacing-sm);
+}
+
+.strength-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--gray);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-xs);
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--danger);
+  transition: all 0.3s ease;
+}
+
+.strength-fill.weak {
+  width: 25%;
+  background: var(--danger);
+}
+
+.strength-fill.fair {
+  width: 50%;
+  background: var(--warning);
+}
+
+.strength-fill.good {
+  width: 75%;
+  background: var(--info);
+}
+
+.strength-fill.strong {
+  width: 100%;
+  background: var(--success);
+}
+
+#strengthText {
+  color: var(--dark-gray);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   Password Rules
+   ============================================ */
+.password-rules {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+  border-right: 4px solid var(--gold);
+}
+
+.password-rules h4 {
+  color: var(--dark-olive);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.password-rules ul {
+  list-style: none;
+  padding: 0;
+}
+
+.password-rules li {
+  color: var(--dark-gray);
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-xs);
+  transition: var(--transition);
+}
+
+.password-rules li.valid {
+  color: var(--success);
+}
+
+/* ============================================
+   Review Section
+   ============================================ */
+.review-section {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-lg);
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+}
+
+.review-section h3 {
+  color: var(--dark-olive);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--gold);
+}
+
+.review-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--gray);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-label {
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+}
+
+.review-value {
+  color: var(--dark-olive);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   Confirmation & Info Boxes
+   ============================================ */
+.confirmation-box {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #fff9e6 0%, #fff4d1 100%);
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-md);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  cursor: pointer;
+  color: var(--dark-olive);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--gold);
+}
+
+.info-box {
+  padding: var(--spacing-lg);
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+  border-right: 4px solid var(--info);
+}
+
+.info-box h4 {
+  color: var(--dark-olive);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-box p {
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+   Info Panel (Sidebar)
+   ============================================ */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.info-card h3 {
+  color: var(--dark-olive);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-card p {
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-submit {
+  font-size: 1.1rem;
+  padding: var(--spacing-md) var(--spacing-2xl);
+}
+
+.btn-submit span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 1024px) {
+  .register-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-panel {
+    grid-column: 1;
+    flex-direction: row;
+  }
+  
+  .progress-steps {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .form-body {
+    padding: var(--spacing-lg);
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .progress-steps {
+    padding: var(--spacing-md);
+  }
+  
+  .step-label {
+    font-size: 0.75rem;
+  }
+  
+  .step-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .info-panel {
+    flex-direction: column;
+  }
+  
+  .form-footer {
+    flex-direction: column;
+  }
+}

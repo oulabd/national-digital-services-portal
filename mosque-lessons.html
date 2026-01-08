@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دروس الجوامع - وزارة الأوقاف</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/awqaf.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>وزارة الأوقاف والشؤون الإسلامية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html" class="active">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Header -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">🎓 دروس الجوامع والمحاضرات</h1>
+      <p style="color: var(--dark-gray); font-size: 1rem;">ابحث عن الدروس والمحاضرات الدينية في جوامعك القريبة</p>
+    </section>
+    
+    <!-- Search & Filter Section -->
+    <div class="search-filter-box">
+      
+      <div class="search-bar">
+        <input type="text" id="searchInput" class="form-input" placeholder="ابحث عن جامع أو محاضر...">
+      </div>
+      
+      <div class="filter-grid">
+        
+        <div class="filter-group">
+          <label for="provinceFilter">المحافظة</label>
+          <select id="provinceFilter" class="form-input" onchange="applyFilters()">
+            <option value="">جميع المحافظات</option>
+            <option value="damascus">دمشق</option>
+            <option value="aleppo">حلب</option>
+            <option value="homs">حمص</option>
+            <option value="hama">حماه</option>
+            <option value="lattakia">اللاذقية</option>
+            <option value="tartus">طرطوس</option>
+            <option value="daraa">درعا</option>
+            <option value="deir-ez-zor">دير الزور</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="lessonTypeFilter">نوع الدرس</label>
+          <select id="lessonTypeFilter" class="form-input" onchange="applyFilters()">
+            <option value="">جميع الأنواع</option>
+            <option value="quran">تفسير القرآن</option>
+            <option value="hadith">الحديث الشريف</option>
+            <option value="fiqh">الفقه الإسلامي</option>
+            <option value="sermon">الخطبة</option>
+            <option value="tawheed">التوحيد</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="dayFilter">يوم الدرس</label>
+          <select id="dayFilter" class="form-input" onchange="applyFilters()">
+            <option value="">جميع الأيام</option>
+            <option value="saturday">السبت</option>
+            <option value="sunday">الأحد</option>
+            <option value="monday">الاثنين</option>
+            <option value="tuesday">الثلاثاء</option>
+            <option value="wednesday">الأربعاء</option>
+            <option value="thursday">الخميس</option>
+            <option value="friday">الجمعة</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="timeFilter">وقت الدرس</label>
+          <select id="timeFilter" class="form-input" onchange="applyFilters()">
+            <option value="">جميع الأوقات</option>
+            <option value="morning">الصباح (06:00 - 12:00)</option>
+            <option value="afternoon">بعد الظهر (12:00 - 18:00)</option>
+            <option value="evening">المساء (18:00 - 24:00)</option>
+          </select>
+        </div>
+        
+      </div>
+      
+      <div style="display: flex; gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
+        <button class="btn btn-primary" onclick="applyFilters()">🔍 بحث</button>
+        <button class="btn btn-outline" onclick="clearFilters()">🔄 إعادة تعيين</button>
+      </div>
+      
+    </div>
+    
+    <!-- Results Count -->
+    <div style="margin: var(--spacing-xl) 0; padding: var(--spacing-lg); background-color: var(--light-bg); border-radius: var(--radius-lg); display: flex; justify-content: space-between; align-items: center;">
+      <span>تم العثور على <strong id="resultCount">12</strong> درس</span>
+      <div style="display: flex; gap: var(--spacing-md);">
+        <button class="btn btn-small" onclick="toggleViewMode('list')" title="عرض قائمة">📋</button>
+        <button class="btn btn-small" onclick="toggleViewMode('grid')" title="عرض شبكة">📊</button>
+      </div>
+    </div>
+    
+    <!-- Lessons Grid -->
+    <div id="lessonsContainer" class="lessons-grid">
+      
+      <!-- Lesson Card 1 -->
+      <div class="lesson-card">
+        <div class="lesson-header">
+          <h3>🕌 جامع النور</h3>
+          <span class="lesson-badge">دمشق - المرجة</span>
+        </div>
+        <div class="lesson-info">
+          <div class="info-row">
+            <span class="info-label">📚 النوع:</span>
+            <span class="info-value">تفسير القرآن</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">👨‍🏫 المحاضر:</span>
+            <span class="info-value">د. محمد السيد</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">📅 اليوم والوقت:</span>
+            <span class="info-value">الأحد - 19:30</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">⏱️ المدة:</span>
+            <span class="info-value">ساعة ونصف</span>
+          </div>
+        </div>
+        <button class="btn btn-small btn-primary" onclick="openLessonDetails(1)">عرض التفاصيل →</button>
+      </div>
+      
+      <!-- Lesson Card 2 -->
+      <div class="lesson-card">
+        <div class="lesson-header">
+          <h3>🕌 جامع أم القرى</h3>
+          <span class="lesson-badge">دمشق - الشام</span>
+        </div>
+        <div class="lesson-info">
+          <div class="info-row">
+            <span class="info-label">📚 النوع:</span>
+            <span class="info-value">الحديث الشريف</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">👨‍🏫 المحاضر:</span>
+            <span class="info-value">الشيخ أحمد علي</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">📅 اليوم والوقت:</span>
+            <span class="info-value">الثلاثاء - 18:00</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">⏱️ المدة:</span>
+            <span class="info-value">ساعة</span>
+          </div>
+        </div>
+        <button class="btn btn-small btn-primary" onclick="openLessonDetails(2)">عرض التفاصيل →</button>
+      </div>
+      
+      <!-- Lesson Card 3 -->
+      <div class="lesson-card">
+        <div class="lesson-header">
+          <h3>🕌 جامع الفاروق</h3>
+          <span class="lesson-badge">دمشق - الشهبندر</span>
+        </div>
+        <div class="lesson-info">
+          <div class="info-row">
+            <span class="info-label">📚 النوع:</span>
+            <span class="info-value">الفقه الإسلامي</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">👨‍🏫 المحاضر:</span>
+            <span class="info-value">الدكتور علي حسن</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">📅 اليوم والوقت:</span>
+            <span class="info-value">الأربعاء - 20:00</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">⏱️ المدة:</span>
+            <span class="info-value">ساعة ونصف</span>
+          </div>
+        </div>
+        <button class="btn btn-small btn-primary" onclick="openLessonDetails(3)">عرض التفاصيل →</button>
+      </div>
+      
+      <!-- Lesson Card 4 -->
+      <div class="lesson-card">
+        <div class="lesson-header">
+          <h3>🕌 جامع الأموي الكبير</h3>
+          <span class="lesson-badge">دمشق - الجديدة</span>
+        </div>
+        <div class="lesson-info">
+          <div class="info-row">
+            <span class="info-label">📚 النوع:</span>
+            <span class="info-value">الخطبة</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">👨‍🏫 المحاضر:</span>
+            <span class="info-value">الشيخ محمد رمضان</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">📅 اليوم والوقت:</span>
+            <span class="info-value">الجمعة - 13:30</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">⏱️ المدة:</span>
+            <span class="info-value">30 دقيقة</span>
+          </div>
+        </div>
+        <button class="btn btn-small btn-primary" onclick="openLessonDetails(4)">عرض التفاصيل →</button>
+      </div>
+      
+      <!-- Lesson Card 5 -->
+      <div class="lesson-card">
+        <div class="lesson-header">
+          <h3>🕌 جامع الحسن</h3>
+          <span class="lesson-badge">حلب - المركز</span>
+        </div>
+        <div class="lesson-info">
+          <div class="info-row">
+            <span class="info-label">📚 النوع:</span>
+            <span class="info-value">التوحيد</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">👨‍🏫 المحاضر:</span>
+            <span class="info-value">د. محمود الحمد</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">📅 اليوم والوقت:</span>
+            <span class="info-value">السبت - 19:00</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">⏱️ المدة:</span>
+            <span class="info-value">ساعة</span>
+          </div>
+        </div>
+        <button class="btn btn-small btn-primary" onclick="openLessonDetails(5)">عرض التفاصيل →</button>
+      </div>
+      
+      <!-- Lesson Card 6 -->
+      <div class="lesson-card">
+        <div class="lesson-header">
+          <h3>🕌 جامع الرحمة</h3>
+          <span class="lesson-badge">حمص - الزهراء</span>
+        </div>
+        <div class="lesson-info">
+          <div class="info-row">
+            <span class="info-label">📚 النوع:</span>
+            <span class="info-value">تفسير القرآن</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">👨‍🏫 المحاضر:</span>
+            <span class="info-value">الشيخ محمد الفاضل</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">📅 اليوم والوقت:</span>
+            <span class="info-value">الخميس - 18:30</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">⏱️ المدة:</span>
+            <span class="info-value">ساعة ونصف</span>
+          </div>
+        </div>
+        <button class="btn btn-small btn-primary" onclick="openLessonDetails(6)">عرض التفاصيل →</button>
+      </div>
+      
+    </div>
+    
+    <!-- Pagination -->
+    <div style="display: flex; justify-content: center; gap: var(--spacing-md); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-2xl);">
+      <button class="btn btn-outline btn-small">← السابق</button>
+      <button class="btn btn-primary btn-small">1</button>
+      <button class="btn btn-outline btn-small">2</button>
+      <button class="btn btn-outline btn-small">3</button>
+      <button class="btn btn-outline btn-small">التالي →</button>
+    </div>
+    
+  </main>
+  
+  <!-- Lesson Details Modal -->
+  <div id="lessonModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeLessonDetails()">&times;</button>
+      <div id="lessonDetails"></div>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script src="js/awqaf.js"></script>
+  
+  <script>
+    const lessonsData = {
+      1: {
+        mosque: 'جامع النور',
+        address: 'المرجة - دمشق',
+        lecturer: 'د. محمد السيد',
+        lessonType: 'تفسير القرآن',
+        day: 'الأحد',
+        time: '19:30',
+        duration: 'ساعة ونصف',
+        phone: '+963-11-XXXX-XXXX',
+        description: 'درس في تفسير سور من القرآن الكريم يركز على المعاني والفوائد العملية'
+      },
+      2: {
+        mosque: 'جامع أم القرى',
+        address: 'الشام - دمشق',
+        lecturer: 'الشيخ أحمد علي',
+        lessonType: 'الحديث الشريف',
+        day: 'الثلاثاء',
+        time: '18:00',
+        duration: 'ساعة',
+        phone: '+963-11-YYYY-YYYY',
+        description: 'درس في شرح أحاديث نبوية شريفة مع شرح الفقه الاستنباط منها'
+      },
+      3: {
+        mosque: 'جامع الفاروق',
+        address: 'الشهبندر - دمشق',
+        lecturer: 'الدكتور علي حسن',
+        lessonType: 'الفقه الإسلامي',
+        day: 'الأربعاء',
+        time: '20:00',
+        duration: 'ساعة ونصف',
+        phone: '+963-11-ZZZZ-ZZZZ',
+        description: 'شرح أحكام الفقه الإسلامي مع تطبيقات عملية على الحياة اليومية'
+      },
+      4: {
+        mosque: 'جامع الأموي الكبير',
+        address: 'الجديدة - دمشق',
+        lecturer: 'الشيخ محمد رمضان',
+        lessonType: 'الخطبة',
+        day: 'الجمعة',
+        time: '13:30',
+        duration: '30 دقيقة',
+        phone: '+963-11-WWWW-WWWW',
+        description: 'خطبة الجمعة تتناول مواضيع دينية واجتماعية معاصرة'
+      },
+      5: {
+        mosque: 'جامع الحسن',
+        address: 'المركز - حلب',
+        lecturer: 'د. محمود الحمد',
+        lessonType: 'التوحيد',
+        day: 'السبت',
+        time: '19:00',
+        duration: 'ساعة',
+        phone: '+963-21-VVVV-VVVV',
+        description: 'درس في علم التوحيد والعقيدة الإسلامية مع الرد على الشبهات'
+      },
+      6: {
+        mosque: 'جامع الرحمة',
+        address: 'الزهراء - حمص',
+        lecturer: 'الشيخ محمد الفاضل',
+        lessonType: 'تفسير القرآن',
+        day: 'الخميس',
+        time: '18:30',
+        duration: 'ساعة ونصف',
+        phone: '+963-31-UUUU-UUUU',
+        description: 'تفسير تفصيلي لسور القرآن الكريم مع توضيح الآيات والمعاني'
+      }
+    };
+    
+    function openLessonDetails(id) {
+      const lesson = lessonsData[id];
+      const modal = document.getElementById('lessonModal');
+      const detailsDiv = document.getElementById('lessonDetails');
+      
+      detailsDiv.innerHTML = `
+        <div class="lesson-detail-card">
+          <h2>${lesson.mosque}</h2>
+          <p style="color: var(--dark-gray); margin-bottom: var(--spacing-lg);">${lesson.address}</p>
+          
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-label">👨‍🏫 المحاضر</span>
+              <span class="detail-value">${lesson.lecturer}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">📚 نوع الدرس</span>
+              <span class="detail-value">${lesson.lessonType}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">📅 اليوم</span>
+              <span class="detail-value">${lesson.day}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">⏰ الوقت</span>
+              <span class="detail-value">${lesson.time}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">⏱️ المدة</span>
+              <span class="detail-value">${lesson.duration}</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-label">📞 الهاتف</span>
+              <span class="detail-value">${lesson.phone}</span>
+            </div>
+          </div>
+          
+          <div class="detail-description">
+            <h3>عن الدرس</h3>
+            <p>${lesson.description}</p>
+          </div>
+          
+          <div style="display: flex; gap: var(--spacing-lg); margin-top: var(--spacing-xl);">
+            <button class="btn btn-primary" onclick="subscribeLesson(${id})">✓ الاشتراك في الدرس</button>
+            <button class="btn btn-outline" onclick="closeLessonDetails()">إغلاق</button>
+          </div>
+        </div>
+      `;
+      
+      modal.style.display = 'flex';
+    }
+    
+    function closeLessonDetails() {
+      document.getElementById('lessonModal').style.display = 'none';
+    }
+    
+    function subscribeLesson(id) {
+      alert('تم تسجيلك بنجاح في الدرس. ستتلقى إشعارات قبل موعد الدرس');
+      closeLessonDetails();
+    }
+    
+    function applyFilters() {
+      alert('تم تطبيق المرشحات');
+    }
+    
+    function clearFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('provinceFilter').value = '';
+      document.getElementById('lessonTypeFilter').value = '';
+      document.getElementById('dayFilter').value = '';
+      document.getElementById('timeFilter').value = '';
+    }
+    
+    function toggleViewMode(mode) {
+      alert('تم التبديل إلى عرض: ' + (mode === 'list' ? 'قائمة' : 'شبكة'));
+    }
+    
+    // Close modal when clicking outside
+    document.addEventListener('click', function(event) {
+      const modal = document.getElementById('lessonModal');
+      if (event.target === modal) {
+        closeLessonDetails();
+      }
+    });
+  </script>
+  
+</body>
+</html>
+

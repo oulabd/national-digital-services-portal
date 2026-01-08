@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة المدارس - بوابة الخدمات الرقمية</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>بوابة الخدمات الوطنية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html" class="active">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+      </ul>
+      
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Title -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">📚 بوابة المدارس</h1>
+          <a href="school.html" class="active">
+            <span>📚</span> مدرستي
+    
+    <!-- School Selector -->
+    <section style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-2xl);">
+      
+      <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">اختر المدرسة</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); align-items: flex-end;">
+        
+        <div class="form-group" style="margin-bottom: 0;">
+          <label for="school">المدرسة</label>
+          <select id="school" name="school">
+            <option value="">-- اختر المدرسة --</option>
+            <option value="school1">مدرسة النور الثانوية</option>
+            <option value="school2">مدرسة الفارابي الابتدائية</option>
+            <option value="school3">مدرسة ابن سينا الإعدادية</option>
+            <option value="school4">مدرسة الرازي الثانوية</option>
+          </select>
+        </div>
+        
+        <button type="button" class="btn btn-primary" onclick="loadStudentInfo()" style="width: 100%;">
+          🔍 عرض بيانات الطالب
+        </button>
+        
+      </div>
+      
+    </section>
+    
+    <!-- Student Info Card -->
+    <section style="background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl); box-shadow: var(--shadow-lg);">
+      
+      <h3 style="color: var(--light-gold); margin-bottom: var(--spacing-lg);">معلومات الطالب</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-xl);">
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">الاسم</div>
+          <div style="font-size: 1.25rem; font-weight: 600;">علي أحمد محمد</div>
+        </div>
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">رقم الطالب</div>
+          <div style="font-size: 1.25rem; font-weight: 600;">2024001890</div>
+        </div>
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">الصف</div>
+          <div style="font-size: 1.25rem; font-weight: 600;">الأول الثانوي - الشعبة (أ)</div>
+        </div>
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">المعدل العام</div>
+          <div style="font-size: 1.25rem; font-weight: 600; color: var(--light-gold);">87% 🌟</div>
+        </div>
+        
+      </div>
+      
+    </section>
+    
+    <!-- Tabs Section -->
+    <section>
+      
+      <div class="tabs" data-tab-group="school">
+        <button type="button" class="tab" data-tab-group="school">العلامات</button>
+        <button type="button" class="tab" data-tab-group="school">الغياب والحضور</button>
+        <button type="button" class="tab" data-tab-group="school">الدروس</button>
+        <button type="button" class="tab" data-tab-group="school">الامتحانات</button>
+      </div>
+      
+      <!-- Grades Tab -->
+      <div data-tab-content="school" data-tab="0" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">العلامات - الفصل الأول</h2>
+        
+        <div style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>المادة</th>
+                <th>المدرس</th>
+                <th>الاختبار الأول</th>
+                <th>الاختبار الثاني</th>
+                <th>الواجبات</th>
+                <th>المعدل</th>
+                <th>التقدير</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>اللغة العربية</td>
+                <td>أ. محمود علي</td>
+                <td>85</td>
+                <td>88</td>
+                <td>20/20</td>
+                <td><strong>89</strong></td>
+                <td><span class="badge" style="background-color: #D1FAE5; color: #065F46;">ممتاز</span></td>
+              </tr>
+              
+              <tr>
+                <td>الرياضيات</td>
+                <td>د. فاطمة علي</td>
+                <td>92</td>
+                <td>90</td>
+                <td>19/20</td>
+                <td><strong>91</strong></td>
+                <td><span class="badge" style="background-color: #D1FAE5; color: #065F46;">ممتاز جداً</span></td>
+              </tr>
+              
+              <tr>
+                <td>اللغة الإنجليزية</td>
+                <td>أ. ليندا محمد</td>
+                <td>78</td>
+                <td>82</td>
+                <td>18/20</td>
+                <td><strong>81</strong></td>
+                <td><span class="badge" style="background-color: #DBEAFE; color: #0C4A6E;">جيد جداً</span></td>
+              </tr>
+              
+              <tr>
+                <td>العلوم</td>
+                <td>أ. أحمد حسن</td>
+                <td>86</td>
+                <td>87</td>
+                <td>20/20</td>
+                <td><strong>87</strong></td>
+                <td><span class="badge" style="background-color: #D1FAE5; color: #065F46;">ممتاز</span></td>
+              </tr>
+              
+              <tr>
+                <td>الدراسات الاجتماعية</td>
+                <td>أ. فاطمة محمود</td>
+                <td>84</td>
+                <td>86</td>
+                <td>20/20</td>
+                <td><strong>85</strong></td>
+                <td><span class="badge" style="background-color: #D1FAE5; color: #065F46;">ممتاز</span></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+        <div style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <strong>المعدل العام للفصل:</strong> 87%
+          </div>
+          <div style="color: var(--success); font-weight: 600;">
+            ✓ أداء متفوق
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Attendance Tab -->
+      <div data-tab-content="school" data-tab="1" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الحضور والغياب</h2>
+        
+        <div style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); margin-bottom: var(--spacing-lg);">
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+            
+            <div style="text-align: center; padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md);">
+              <div style="font-size: 2rem; color: #10B981; margin-bottom: var(--spacing-sm);">✓ 156</div>
+              <div style="color: var(--dark-gray);">أيام حضور</div>
+            </div>
+            
+            <div style="text-align: center; padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md);">
+              <div style="font-size: 2rem; color: #EF4444; margin-bottom: var(--spacing-sm);">✕ 3</div>
+              <div style="color: var(--dark-gray);">أيام غياب</div>
+            </div>
+            
+            <div style="text-align: center; padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md);">
+              <div style="font-size: 2rem; color: var(--gold); margin-bottom: var(--spacing-sm);">95.7%</div>
+              <div style="color: var(--dark-gray);">نسبة الحضور</div>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <div style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>التاريخ</th>
+                <th>الحالة</th>
+                <th>الملاحظات</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>2024-01-20</td>
+                <td><span class="badge badge-success">حاضر</span></td>
+                <td>-</td>
+              </tr>
+              
+              <tr>
+                <td>2024-01-19</td>
+                <td><span class="badge badge-danger">غياب</span></td>
+                <td>غياب مبرر - مرضي</td>
+              </tr>
+              
+              <tr>
+                <td>2024-01-18</td>
+                <td><span class="badge badge-success">حاضر</span></td>
+                <td>-</td>
+              </tr>
+              
+              <tr>
+                <td>2024-01-17</td>
+                <td><span class="badge badge-success">حاضر</span></td>
+                <td>-</td>
+              </tr>
+              
+              <tr>
+                <td>2024-01-16</td>
+                <td><span class="badge badge-danger">غياب</span></td>
+                <td>غياب غير مبرر</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      
+      <!-- Lessons Tab -->
+      <div data-tab-content="school" data-tab="2" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الدروس والمنهج</h2>
+        
+        <div class="grid grid-2">
+          
+          <div class="card">
+            <div style="font-size: 1.5rem; margin-bottom: var(--spacing-md);">🔤</div>
+            <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-md);">اللغة العربية</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ المقررات الأدبية</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ النصوص الشعرية</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ قواعد النحو</li>
+              <li style="padding: var(--spacing-sm) 0;">✓ الكتابة الإبداعية</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <div style="font-size: 1.5rem; margin-bottom: var(--spacing-md);">📐</div>
+            <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-md);">الرياضيات</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ المتطابقات المثلثية</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ حساب التفاضل</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ الجبر الخطي</li>
+              <li style="padding: var(--spacing-sm) 0;">✓ الهندسة الفراغية</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <div style="font-size: 1.5rem; margin-bottom: var(--spacing-md);">🧬</div>
+            <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-md);">العلوم</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ الفيزياء الحديثة</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ الكيمياء العضوية</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ الأحياء الجزيئية</li>
+              <li style="padding: var(--spacing-sm) 0;">✓ البيئة والطاقة</li>
+            </ul>
+          </div>
+          
+          <div class="card">
+            <div style="font-size: 1.5rem; margin-bottom: var(--spacing-md);">🌍</div>
+            <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-md);">الدراسات الاجتماعية</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ التاريخ الحديث</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ الجغرافيا</li>
+              <li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray);">✓ التربية المدنية</li>
+              <li style="padding: var(--spacing-sm) 0;">✓ الحضارات القديمة</li>
+            </ul>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      <!-- Exams Tab -->
+      <div data-tab-content="school" data-tab="3" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">جدول الامتحانات</h2>
+        
+        <div style="background-color: #FEF3C7; border-right: 4px solid #92400E; padding: var(--spacing-lg); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+          <strong style="color: #92400E;">📅 ملاحظة:</strong> الامتحانات النهائية تبدأ في 2024-02-15
+        </div>
+        
+        <div style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>المادة</th>
+                <th>التاريخ</th>
+                <th>الوقت</th>
+                <th>القاعة</th>
+                <th>الحالة</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>اللغة العربية</td>
+                <td>2024-02-15</td>
+                <td>09:00 - 11:00</td>
+                <td>قاعة 101</td>
+                <td><span class="badge badge-info">قادم</span></td>
+              </tr>
+              
+              <tr>
+                <td>الرياضيات</td>
+                <td>2024-02-16</td>
+                <td>09:00 - 11:30</td>
+                <td>قاعة 102</td>
+                <td><span class="badge badge-info">قادم</span></td>
+              </tr>
+              
+              <tr>
+                <td>اللغة الإنجليزية</td>
+                <td>2024-02-17</td>
+                <td>14:00 - 16:00</td>
+                <td>قاعة 201</td>
+                <td><span class="badge badge-info">قادم</span></td>
+              </tr>
+              
+              <tr>
+                <td>العلوم</td>
+                <td>2024-02-19</td>
+                <td>09:00 - 11:00</td>
+                <td>قاعة 103</td>
+                <td><span class="badge badge-info">قادم</span></td>
+              </tr>
+              
+              <tr>
+                <td>الدراسات الاجتماعية</td>
+                <td>2024-02-20</td>
+                <td>14:00 - 16:00</td>
+                <td>قاعة 205</td>
+                <td><span class="badge badge-info">قادم</span></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      
+    </section>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  
+  <script>
+    // Load student information when school is selected
+    function loadStudentInfo() {
+      const schoolSelect = document.getElementById('school');
+      const selectedSchool = schoolSelect.value;
+      
+      // Get all content sections
+      const studentInfoSection = document.querySelector('section[style*="linear-gradient"]');
+      const tabsSection = document.querySelector('.tabs[data-tab-group="school"]');
+      const tabContents = document.querySelectorAll('[data-tab-content="school"]');
+      
+      // Show or hide all sections based on school selection
+      if (selectedSchool) {
+        // Show all content with fade-in effect
+        if (studentInfoSection) {
+          studentInfoSection.style.display = 'block';
+          studentInfoSection.style.opacity = '0';
+          studentInfoSection.style.transition = 'opacity 0.5s ease-in';
+          setTimeout(() => { studentInfoSection.style.opacity = '1'; }, 10);
+        }
+        
+        if (tabsSection) {
+          tabsSection.style.display = 'block';
+          tabsSection.style.opacity = '0';
+          tabsSection.style.transition = 'opacity 0.5s ease-in';
+          setTimeout(() => { tabsSection.style.opacity = '1'; }, 10);
+        }
+        
+        tabContents.forEach(content => {
+          content.style.display = 'block';
+          content.style.opacity = '0';
+          content.style.transition = 'opacity 0.5s ease-in';
+          setTimeout(() => { content.style.opacity = '1'; }, 10);
+        });
+      } else {
+        // Hide all content
+        if (studentInfoSection) studentInfoSection.style.display = 'none';
+        if (tabsSection) tabsSection.style.display = 'none';
+        tabContents.forEach(content => { content.style.display = 'none'; });
+      }
+    }
+    
+    // Initialize on page load - hide all content until school is selected
+    document.addEventListener('DOMContentLoaded', function() {
+      const studentInfoSection = document.querySelector('section[style*="linear-gradient"]');
+      const tabsSection = document.querySelector('.tabs[data-tab-group="school"]');
+      const tabContents = document.querySelectorAll('[data-tab-content="school"]');
+      
+      if (studentInfoSection) studentInfoSection.style.display = 'none';
+      if (tabsSection) tabsSection.style.display = 'none';
+      tabContents.forEach(content => { content.style.display = 'none'; });
+    });
+  </script>
+  
+</body>
+</html>
+

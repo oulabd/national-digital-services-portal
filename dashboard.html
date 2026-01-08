@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - بوابة الخدمات الرقمية الوطنية</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>بوابة الخدمات الوطنية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html" class="active">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+      
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Welcome Section -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">مرحباً، أحمد محمد علي 👋</h1>
+      <p style="color: var(--dark-gray); font-size: 1.1rem;">استعرض جميع الخدمات الحكومية من مكان واحد وسهل</p>
+    </section>
+    
+    <!-- National ID Badge -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <div class="id-badge">
+        <div>
+          <div class="id-badge-field">
+            <div class="id-badge-label">الرقم الوطني</div>
+            <div class="id-badge-value">123456789</div>
+          </div>
+          <div class="id-badge-field" style="margin-top: var(--spacing-lg);">
+            <div class="id-badge-label">النوع</div>
+            <div class="id-badge-value">ذكر</div>
+          </div>
+        </div>
+        <div>
+          <div class="id-badge-field">
+            <div class="id-badge-label">تاريخ الميلاد</div>
+            <div class="id-badge-value">1990-05-15</div>
+          </div>
+          <div class="id-badge-field" style="margin-top: var(--spacing-lg);">
+            <div class="id-badge-label">الحالة</div>
+            <div class="id-badge-value" style="color: var(--light-gold);">✓ نشط</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Grid -->
+    <section>
+      <h2 style="color: var(--text-dark); margin-bottom: var(--spacing-xl);">الخدمات المتاحة</h2>
+      
+      <div class="grid grid-3">
+        
+        <!-- School Service -->
+        <a href="school.html" style="text-decoration: none;">
+          <div class="service-card">
+            <div class="service-icon">📚</div>
+            <h3 class="service-title">مدرستي</h3>
+            <p class="service-description">العلامات والغياب والدروس والامتحانات</p>
+          </div>
+        </a>
+        
+        <!-- Health Service -->
+        <a href="healthcare.html" style="text-decoration: none;">
+          <div class="service-card">
+            <div class="service-icon">🏥</div>
+            <h3 class="service-title">صحتي</h3>
+            <p class="service-description">حجز المواعيد والاستشارات الطبية والتقارير الطبية</p>
+          </div>
+        </a>
+        
+        <!-- University Service -->
+        <a href="university.html" style="text-decoration: none;">
+          <div class="service-card">
+            <div class="service-icon">🎓</div>
+            <h3 class="service-title">زدني علماً</h3>
+            <p class="service-description">البرامج الأكاديمية والدرجات والمقررات الدراسية</p>
+          </div>
+        </a>
+        
+        <!-- Tourism Service -->
+        <a href="tourism.html" style="text-decoration: none;">
+          <div class="service-card">
+            <div class="service-icon">✈️</div>
+            <h3 class="service-title">السياحة</h3>
+            <p class="service-description">المواقع السياحية والمعلومات والحجوزات</p>
+          </div>
+        </a>
+        
+        <!-- Awqaf Service -->
+        <a href="awqaf.html" style="text-decoration: none;">
+          <div class="service-card">
+            <div class="service-icon">🕌</div>
+            <h3 class="service-title">وزارة الأوقاف</h3>
+            <p class="service-description">الحج والعمرة والدروس الدينية وخدمات أخرى</p>
+          </div>
+        </a>
+        
+        <!-- Traffic Violations Service -->
+        <a href="traffic-violations.html" style="text-decoration: none;">
+          <div class="service-card">
+            <div class="service-icon">🚨</div>
+            <h3 class="service-title">الشؤون الداخليه</h3>
+            <p class="service-description">الاستعلام عن المخالفات والدفع والوثائق</p>
+          </div>
+        </a>
+        
+        <!-- Settings Service -->
+        <div class="service-card" style="cursor: pointer;" onclick="alert('قريباً: إدارة حسابك والإعدادات')">
+          <div class="service-icon">⚙️</div>
+          <h3 class="service-title">الإعدادات</h3>
+          <p class="service-description">إدارة البيانات الشخصية والإشعارات والخصوصية</p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Quick Stats -->
+    <section style="margin-top: var(--spacing-2xl); background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+      <h2 style="color: var(--text-dark); margin-bottom: var(--spacing-lg);">ملخص الحساب</h2>
+      
+      <div class="grid grid-4" style="gap: var(--spacing-lg);">
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2rem; color: var(--gold); margin-bottom: var(--spacing-sm);">5</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">مواعيد قادمة</div>
+        </div>
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2rem; color: #EF4444; margin-bottom: var(--spacing-sm);">2</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">مخالفات مستحقة</div>
+        </div>
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2rem; color: #10B981; margin-bottom: var(--spacing-sm);">28</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">مقرر دراسي</div>
+        </div>
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2rem; color: #3B82F6; margin-bottom: var(--spacing-sm);">3.8</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">المعدل التراكمي</div>
+        </div>
+        
+      </div>
+    </section>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  
+</body>
+</html>
+

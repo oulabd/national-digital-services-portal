@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة السياحة - بوابة الخدمات الرقمية</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>بوابة الخدمات الوطنية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html" class="active">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+      
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Title -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">✈️ بوابة السياحة</h1>
+      <p style="color: var(--dark-gray); font-size: 1rem;">استكشف الأماكن السياحية والمعالم التاريخية — دليل معلوماتي بدون حجوزات</p>
+    </section>
+    
+    <!-- Search & Filter Section -->
+    <section style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-2xl);">
+      
+      <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">البحث عن الأماكن السياحية</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--spacing-lg);">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label for="citySearch">اسم المدينة</label>
+          <input id="citySearch" name="citySearch" type="text" placeholder="مثال: دمشق، حلب، اللاذقية">
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label for="placeType">نوع المكان (اختياري)</label>
+          <select id="placeType" name="placeType">
+            <option value="">-- كل الأنواع --</option>
+            <option value="أثري">أثري</option>
+            <option value="طبيعي">طبيعي</option>
+            <option value="ديني">ديني</option>
+            <option value="ترفيهي">ترفيهي</option>
+          </select>
+        </div>
+        <div style="display: flex; align-items: flex-end;">
+          <button type="button" class="btn btn-primary" style="width: 100%; margin-bottom: 0;">بحث</button>
+        </div>
+      </div>
+      
+    </section>
+    
+    <!-- Featured Destinations -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      
+      <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">عرض الأماكن السياحية</h2>
+      
+      <div class="grid grid-3">
+        
+        <!-- Destination 1 -->
+        <div class="card" style="overflow: hidden; display: flex; flex-direction: column;">
+          
+          <div style="background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+            🕌
+          </div>
+          
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            
+            <h3 style="color: var(--dark-olive); margin: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);">الجامع الأموي</h3>
+            
+            <div style="padding: 0 var(--spacing-lg); color: var(--dark-gray); font-size: 0.9rem; flex: 1;">
+              <p style="margin: 0 0 var(--spacing-md) 0;">أحد أعظم المساجس الإسلامية وأقدمها، يقع في قلب دمشق العتيقة</p>
+              <div style="display: flex; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                <span>📍</span>
+                <span>دمشق - المدينة القديمة</span>
+              </div>
+              <div style="display: flex; gap: var(--spacing-md); align-items: center;">
+                <span>⭐</span>
+                <span>4.8/5 (256 تقيم)</span>
+              </div>
+            </div>
+            
+            <div style="padding: var(--spacing-lg); border-top: 1px solid var(--gray); display: flex; gap: var(--spacing-md);">
+              <button class="btn btn-sm btn-primary" style="flex: 1;" data-modal-target="placeDetailsModal">عرض التفاصيل</button>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <!-- Destination 2 -->
+        <div class="card" style="overflow: hidden; display: flex; flex-direction: column;">
+          
+          <div style="background: linear-gradient(135deg, #C8A24A 0%, #E6D19A 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+            🏛️
+          </div>
+          
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            
+            <h3 style="color: var(--dark-olive); margin: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);">تدمر الأثرية</h3>
+            
+            <div style="padding: 0 var(--spacing-lg); color: var(--dark-gray); font-size: 0.9rem; flex: 1;">
+              <p style="margin: 0 0 var(--spacing-md) 0;">عاصمة حضارية قديمة تجمع بين الثقافات العربية والفارسية</p>
+              <div style="display: flex; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                <span>📍</span>
+                <span>حمص - الصحراء السورية</span>
+              </div>
+              <div style="display: flex; gap: var(--spacing-md); align-items: center;">
+                <span>⭐</span>
+                <span>4.9/5 (512 تقيم)</span>
+              </div>
+            </div>
+            
+            <div style="padding: var(--spacing-lg); border-top: 1px solid var(--gray); display: flex; gap: var(--spacing-md);">
+              <button class="btn btn-sm btn-primary" style="flex: 1;" data-modal-target="placeDetailsModal">عرض التفاصيل</button>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+        <!-- Destination 3 -->
+        <div class="card" style="overflow: hidden; display: flex; flex-direction: column;">
+          
+          <div style="background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+            🏖️
+          </div>
+          
+          <div style="flex: 1; display: flex; flex-direction: column;">
+            
+            <h3 style="color: var(--dark-olive); margin: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);">شاطئ اللاذقية</h3>
+            
+            <div style="padding: 0 var(--spacing-lg); color: var(--dark-gray); font-size: 0.9rem; flex: 1;">
+              <p style="margin: 0 0 var(--spacing-md) 0;">ساحل ساحر على البحر المتوسط مع شواطئ رملية جميلة</p>
+              <div style="display: flex; gap: var(--spacing-md); align-items: center; margin-bottom: var(--spacing-md);">
+                <span>📍</span>
+                <span>اللاذقية - الساحل السوري</span>
+              </div>
+              <div style="display: flex; gap: var(--spacing-md); align-items: center;">
+                <span>⭐</span>
+                <span>4.6/5 (384 تقيم)</span>
+              </div>
+            </div>
+            
+            <div style="padding: var(--spacing-lg); border-top: 1px solid var(--gray); display: flex; gap: var(--spacing-md);">
+              <button class="btn btn-sm btn-primary" style="flex: 1;" data-modal-target="placeDetailsModal">عرض التفاصيل</button>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </section>
+    
+    <!-- All Attractions -->
+    <section>
+      
+      <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">المعالم السياحية</h2>
+      
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>اسم المكان</th>
+              <th>نوع المكان</th>
+              <th>المدينة</th>
+              <th>التقييم</th>
+              <th>وقت الزيارة</th>
+              <th>عرض التفاصيل</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>القلعة البيضاء</td>
+              <td><span class="badge badge-gold">موقع أثري</span></td>
+              <td>حمص</td>
+              <td>⭐⭐⭐⭐⭐ (4.7)</td>
+              <td>2-3 ساعات</td>
+              <td><button class="btn btn-sm btn-primary" data-modal-target="placeDetailsModal">عرض التفاصيل</button></td>
+            </tr>
+            
+            <tr>
+              <td>جبل الشيخ (قاسيون)</td>
+              <td><span class="badge badge-info">موقع طبيعي</span></td>
+              <td>دمشق</td>
+              <td>⭐⭐⭐⭐ (4.4)</td>
+              <td>3-4 ساعات</td>
+              <td><button class="btn btn-sm btn-primary" data-modal-target="placeDetailsModal">عرض التفاصيل</button></td>
+            </tr>
+            
+            <tr>
+              <td>متحف دمشق الوطني</td>
+              <td><span class="badge" style="background-color: #DDD6FE; color: #4C1D95;">متحف</span></td>
+              <td>دمشق</td>
+              <td>⭐⭐⭐⭐⭐ (4.9)</td>
+              <td>2-3 ساعات</td>
+              <td><button class="btn btn-sm btn-primary" data-modal-target="placeDetailsModal">عرض التفاصيل</button></td>
+            </tr>
+            
+            <tr>
+              <td>قرية مَعلولا</td>
+              <td><span class="badge" style="background-color: #FED7AA; color: #7C2D12;">موقع ديني</span></td>
+              <td>ريف دمشق</td>
+              <td>⭐⭐⭐⭐ (4.5)</td>
+              <td>4-5 ساعات</td>
+              <td><button class="btn btn-sm btn-primary" data-modal-target="placeDetailsModal">عرض التفاصيل</button></td>
+            </tr>
+            
+            <tr>
+              <td>حصن الشيخ</td>
+              <td><span class="badge badge-gold">موقع أثري</span></td>
+              <td>حماة</td>
+              <td>⭐⭐⭐⭐ (4.3)</td>
+              <td>2 ساعة</td>
+              <td><button class="btn btn-sm btn-primary" data-modal-target="placeDetailsModal">عرض التفاصيل</button></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+    </section>
+    
+    <!-- Place Details Modal (UI only) -->
+    <div id="placeDetailsModal" class="modal">
+      <div class="modal-content" style="max-width: 960px;">
+        <div class="modal-header">
+          <h2 class="modal-title">تفاصيل المكان السياحي</h2>
+          <button type="button" class="modal-close">✕</button>
+        </div>
+        <div class="modal-body">
+          <!-- Gallery -->
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
+            <div style="height: 280px; background: linear-gradient(135deg, var(--dark-olive), var(--primary-olive)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem;">🖼️</div>
+            <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-md);">
+              <div style="height: 86px; background: #F3F4F6; border-radius: var(--radius-md);"></div>
+              <div style="height: 86px; background: #F3F4F6; border-radius: var(--radius-md);"></div>
+              <div style="height: 86px; background: #F3F4F6; border-radius: var(--radius-md);"></div>
+            </div>
+          </div>
+          
+          <!-- Info -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+            <div>
+              <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">اسم المكان</h3>
+              <p style="color: var(--dark-gray);">الجامع الأموي</p>
+              <h4 style="color: var(--dark-olive); margin: var(--spacing-lg) 0 var(--spacing-sm);">المدينة</h4>
+              <p style="color: var(--dark-gray);">دمشق</p>
+              <h4 style="color: var(--dark-olive); margin: var(--spacing-lg) 0 var(--spacing-sm);">وصف كامل</h4>
+              <p style="color: var(--text-dark); line-height: 1.9;">يُعد الجامع الأموي من أبرز المعالم الإسلامية التاريخية، يقع في قلب المدينة القديمة ويتميز بعمارة فريدة تجمع بين الأصالة والجمال.</p>
+            </div>
+            <div>
+              <h4 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">ميزات المكان</h4>
+              <ul style="color: var(--dark-gray); margin: 0; padding-right: var(--spacing-lg);">
+                <li>عمارة إسلامية تاريخية</li>
+                <li>قرب الأسواق التقليدية</li>
+                <li>مساحات للصلاة والزيارة</li>
+              </ul>
+              <h4 style="color: var(--dark-olive); margin: var(--spacing-lg) 0 var(--spacing-sm);">أوقات الزيارة</h4>
+              <p style="color: var(--dark-gray);">من 9 صباحاً إلى 5 مساءً (قد تختلف حسب المواسم)</p>
+              <h4 style="color: var(--dark-olive); margin: var(--spacing-lg) 0 var(--spacing-sm);">معلومات إضافية</h4>
+              <p style="color: var(--dark-gray);">يفضل ارتداء لباس محتشم، يُسمح بالتصوير في الساحات الخارجية.</p>
+            </div>
+          </div>
+          
+          <!-- Map -->
+          <div>
+            <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-md);">عرض المكان على الخريطة</h3>
+            <div style="background: #E5E7EB; border-radius: var(--radius-lg); height: 320px; position: relative; overflow: hidden;">
+              <!-- Map placeholder -->
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, #D1D5DB 0%, #F3F4F6 100%);"></div>
+              <!-- Pin -->
+              <div style="position: absolute; top: 40%; right: 48%; transform: translate(50%, -50%); font-size: 2rem;">📍</div>
+              <!-- Label -->
+              <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(19,71,65,0.9); color: #fff; padding: 8px 12px; border-radius: 8px;">الجامع الأموي — دمشق</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline modal-close">إغلاق</button>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  
+</body>
+</html>
+

@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متابعة طلب الحج - وزارة الأوقاف</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/awqaf.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>وزارة الأوقاف والشؤون الإسلامية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html" class="active">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Header -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">📋 متابعة طلب الحج</h1>
+      <p style="color: var(--dark-gray); font-size: 1rem;">تابع حالة طلب الحج الخاص بك على جميع مراحل المعالجة</p>
+    </section>
+    
+    <!-- Application Status Card -->
+    <div class="status-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div>
+          <h2>رقم الطلب: <strong>HJ-2024-00425</strong></h2>
+          <p style="color: var(--dark-gray); margin-top: 0.5rem;">تاريخ التقديم: 15 ديسمبر 2024</p>
+        </div>
+        <div class="status-badge status-active" style="padding: var(--spacing-md) var(--spacing-lg); border-radius: var(--radius-lg);">
+          <span style="font-size: 1.25rem; margin-right: 0.5rem;">⏳</span> قيد المراجعة
+        </div>
+      </div>
+    </div>
+    
+    <!-- Timeline Section -->
+    <section style="margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-2xl);">
+      <h2 style="margin-bottom: var(--spacing-lg);">📊 مراحل المعالجة</h2>
+      
+      <div class="tracking-timeline">
+        
+        <!-- Step 1: Registration -->
+        <div class="timeline-item completed">
+          <div class="timeline-dot">
+            <span style="color: white; font-weight: bold;">✓</span>
+          </div>
+          <div class="timeline-content">
+            <h3>التسجيل الأولي</h3>
+            <p>تم استلام طلبك وتسجيله في النظام</p>
+            <small>15 ديسمبر 2024 - 10:30 صباحاً</small>
+          </div>
+        </div>
+        
+        <!-- Step 2: Review -->
+        <div class="timeline-item active">
+          <div class="timeline-dot">
+            <span class="spinner"></span>
+          </div>
+          <div class="timeline-content">
+            <h3>المراجعة والتدقيق</h3>
+            <p>يتم التحقق من البيانات والمستندات المرفقة</p>
+            <small>قيد المراجعة الآن</small>
+            <div style="margin-top: var(--spacing-md);">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 60%;"></div>
+              </div>
+              <small style="display: block; margin-top: 0.5rem;">نسبة المراجعة: 60%</small>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 3: Approval -->
+        <div class="timeline-item pending">
+          <div class="timeline-dot">
+            <span>3</span>
+          </div>
+          <div class="timeline-content">
+            <h3>الموافقة</h3>
+            <p>الانتظار للموافقة النهائية على الطلب</p>
+            <small>متوقع خلال 5-7 أيام عمل</small>
+          </div>
+        </div>
+        
+        <!-- Step 4: Travel -->
+        <div class="timeline-item pending">
+          <div class="timeline-dot">
+            <span>4</span>
+          </div>
+          <div class="timeline-content">
+            <h3>التحضير للسفر</h3>
+            <p>استلام المستندات النهائية وتعليمات السفر</p>
+            <small>يتوقع إرسالها بعد الموافقة</small>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Important Documents Section -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h2 style="margin-bottom: var(--spacing-lg);">📄 المستندات المطلوبة</h2>
+      
+      <div class="documents-grid">
+        
+        <div class="document-item completed">
+          <div class="doc-icon">✓</div>
+          <h4>الهوية الوطنية</h4>
+          <p>تم التحقق</p>
+        </div>
+        
+        <div class="document-item completed">
+          <div class="doc-icon">✓</div>
+          <h4>جواز السفر</h4>
+          <p>تم التحقق</p>
+        </div>
+        
+        <div class="document-item completed">
+          <div class="doc-icon">✓</div>
+          <h4>شهادة التطعيم</h4>
+          <p>تم التحقق</p>
+        </div>
+        
+        <div class="document-item pending">
+          <div class="doc-icon">!</div>
+          <h4>الفحص الطبي</h4>
+          <p>قيد المراجعة</p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Important Dates Section -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h2 style="margin-bottom: var(--spacing-lg);">📅 التواريخ المهمة</h2>
+      
+      <div class="info-boxes-grid">
+        
+        <div class="info-box">
+          <div class="info-icon">📝</div>
+          <h4>آخر موعد للتسجيل</h4>
+          <p>31 ديسمبر 2024</p>
+        </div>
+        
+        <div class="info-box">
+          <div class="info-icon">✅</div>
+          <h4>الموعد المتوقع للموافقة</h4>
+          <p>25 ديسمبر 2024</p>
+        </div>
+        
+        <div class="info-box">
+          <div class="info-icon">✈️</div>
+          <h4>موعد الرحلة</h4>
+          <p>15 يناير 2025</p>
+        </div>
+        
+        <div class="info-box">
+          <div class="info-icon">🏠</div>
+          <h4>موعد العودة</h4>
+          <p>22 يناير 2025</p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Contact Support Section -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h2 style="margin-bottom: var(--spacing-lg);">📞 تواصل معنا</h2>
+      
+      <div class="contact-box">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+          
+          <div>
+            <h4 style="margin-bottom: var(--spacing-sm);">☎️ الهاتف</h4>
+            <p style="color: var(--dark-gray);">+966-11-XXXX-XXXX</p>
+            <small style="color: #999;">الساعة العمل: 08:00 - 16:00</small>
+          </div>
+          
+          <div>
+            <h4 style="margin-bottom: var(--spacing-sm);">📧 البريد الإلكتروني</h4>
+            <p style="color: var(--dark-gray);">support@awqaf.gov.sa</p>
+            <small style="color: #999;">الرد خلال 24 ساعة</small>
+          </div>
+          
+          <div>
+            <h4 style="margin-bottom: var(--spacing-sm);">💬 الدعم الفوري</h4>
+            <button class="btn btn-small btn-primary">بدء المحادثة</button>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Action Buttons -->
+    <section style="display: flex; gap: var(--spacing-lg); flex-wrap: wrap; margin-bottom: var(--spacing-2xl);">
+      <button class="btn btn-primary" onclick="downloadDocuments()">⬇️ تحميل المستندات</button>
+      <button class="btn btn-outline" onclick="printStatus()">🖨️ طباعة الحالة</button>
+      <button class="btn btn-outline" onclick="shareTracking()">📤 مشاركة الرقم</button>
+    </section>
+    
+    <!-- Settings Modal -->
+    <div id="settings" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto;" onclick="if(event.target === this) this.style.display = 'none';">
+      <div style="background: white; margin: 2rem auto; max-width: 500px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+        <div style="padding: var(--spacing-xl); border-bottom: 1px solid var(--light-gray); display: flex; justify-content: space-between; align-items: center;">
+          <h2 style="margin: 0; color: var(--dark-olive);">⚙️ الإعدادات</h2>
+          <button onclick="document.getElementById('settings').style.display='none'" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">✕</button>
+        </div>
+        <div style="padding: var(--spacing-xl);">
+          <div style="margin-bottom: var(--spacing-lg);">
+            <h4 style="margin-bottom: var(--spacing-md);">إدارة الحساب</h4>
+            <button class="btn btn-small" style="margin-right: var(--spacing-sm); margin-bottom: var(--spacing-sm);">تعديل البيانات الشخصية</button>
+            <button class="btn btn-small" style="margin-right: var(--spacing-sm); margin-bottom: var(--spacing-sm);">تغيير كلمة المرور</button>
+          </div>
+          <div style="margin-bottom: var(--spacing-lg);">
+            <h4 style="margin-bottom: var(--spacing-md);">الإشعارات</h4>
+            <label style="display: flex; align-items: center; margin-bottom: var(--spacing-sm);">
+              <input type="checkbox" checked style="margin-right: 0.5rem;"> إشعارات البريد الإلكتروني
+            </label>
+            <label style="display: flex; align-items: center;">
+              <input type="checkbox" checked style="margin-right: 0.5rem;"> إشعارات الرسائل النصية
+            </label>
+          </div>
+          <div>
+            <h4 style="margin-bottom: var(--spacing-md);">الخصوصية</h4>
+            <label style="display: flex; align-items: center;">
+              <input type="checkbox" checked style="margin-right: 0.5rem;"> مشاركة البيانات مع الخدمات الأخرى
+            </label>
+          </div>
+        </div>
+        <div style="padding: var(--spacing-xl); border-top: 1px solid var(--light-gray); text-align: right;">
+          <button class="btn btn-primary" onclick="document.getElementById('settings').style.display='none'">حفظ الإعدادات</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Help Modal -->
+    <div id="help" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto;" onclick="if(event.target === this) this.style.display = 'none';">
+      <div style="background: white; margin: 2rem auto; max-width: 600px; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+        <div style="padding: var(--spacing-xl); border-bottom: 1px solid var(--light-gray); display: flex; justify-content: space-between; align-items: center;">
+          <h2 style="margin: 0; color: var(--dark-olive);">❓ المساعدة والدعم</h2>
+          <button onclick="document.getElementById('help').style.display='none'" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">✕</button>
+        </div>
+        <div style="padding: var(--spacing-xl);">
+          <div style="margin-bottom: var(--spacing-lg);">
+            <h4>الأسئلة الشائعة</h4>
+            <details style="margin-bottom: var(--spacing-md);">
+              <summary style="cursor: pointer; padding: var(--spacing-md); background: var(--light-olive); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">كيف أتابع حالة طلبي؟</summary>
+              <p style="margin-top: var(--spacing-md); color: var(--dark-gray);">يمكنك متابعة حالة الطلب من خلال هذه الصفحة. ستظهر جميع المراحل بشكل واضح مع التحديثات.</p>
+            </details>
+            <details style="margin-bottom: var(--spacing-md);">
+              <summary style="cursor: pointer; padding: var(--spacing-md); background: var(--light-olive); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">ما هي المستندات المطلوبة؟</summary>
+              <p style="margin-top: var(--spacing-md); color: var(--dark-gray);">المستندات المطلوبة موضحة في قسم "المستندات المطلوبة" أعلاه.</p>
+            </details>
+            <details style="margin-bottom: var(--spacing-md);">
+              <summary style="cursor: pointer; padding: var(--spacing-md); background: var(--light-olive); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">كم المدة المتوقعة للمراجعة؟</summary>
+              <p style="margin-top: var(--spacing-md); color: var(--dark-gray);">تستغرق عملية المراجعة عادة 5-7 أيام عمل.</p>
+            </details>
+          </div>
+          <div style="background: var(--light-olive); padding: var(--spacing-lg); border-radius: var(--radius-md);">
+            <h4 style="margin-top: 0;">تواصل معنا</h4>
+            <p style="color: var(--dark-gray);">☎️ الهاتف: +966-11-XXXX-XXXX</p>
+            <p style="color: var(--dark-gray);">📧 البريد: support@awqaf.gov.sa</p>
+            <p style="color: var(--dark-gray);">⏰ ساعات العمل: 08:00 - 16:00</p>
+          </div>
+        </div>
+        <div style="padding: var(--spacing-xl); border-top: 1px solid var(--light-gray); text-align: right;">
+          <button class="btn btn-primary" onclick="document.getElementById('help').style.display='none'">إغلاق</button>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script src="js/awqaf.js"></script>
+  
+  <script>
+    function downloadDocuments() {
+      alert('سيتم تحميل المستندات قريباً');
+    }
+    
+    function printStatus() {
+      window.print();
+    }
+    
+    function shareTracking() {
+      const trackingNumber = 'HJ-2024-00425';
+      if (navigator.share) {
+        navigator.share({
+          title: 'متابعة طلب الحج',
+          text: `رقم طلبي: ${trackingNumber}`,
+          url: window.location.href
+        });
+      } else {
+        alert(`رقم الطلب: ${trackingNumber}\nقم بمشاركة هذا الرقم`);
+      }
+    }
+  </script>
+  
+</body>
+</html>
+

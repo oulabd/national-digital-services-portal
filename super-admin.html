@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الإدارة المركزية للنظام - بوابة الخدمات الوطنية</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/super-admin.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">👑</span>
+        <span>الإدارة المركزية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">المدير العام</div>
+          <small style="opacity: 0.8;">Super Admin</small>
+        </div>
+        <button class="logout-btn" onclick="logoutAdmin()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    <nav class="sidebar-nav">
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      <ul>
+        <li><a href="super-admin.html" class="active"><span>👑</span> لوحة التحكم</a></li>
+        <li><a href="#ministries" onclick="switchAdminTab('ministries')"><span>🏛️</span> الوزارات</a></li>
+        <li><a href="#users" onclick="switchAdminTab('users')"><span>👥</span> المستخدمين</a></li>
+        <li><a href="#roles" onclick="switchAdminTab('roles')"><span>🔐</span> الأدوار</a></li>
+        <li><a href="#requests" onclick="switchAdminTab('requests')"><span>📋</span> الطلبات</a></li>
+        <li><a href="#monitoring" onclick="switchAdminTab('monitoring')"><span>📊</span> المراقبة</a></li>
+      </ul>
+      <div class="sidebar-title">إضافي</div>
+      <ul>
+        <li><a href="dashboard.html"><span>🏠</span> العودة للرئيسية</a></li>
+        <li><a href="#settings"><span>⚙️</span> الإعدادات</a></li>
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Header -->
+    <section class="admin-header">
+      <h1>👑 الإدارة المركزية للنظام</h1>
+      <p>إدارة الوزارات، المستخدمين، والصلاحيات العامة</p>
+    </section>
+    
+    <!-- ========== OVERVIEW DASHBOARD ========== -->
+    <section id="overview" class="admin-section active">
+      
+      <!-- Summary Cards -->
+      <div class="summary-cards-grid">
+        <div class="summary-card ministries">
+          <div class="card-icon">🏛️</div>
+          <div class="card-content">
+            <div class="card-value">7</div>
+            <div class="card-label">عدد الوزارات</div>
+          </div>
+        </div>
+        
+        <div class="summary-card users">
+          <div class="card-icon">👥</div>
+          <div class="card-content">
+            <div class="card-value">245</div>
+            <div class="card-label">عدد المستخدمين</div>
+          </div>
+        </div>
+        
+        <div class="summary-card citizens">
+          <div class="card-icon">👤</div>
+          <div class="card-content">
+            <div class="card-value">12,458</div>
+            <div class="card-label">المواطنون المسجلون</div>
+          </div>
+        </div>
+        
+        <div class="summary-card requests">
+          <div class="card-icon">📋</div>
+          <div class="card-content">
+            <div class="card-value">34</div>
+            <div class="card-label">الطلبات المعلقة</div>
+          </div>
+        </div>
+        
+        <div class="summary-card status active">
+          <div class="card-icon">✅</div>
+          <div class="card-content">
+            <div class="card-value">نشط</div>
+            <div class="card-label">حالة النظام</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <h2>إجراءات سريعة</h2>
+        <div class="actions-grid">
+          <button class="action-card" onclick="openAddMinistryModal()">
+            <span class="action-icon">➕</span>
+            <span class="action-label">إضافة وزارة</span>
+          </button>
+          <button class="action-card" onclick="switchAdminTab('users')">
+            <span class="action-icon">👤</span>
+            <span class="action-label">إدارة المستخدمين</span>
+          </button>
+          <button class="action-card" onclick="switchAdminTab('requests')">
+            <span class="action-icon">📋</span>
+            <span class="action-label">مراجعة الطلبات</span>
+          </button>
+          <button class="action-card" onclick="generateSystemReport()">
+            <span class="action-icon">📊</span>
+            <span class="action-label">تقرير النظام</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Recent Activity -->
+      <div class="recent-activity">
+        <h2>النشاط الأخير</h2>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon">✅</div>
+            <div class="activity-content">
+              <div class="activity-title">تمت الموافقة على طلب تسجيل مواطن جديد</div>
+              <div class="activity-time">منذ 5 دقائق</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">🏛️</div>
+            <div class="activity-content">
+              <div class="activity-title">تم تعديل بيانات وزارة الصحة</div>
+              <div class="activity-time">منذ 15 دقيقة</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">👤</div>
+            <div class="activity-content">
+              <div class="activity-title">تم إضافة مستخدم جديد (موظف وزارة)</div>
+              <div class="activity-time">منذ ساعة</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    
+    <!-- ========== MINISTRIES MANAGEMENT ========== -->
+    <section id="ministries" class="admin-section">
+      <div class="section-header">
+        <h2>🏛️ إدارة الوزارات</h2>
+        <button class="btn btn-primary" onclick="openAddMinistryModal()">➕ إضافة وزارة</button>
+      </div>
+      
+      <div class="table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>اسم الوزارة</th>
+              <th>الحالة</th>
+              <th>عدد الموظفين</th>
+              <th>مدير النظام</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>وزارة الصحة</strong></td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td>42</td>
+              <td>د. أحمد محمود</td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewMinistry('health')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editMinistry('health')" title="تعديل">✏️</button>
+                <button class="action-btn" onclick="toggleMinistry('health')" title="تعطيل">⏸️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>وزارة التربية</strong></td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td>38</td>
+              <td>د. فاطمة علي</td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewMinistry('education')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editMinistry('education')" title="تعديل">✏️</button>
+                <button class="action-btn" onclick="toggleMinistry('education')" title="تعطيل">⏸️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>وزارة الداخلية</strong></td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td>56</td>
+              <td>اللواء محمد خالد</td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewMinistry('interior')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editMinistry('interior')" title="تعديل">✏️</button>
+                <button class="action-btn" onclick="toggleMinistry('interior')" title="تعطيل">⏸️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>وزارة التعليم العالي</strong></td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td>29</td>
+              <td>د. علي مصطفى</td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewMinistry('higher-ed')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editMinistry('higher-ed')" title="تعديل">✏️</button>
+                <button class="action-btn" onclick="toggleMinistry('higher-ed')" title="تعطيل">⏸️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>وزارة السياحة</strong></td>
+              <td><span class="badge badge-warning">معلق</span></td>
+              <td>15</td>
+              <td>—</td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewMinistry('tourism')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editMinistry('tourism')" title="تعديل">✏️</button>
+                <button class="action-btn" onclick="toggleMinistry('tourism')" title="تفعيل">▶️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ========== USERS MANAGEMENT ========== -->
+    <section id="users" class="admin-section">
+      <div class="section-header">
+        <h2>👥 إدارة المستخدمين</h2>
+        <div class="header-actions">
+          <input type="text" class="search-input" placeholder="🔍 بحث..." onkeyup="filterUsers(this.value)">
+          <select class="filter-select" onchange="filterUsersByRole(this.value)">
+            <option value="">جميع الأدوار</option>
+            <option value="citizen">مواطن</option>
+            <option value="employee">موظف وزارة</option>
+            <option value="admin">Admin وزارة</option>
+            <option value="super-admin">Super Admin</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>الاسم</th>
+              <th>الرقم الوطني</th>
+              <th>الدور</th>
+              <th>الجهة</th>
+              <th>الحالة</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <tr>
+              <td><strong>أحمد محمد علي</strong></td>
+              <td>01012345678</td>
+              <td><span class="role-badge citizen">مواطن</span></td>
+              <td>—</td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewUser('USR-001')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editUserRole('USR-001')" title="تعديل الدور">🔐</button>
+                <button class="action-btn" onclick="toggleUser('USR-001')" title="تعطيل">⏸️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>فاطمة حسن</strong></td>
+              <td>01098765432</td>
+              <td><span class="role-badge employee">موظف وزارة</span></td>
+              <td>وزارة الصحة</td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewUser('USR-002')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editUserRole('USR-002')" title="تعديل الدور">🔐</button>
+                <button class="action-btn" onclick="toggleUser('USR-002')" title="تعطيل">⏸️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>محمد خالد</strong></td>
+              <td>01055544433</td>
+              <td><span class="role-badge admin">Admin وزارة</span></td>
+              <td>وزارة الداخلية</td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewUser('USR-003')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editUserRole('USR-003')" title="تعديل الدور">🔐</button>
+                <button class="action-btn" onclick="toggleUser('USR-003')" title="تعطيل">⏸️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>سارة أحمد</strong></td>
+              <td>01077788899</td>
+              <td><span class="role-badge citizen">مواطن</span></td>
+              <td>—</td>
+              <td><span class="badge badge-danger">معطل</span></td>
+              <td class="actions-cell">
+                <button class="action-btn" onclick="viewUser('USR-004')" title="عرض">👁️</button>
+                <button class="action-btn" onclick="editUserRole('USR-004')" title="تعديل الدور">🔐</button>
+                <button class="action-btn" onclick="toggleUser('USR-004')" title="تفعيل">▶️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ========== ROLES & PERMISSIONS ========== -->
+    <section id="roles" class="admin-section">
+      <div class="section-header">
+        <h2>🔐 إدارة الأدوار والصلاحيات</h2>
+      </div>
+      
+      <div class="roles-grid">
+        <div class="role-card">
+          <div class="role-header citizen">
+            <div class="role-icon">👤</div>
+            <h3>مواطن</h3>
+          </div>
+          <div class="role-body">
+            <div class="role-count">12,458 مستخدم</div>
+            <ul class="permissions-list">
+              <li>✓ عرض البيانات الشخصية</li>
+              <li>✓ تقديم الطلبات</li>
+              <li>✓ عرض الخدمات العامة</li>
+              <li>✗ الوصول لبيانات الآخرين</li>
+              <li>✗ إدارة النظام</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="role-card">
+          <div class="role-header employee">
+            <div class="role-icon">👔</div>
+            <h3>موظف وزارة</h3>
+          </div>
+          <div class="role-body">
+            <div class="role-count">198 مستخدم</div>
+            <ul class="permissions-list">
+              <li>✓ مراجعة الطلبات</li>
+              <li>✓ الموافقة / الرفض</li>
+              <li>✓ إدارة ملفات المواطنين</li>
+              <li>✓ إصدار الوثائق</li>
+              <li>✗ تعديل إعدادات الوزارة</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="role-card">
+          <div class="role-header admin">
+            <div class="role-icon">🔑</div>
+            <h3>Admin وزارة</h3>
+          </div>
+          <div class="role-body">
+            <div class="role-count">40 مستخدم</div>
+            <ul class="permissions-list">
+              <li>✓ كل صلاحيات الموظف</li>
+              <li>✓ إدارة موظفي الوزارة</li>
+              <li>✓ تعديل الإعدادات</li>
+              <li>✓ عرض التقارير</li>
+              <li>✗ إدارة وزارات أخرى</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="role-card">
+          <div class="role-header super-admin">
+            <div class="role-icon">👑</div>
+            <h3>Super Admin</h3>
+          </div>
+          <div class="role-body">
+            <div class="role-count">7 مستخدمين</div>
+            <ul class="permissions-list">
+              <li>✓ كامل الصلاحيات</li>
+              <li>✓ إدارة جميع الوزارات</li>
+              <li>✓ إدارة جميع المستخدمين</li>
+              <li>✓ الأدوار والصلاحيات</li>
+              <li>✓ مراقبة النظام</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ========== REQUESTS & VERIFICATION ========== -->
+    <section id="requests" class="admin-section">
+      <div class="section-header">
+        <h2>📋 الطلبات والتحقق</h2>
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterRequests('all')">الكل (34)</button>
+          <button class="filter-tab" onclick="filterRequests('pending')">معلق (34)</button>
+          <button class="filter-tab" onclick="filterRequests('approved')">موافق (0)</button>
+          <button class="filter-tab" onclick="filterRequests('rejected')">مرفوض (0)</button>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>نوع الطلب</th>
+              <th>مقدم الطلب</th>
+              <th>الرقم الوطني</th>
+              <th>التاريخ</th>
+              <th>الحالة</th>
+              <th>الإجراء</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>تسجيل مواطن جديد</strong></td>
+              <td>خالد محمود</td>
+              <td>01088776655</td>
+              <td>2026-01-08</td>
+              <td><span class="badge badge-warning">معلق</span></td>
+              <td class="actions-cell">
+                <button class="btn btn-small btn-success" onclick="approveRequest('REQ-001')">✓ موافقة</button>
+                <button class="btn btn-small btn-danger" onclick="rejectRequest('REQ-001')">✗ رفض</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>تعديل بيانات</strong></td>
+              <td>نور الدين</td>
+              <td>01099887766</td>
+              <td>2026-01-07</td>
+              <td><span class="badge badge-warning">معلق</span></td>
+              <td class="actions-cell">
+                <button class="btn btn-small btn-success" onclick="approveRequest('REQ-002')">✓ موافقة</button>
+                <button class="btn btn-small btn-danger" onclick="rejectRequest('REQ-002')">✗ رفض</button>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>طلب توثيق</strong></td>
+              <td>ليلى أحمد</td>
+              <td>01055443322</td>
+              <td>2026-01-07</td>
+              <td><span class="badge badge-warning">معلق</span></td>
+              <td class="actions-cell">
+                <button class="btn btn-small btn-success" onclick="approveRequest('REQ-003')">✓ موافقة</button>
+                <button class="btn btn-small btn-danger" onclick="rejectRequest('REQ-003')">✗ رفض</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ========== SYSTEM MONITORING ========== -->
+    <section id="monitoring" class="admin-section">
+      <div class="section-header">
+        <h2>📊 مراقبة النظام</h2>
+      </div>
+      
+      <!-- System Stats -->
+      <div class="monitoring-grid">
+        <div class="monitor-card">
+          <h3>نشاط المستخدمين</h3>
+          <div class="stat-value">1,247</div>
+          <div class="stat-label">تسجيل دخول اليوم</div>
+        </div>
+        
+        <div class="monitor-card">
+          <h3>الطلبات المقدمة</h3>
+          <div class="stat-value">89</div>
+          <div class="stat-label">طلب جديد اليوم</div>
+        </div>
+        
+        <div class="monitor-card">
+          <h3>معدل الاستجابة</h3>
+          <div class="stat-value">2.4 ساعة</div>
+          <div class="stat-label">متوسط وقت المعالجة</div>
+        </div>
+        
+        <div class="monitor-card">
+          <h3>استهلاك النظام</h3>
+          <div class="stat-value">67%</div>
+          <div class="stat-label">الموارد المستخدمة</div>
+        </div>
+      </div>
+      
+      <!-- Recent Logins -->
+      <div class="recent-logins">
+        <h3>آخر عمليات تسجيل الدخول</h3>
+        <div class="logins-list">
+          <div class="login-item">
+            <div class="login-user">
+              <div class="user-icon">👤</div>
+              <div>
+                <div class="user-name">أحمد محمد - مواطن</div>
+                <div class="login-time">2026-01-08 14:35</div>
+              </div>
+            </div>
+            <div class="login-ip">IP: 192.168.1.45</div>
+          </div>
+          <div class="login-item">
+            <div class="login-user">
+              <div class="user-icon">👔</div>
+              <div>
+                <div class="user-name">فاطمة علي - موظف وزارة الصحة</div>
+                <div class="login-time">2026-01-08 14:30</div>
+              </div>
+            </div>
+            <div class="login-ip">IP: 10.0.0.12</div>
+          </div>
+          <div class="login-item">
+            <div class="login-user">
+              <div class="user-icon">🔑</div>
+              <div>
+                <div class="user-name">محمد خالد - Admin وزارة الداخلية</div>
+                <div class="login-time">2026-01-08 14:20</div>
+              </div>
+            </div>
+            <div class="login-ip">IP: 10.0.1.50</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- System Alerts -->
+      <div class="system-alerts">
+        <h3>⚠️ تنبيهات النظام</h3>
+        <div class="alert alert-success">
+          <strong>✓ النظام يعمل بشكل طبيعي</strong>
+          <p>لا توجد مشاكل حالياً</p>
+        </div>
+      </div>
+      
+    </section>
+    
+  </main>
+  
+  <!-- ========== MODALS ========== -->
+  
+  <!-- Add Ministry Modal -->
+  <div id="addMinistryModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">➕ إضافة وزارة جديدة</h2>
+        <button type="button" class="modal-close" onclick="closeModal('addMinistryModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="addMinistryForm">
+          <div class="form-group">
+            <label>اسم الوزارة</label>
+            <input type="text" class="form-input" placeholder="مثال: وزارة الاقتصاد" required>
+          </div>
+          <div class="form-group">
+            <label>الرمز</label>
+            <input type="text" class="form-input" placeholder="مثال: economy" required>
+          </div>
+          <div class="form-group">
+            <label>مدير النظام</label>
+            <select class="form-input" required>
+              <option value="">-- اختر المدير --</option>
+              <option value="user1">أحمد محمود</option>
+              <option value="user2">فاطمة علي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>الحالة</label>
+            <select class="form-input">
+              <option value="active">نشط</option>
+              <option value="inactive">معطل</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('addMinistryModal')">إلغاء</button>
+        <button type="button" class="btn btn-primary" onclick="submitAddMinistry()">حفظ</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script src="js/super-admin.js"></script>
+  
+</body>
+</html>

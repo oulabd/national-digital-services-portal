@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بيان المخالفة المرورية - وزارة الداخلية</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/traffic.css">
+  <style>
+    @media print {
+      aside, header .header-actions, .print-hide, .btn, button {
+        display: none !important;
+      }
+      body {
+        margin: 0;
+        padding: 20px;
+        background: white;
+      }
+      .violation-document {
+        max-width: 100%;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER (Hidden in Print) -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🚗</span>
+        <span>وزارة الداخلية - المخالفات المرورية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR (Hidden in Print) -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html" class="active">
+            <span>🚨</span> المخالفات المرورية
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Action Buttons (Print Hide) -->
+    <div class="print-hide" style="margin-bottom: var(--spacing-2xl); display: flex; gap: var(--spacing-lg); flex-wrap: wrap;">
+      <button class="btn btn-primary" onclick="window.print()">🖨️ طباعة</button>
+      <button class="btn btn-outline" onclick="downloadPDF()">📥 تحميل PDF</button>
+      <button class="btn btn-outline" onclick="window.history.back()">← رجوع</button>
+    </div>
+    
+    <!-- Official Document -->
+    <div class="violation-document">
+      
+      <!-- Document Header -->
+      <div class="doc-header">
+        <div class="ministry-seal">
+          <div style="text-align: center; font-size: 2rem;">🏛️</div>
+          <div style="text-align: center; font-weight: bold; font-size: 0.85rem; margin-top: 0.5rem;">وزارة الداخلية</div>
+          <div style="text-align: center; font-size: 0.75rem; color: #666;">الإدارة العامة للمرور</div>
+        </div>
+        
+        <div class="doc-title">
+          <h1>بيان المخالفة المرورية</h1>
+          <p class="doc-subtitle">وثيقة رسمية</p>
+        </div>
+        
+        <div class="doc-number">
+          <div style="text-align: center;">
+            <p style="margin: 0; font-size: 0.9rem; color: #666;">رقم الوثيقة</p>
+            <p style="margin: 0.5rem 0 0 0; font-weight: bold; font-size: 1.1rem;">VIO-2024-00156</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Divider -->
+      <div class="doc-divider"></div>
+      
+      <!-- Document Content -->
+      <div class="doc-content">
+        
+        <!-- Section 1: Dates -->
+        <div class="doc-section">
+          <div class="section-row">
+            <div class="section-col">
+              <p class="section-label">تاريخ الإصدار</p>
+              <p class="section-value">2024-12-15</p>
+            </div>
+            <div class="section-col">
+              <p class="section-label">الساعة</p>
+              <p class="section-value">14:30</p>
+            </div>
+            <div class="section-col">
+              <p class="section-label">مرجع النظام</p>
+              <p class="section-value">SYS-2024-156</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Section 2: Citizen Data -->
+        <div class="doc-section">
+          <h2 class="section-heading">بيانات المواطن</h2>
+          <div class="info-grid-2">
+            <div class="info-item">
+              <span class="label">الاسم الكامل:</span>
+              <span class="value">أحمد محمد علي محمود</span>
+            </div>
+            <div class="info-item">
+              <span class="label">الرقم الوطني:</span>
+              <span class="value">1234567890</span>
+            </div>
+            <div class="info-item">
+              <span class="label">رقم الهاتف:</span>
+              <span class="value">0501234567</span>
+            </div>
+            <div class="info-item">
+              <span class="label">العنوان:</span>
+              <span class="value">دمشق _ الميدان</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Section 3: Vehicle Data -->
+        <div class="doc-section">
+          <h2 class="section-heading">بيانات المركبة</h2>
+          <div class="info-grid-2">
+            <div class="info-item">
+              <span class="label">رقم اللوحة:</span>
+              <span class="value"> 1234</span>
+            </div>
+            <div class="info-item">
+              <span class="label">نوع المركبة:</span>
+              <span class="value">سيارة ركوب</span>
+            </div>
+            <div class="info-item">
+              <span class="label">الماركة والموديل:</span>
+              <span class="value">تويوتا - كامري 2023</span>
+            </div>
+            <div class="info-item">
+              <span class="label">لون المركبة:</span>
+              <span class="value">أبيض</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Section 4: Violation Details -->
+        <div class="doc-section">
+          <h2 class="section-heading">تفاصيل المخالفة</h2>
+          <div class="info-grid-2">
+            <div class="info-item">
+              <span class="label">نوع المخالفة:</span>
+              <span class="value highlight-danger">تجاوز السرعة المسموحة</span>
+            </div>
+            <div class="info-item">
+              <span class="label">تصنيف المخالفة:</span>
+              <span class="value">مخالفة من الفئة الأولى</span>
+            </div>
+            <div class="info-item">
+              <span class="label">مكان المخالفة:</span>
+              <span class="value">دمشق _ الميدان</span>
+            </div>
+            <div class="info-item">
+              <span class="label">تاريخ ووقت المخالفة:</span>
+              <span class="value">2024-12-15 - 14:15</span>
+            </div>
+          </div>
+          
+          <div style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background-color: #fff9f3; border-right: 3px solid var(--dark-olive); border-radius: var(--radius-md);">
+            <p style="margin: 0 0 0.5rem 0;"><strong>الوصف التفصيلي:</strong></p>
+            <p style="margin: 0; line-height: 1.6; color: var(--dark-gray);">تم رصد تجاوز السرعة المسموحة بمقدار 30 كم/س. السرعة المسموحة 80 كم/س والسرعة المسجلة 110 كم/س. تم تسجيل المخالفة بواسطة رادار متقدم معتمد.</p>
+          </div>
+        </div>
+        
+        <!-- Section 5: Fine Information -->
+        <div class="doc-section">
+          <h2 class="section-heading">معلومات الغرامة</h2>
+          <div class="fine-table">
+            <div class="fine-row">
+              <span class="fine-label">قيمة الغرامة الأساسية:</span>
+              <span class="fine-value">500 ل.س</span>
+            </div>
+            <div class="fine-row">
+              <span class="fine-label">الإضافات (إن وجدت):</span>
+              <span class="fine-value">0 ل.س</span>
+            </div>
+            <div class="fine-row">
+              <span class="fine-label">الخصومات (إن وجدت):</span>
+              <span class="fine-value">0 ل.س</span>
+            </div>
+            <div class="fine-row highlighted">
+              <span class="fine-label"><strong>المبلغ المستحق النهائي:</strong></span>
+              <span class="fine-value"><strong>500 ل.س</strong></span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Section 6: Payment Instructions -->
+        <div class="doc-section">
+          <h2 class="section-heading">تعليمات الدفع</h2>
+          <ul class="instructions-list">
+            <li>يجب دفع الغرامة خلال <strong>30 يوماً</strong> من تاريخ الإصدار</li>
+            <li>يمكن الدفع عبر الموقع الإلكتروني أو التطبيق الجوال</li>
+            <li>أو من خلال مكاتب التجديد والمرور بالمملكة</li>
+            <li>في حالة عدم الدفع، قد تترتب عليها عقوبات إضافية</li>
+          </ul>
+        </div>
+        
+        <!-- Section 7: Legal Notes -->
+        <div class="doc-section">
+          <h2 class="section-heading">ملاحظات قانونية</h2>
+          <p class="legal-text">
+            هذه الوثيقة صادرة من وزارة الداخلية - الإدارة العامة للمرور وتتمتع بكامل الحجية القانونية. لديك الحق في الاعتراض على هذه المخالفة خلال <strong>ثلاثين يوماً</strong> من تاريخ الإصدار من خلال القنوات الرسمية. جميع البيانات المدرجة في هذه الوثيقة تم التحقق منها وتوثيقها بواسطة أنظمة معتمدة.
+          </p>
+        </div>
+        
+      </div>
+      
+      <!-- Document Footer -->
+      <div class="doc-divider"></div>
+      
+      <div class="doc-footer">
+        <div class="footer-section">
+          <p style="margin: 0; font-size: 0.85rem; text-align: center; color: #666;">
+            وزارة الداخلية - الإدارة العامة للمرور<br>
+            الرقم الموحد: 8001247111<br>
+            البريد الإلكتروني: support@moi.gov.sa
+          </p>
+        </div>
+        
+        <div class="footer-seals">
+          <div style="text-align: center;">
+            <div class="doc-seal">🔐</div>
+            <p style="font-size: 0.75rem; margin: 0.5rem 0 0 0;">ختم رسمي معتمد</p>
+          </div>
+          <div style="text-align: center;">
+            <div class="doc-seal">✔️</div>
+            <p style="font-size: 0.75rem; margin: 0.5rem 0 0 0;">موثقة إلكترونياً</p>
+          </div>
+          <div style="text-align: center;">
+            <div class="doc-seal">🏛️</div>
+            <p style="font-size: 0.75rem; margin: 0.5rem 0 0 0;">وزارة الداخلية</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script src="js/traffic.js"></script>
+  
+  <script>
+    function downloadPDF() {
+      alert('في بيئة الإنتاج: سيتم تحميل الملف كـ PDF');
+    }
+  </script>
+  
+</body>
+</html>

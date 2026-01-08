@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وزارة الأوقاف - بوابة الخدمات الرقمية الوطنية</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/awqaf.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>وزارة الأوقاف والشؤون الإسلامية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html" class="active">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Welcome Section -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">مرحباً في وزارة الأوقاف والشؤون الإسلامية 🕌</h1>
+      <p style="color: var(--dark-gray); font-size: 1.1rem;">منصة خدمات وقفية وإسلامية متكاملة لخدمة المواطنين</p>
+    </section>
+    
+    <!-- Services Grid -->
+    <section>
+      <h2 style="color: var(--text-dark); margin-bottom: var(--spacing-xl);">الخدمات المتاحة</h2>
+      
+      <div class="grid grid-2">
+        
+        <!-- Hajj Registration -->
+        <a href="hajj-register.html" style="text-decoration: none;">
+          <div class="service-card awqaf-card">
+            <div class="service-icon">✈️</div>
+            <h3 class="service-title">التسجيل على الحج</h3>
+            <p class="service-description">قدم طلب التسجيل للحج والعمرة بسهولة من منزلك</p>
+            <div class="card-action">عرض الخدمة →</div>
+          </div>
+        </a>
+        
+        <!-- Hajj Tracking -->
+        <a href="hajj-tracking.html" style="text-decoration: none;">
+          <div class="service-card awqaf-card">
+            <div class="service-icon">📋</div>
+            <h3 class="service-title">متابعة طلب الحج</h3>
+            <p class="service-description">تتبع حالة طلبك والإجراءات المطلوبة</p>
+            <div class="card-action">عرض الخدمة →</div>
+          </div>
+        </a>
+        
+        <!-- Mosque Lessons -->
+        <a href="mosque-lessons.html" style="text-decoration: none;">
+          <div class="service-card awqaf-card">
+            <div class="service-icon">🎓</div>
+            <h3 class="service-title">دروس الجوامع</h3>
+            <p class="service-description">اطلع على الدروس الإسلامية بالجوامع في محافظتك</p>
+            <div class="card-action">عرض الخدمة →</div>
+          </div>
+        </a>
+        
+        <!-- Guidelines -->
+        <div class="service-card awqaf-card" style="cursor: pointer;" onclick="alert('قريباً: إرشادات الحج والعمرة')">
+          <div class="service-icon">📖</div>
+          <h3 class="service-title">إرشادات الحج والعمرة</h3>
+          <p class="service-description">معلومات شاملة عن مناسك الحج والعمرة</p>
+          <div class="card-action">عرض الخدمة →</div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Quick Stats -->
+    <section style="margin-top: var(--spacing-2xl); background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+      <h2 style="color: var(--text-dark); margin-bottom: var(--spacing-lg);">إحصائيات</h2>
+      
+      <div class="grid grid-4" style="gap: var(--spacing-lg);">
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2.5rem; color: var(--gold); margin-bottom: var(--spacing-sm); font-weight: 700;">1,234</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">طلبات حج قيد المراجعة</div>
+        </div>
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2.5rem; color: #10B981; margin-bottom: var(--spacing-sm); font-weight: 700;">567</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">طلبات مقبولة</div>
+        </div>
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2.5rem; color: #3B82F6; margin-bottom: var(--spacing-sm); font-weight: 700;">342</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">جامع مسجل</div>
+        </div>
+        
+        <div style="text-align: center; padding: var(--spacing-lg); border: 1px solid var(--light-gray); border-radius: var(--radius-md);">
+          <div style="font-size: 2.5rem; color: #F59E0B; margin-bottom: var(--spacing-sm); font-weight: 700;">156</div>
+          <div style="color: var(--dark-gray); font-size: 0.9rem;">درس أسبوعي</div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Important Info -->
+    <section class="info-boxes" style="margin-top: var(--spacing-2xl);">
+      <div class="info-box">
+        <h3>ℹ️ معلومة مهمة</h3>
+        <p>موسم الحج 1445 هـ سيبدأ بإذن الله في منتصف يوليو 2024. تابع الإعلانات الرسمية للتاريخ النهائي.</p>
+      </div>
+      <div class="info-box">
+        <h3>📅 التواريخ المهمة</h3>
+        <p>• بدء التسجيل: 15 ديسمبر 2023<br>• إغلاق التسجيل: 30 مايو 2024<br>• إعلان النتائج: 10 يونيو 2024</p>
+      </div>
+    </section>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script src="js/awqaf.js"></script>
+  
+</body>
+</html>
+

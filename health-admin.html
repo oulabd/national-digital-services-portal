@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدارة وزارة الصحة - بوابة الخدمات الوطنية</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/health-admin.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏥</span>
+        <span>وزارة الصحة</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">د. أحمد محمود</div>
+          <small style="opacity: 0.8;">مدير الصحة</small>
+        </div>
+        <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    <nav class="sidebar-nav">
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      <ul>
+        <li><a href="#" data-health-section="overview" class="active"><span>🏥</span> لوحة التحكم</a></li>
+        <li><a href="#" data-health-section="facilities"><span>🏗️</span> المشافي</a></li>
+        <li><a href="#" data-health-section="departments"><span>🔬</span> الأقسام</a></li>
+        <li><a href="#" data-health-section="staff"><span>👨‍⚕️</span> الكادر الطبي</a></li>
+        <li><a href="#" data-health-section="appointments"><span>📅</span> المواعيد</a></li>
+        <li><a href="#" data-health-section="records"><span>📋</span> السجلات</a></li>
+        <li><a href="#" data-health-section="reports"><span>📊</span> التقارير</a></li>
+      </ul>
+      <div class="sidebar-title">إضافي</div>
+      <ul>
+        <li><a href="dashboard.html"><span>🏠</span> العودة للرئيسية</a></li>
+        <li><a href="#" onclick="printPage()"><span>🖨️</span> طباعة</a></li>
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Header -->
+    <section class="health-header">
+      <div class="header-main">
+        <h1>🏥 إدارة وزارة الصحة</h1>
+        <p>لوحة التحكم الإدارية – وزارة الصحة</p>
+      </div>
+      <div class="header-badge">
+        <span style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600;">
+          🔑 Admin وزارة الصحة
+        </span>
+      </div>
+    </section>
+    
+    <!-- ========== OVERVIEW DASHBOARD ========== -->
+    <section id="overview" class="health-section active">
+      
+      <!-- Summary Cards -->
+      <div class="health-cards-grid">
+        <div class="health-card hospitals">
+          <div class="card-icon">🏗️</div>
+          <div class="card-content">
+            <div class="card-value">24</div>
+            <div class="card-label">عدد المشافي</div>
+          </div>
+        </div>
+        
+        <div class="health-card centers">
+          <div class="card-icon">🏢</div>
+          <div class="card-content">
+            <div class="card-value">156</div>
+            <div class="card-label">مراكز صحية</div>
+          </div>
+        </div>
+        
+        <div class="health-card doctors">
+          <div class="card-icon">👨‍⚕️</div>
+          <div class="card-content">
+            <div class="card-value">892</div>
+            <div class="card-label">عدد الأطباء</div>
+          </div>
+        </div>
+        
+        <div class="health-card appointments">
+          <div class="card-icon">📅</div>
+          <div class="card-content">
+            <div class="card-value">1,245</div>
+            <div class="card-label">المواعيد اليومية</div>
+          </div>
+        </div>
+        
+        <div class="health-card records">
+          <div class="card-icon">📋</div>
+          <div class="card-content">
+            <div class="card-value">45,678</div>
+            <div class="card-label">السجلات الطبية</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Key Metrics -->
+      <div class="metrics-section">
+        <h2>مؤشرات الأداء الرئيسية</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">معدل استخدام الأسرة</div>
+            <div class="metric-value">87%</div>
+            <div class="metric-bar" style="width: 87%;"></div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">مراجعات المشافي</div>
+            <div class="metric-value">5,234</div>
+            <div class="metric-sub">هذا الشهر</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">وقت الانتظار المتوسط</div>
+            <div class="metric-value">23 دقيقة</div>
+            <div class="metric-sub">في المشافي</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">رضا المواطنين</div>
+            <div class="metric-value">4.2/5</div>
+            <div class="metric-sub">من أصل 5</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Recent Activity -->
+      <div class="activity-section">
+        <h2>النشاط الأخير</h2>
+        <div class="activity-timeline">
+          <div class="activity-item">
+            <div class="activity-status success">✓</div>
+            <div class="activity-content">
+              <div class="activity-title">تم تفعيل قسم جديد بمشفى دمشق العام</div>
+              <div class="activity-time">منذ 2 ساعة</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-status info">ℹ️</div>
+            <div class="activity-content">
+              <div class="activity-title">تم إضافة 5 أطباء جدد</div>
+              <div class="activity-time">منذ 4 ساعات</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-status warning">⚠️</div>
+            <div class="activity-content">
+              <div class="activity-title">معدل استخدام أسرة عالي بمشفى حلب</div>
+              <div class="activity-time">منذ 6 ساعات</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    
+    <!-- ========== FACILITIES MANAGEMENT ========== -->
+    <section id="facilities" class="health-section">
+      <div class="section-header">
+        <h2>🏗️ إدارة المشافي والمراكز الصحية</h2>
+        <div class="header-buttons">
+          <button class="btn btn-primary" onclick="openAddFacilityModal('hospital')">➕ إضافة مشفى</button>
+          <button class="btn btn-outline" onclick="openAddFacilityModal('center')">➕ إضافة مركز صحي</button>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="health-table">
+          <thead>
+            <tr>
+              <th>الاسم</th>
+              <th>النوع</th>
+              <th>المحافظة</th>
+              <th>الحالة</th>
+              <th>عدد الأقسام</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="facilities-table-body">
+            <tr>
+              <td><strong>مشفى دمشق العام</strong></td>
+              <td><span class="type-badge hospital">مشفى عام</span></td>
+              <td>دمشق</td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td>12</td>
+              <td class="actions-cell">
+                <button class="action-btn edit" onclick="openEditFacilityModal(1)" title="تعديل">✏️</button>
+                <button class="action-btn delete" onclick="deleteFacility(1)" title="حذف">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ========== DEPARTMENTS MANAGEMENT ========== -->
+    <section id="departments" class="health-section">
+      <div class="section-header">
+        <h2>🔬 إدارة الأقسام الطبية</h2>
+        <button class="btn btn-primary" onclick="openAddDepartmentModal()">➕ إضافة قسم</button>
+      </div>
+      
+      <div class="table-container">
+        <table class="health-table">
+          <thead>
+            <tr>
+              <th>اسم القسم</th>
+              <th>المشفى / المركز</th>
+              <th>عدد الأطباء</th>
+              <th>عدد الأسرة</th>
+              <th>الحالة</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="departments-table-body">
+            <tr>
+              <td><strong>قسم الطوارئ</strong></td>
+              <td>مشفى دمشق العام</td>
+              <td>15</td>
+              <td>25</td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td class="actions-cell">
+                <button class="action-btn edit" onclick="openEditDepartmentModal(1)" title="تعديل">✏️</button>
+                <button class="action-btn delete" onclick="deleteDepartment(1)" title="حذف">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ========== MEDICAL STAFF MANAGEMENT ========== -->
+    <section id="staff" class="health-section">
+      <div class="section-header">
+        <h2>👨‍⚕️ إدارة الكادر الطبي</h2>
+        <div class="header-actions">
+          <input type="text" class="search-input" placeholder="🔍 بحث..." onkeyup="searchStaff(this.value)">
+          <button class="btn btn-primary" onclick="openAddStaffModal()">➕ إضافة طبيب</button>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="health-table">
+          <thead>
+            <tr>
+              <th>الاسم</th>
+              <th>التخصص</th>
+              <th>رقم الترخيص</th>
+              <th>الجهة</th>
+              <th>الحالة</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="staff-table-body">
+            <tr>
+              <td><strong>د. محمد علي</strong></td>
+              <td>طب الطوارئ</td>
+              <td>ML-2024-001</td>
+              <td>مشفى دمشق العام</td>
+              <td><span class="badge badge-success">نشط</span></td>
+              <td class="actions-cell">
+                <button class="action-btn edit" onclick="openEditStaffModal(1)" title="تعديل">✏️</button>
+                <button class="action-btn delete" onclick="deleteStaff(1)" title="حذف">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ========== APPOINTMENTS MANAGEMENT ========== -->
+    <section id="appointments" class="health-section">
+      <div class="section-header">
+        <h2>📅 إدارة المواعيد</h2>
+        <div class="appointment-stats">
+          <div class="stat-box">
+            <span class="stat-label">إجمالي المواعيد:</span>
+            <span class="stat-value">8,456</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">المواعيد القادمة:</span>
+            <span class="stat-value">1,245</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">الملغاة:</span>
+            <span class="stat-value">123</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="health-table">
+          <thead>
+            <tr>
+              <th>اسم المريض</th>
+              <th>الطبيب</th>
+              <th>المشفى</th>
+              <th>التاريخ والوقت</th>
+              <th>الحالة</th>
+            </tr>
+          </thead>
+          <tbody id="appointments-table-body">
+            <tr>
+              <td>خالد محمود</td>
+              <td>د. محمد علي</td>
+              <td>مشفى دمشق العام</td>
+              <td>2026-01-09 10:30</td>
+              <td><span class="badge badge-success">مؤكد</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="info-box">
+        <strong>ℹ️ ملاحظة:</strong>
+        <p>إدارة المواعيد للإشراف فقط. تعديل المواعيد يتم من تطبيق المشفى المباشر.</p>
+      </div>
+    </section>
+    
+    <!-- ========== MEDICAL RECORDS (READ-ONLY) ========== -->
+    <section id="records" class="health-section">
+      <div class="section-header">
+        <h2>📋 السجلات الطبية (إشرافي)</h2>
+      </div>
+      
+      <div class="records-overview">
+        <div class="record-card">
+          <div class="record-icon">🧪</div>
+          <div class="record-content">
+            <div class="record-value">3,456</div>
+            <div class="record-label">التحاليل المخبرية</div>
+            <small>الشهر الحالي</small>
+          </div>
+        </div>
+        
+        <div class="record-card">
+          <div class="record-icon">📸</div>
+          <div class="record-content">
+            <div class="record-value">1,234</div>
+            <div class="record-label">الصور الشعاعية</div>
+            <small>الشهر الحالي</small>
+          </div>
+        </div>
+        
+        <div class="record-card">
+          <div class="record-icon">💊</div>
+          <div class="record-content">
+            <div class="record-value">5,678</div>
+            <div class="record-label">الوصفات الطبية</div>
+            <small>الشهر الحالي</small>
+          </div>
+        </div>
+        
+        <div class="record-card">
+          <div class="record-icon">📝</div>
+          <div class="record-content">
+            <div class="record-value">2,345</div>
+            <div class="record-label">الملاحظات الطبية</div>
+            <small>الشهر الحالي</small>
+          </div>
+        </div>
+      </div>
+      
+      <div class="warning-box">
+        <strong>⚠️ تنبيه الأمان:</strong>
+        <p>
+          <strong>هذا القسم للعرض الإشرافي فقط.</strong><br>
+          لا يمكن تعديل أو حذف السجلات الطبية من هنا.<br>
+          جميع البيانات الطبية محمية بموجب القوانين الصحية.
+        </p>
+      </div>
+      
+      <div class="table-container" style="margin-top: var(--spacing-xl);">
+        <table class="health-table">
+          <thead>
+            <tr>
+              <th>نوع السجل</th>
+              <th>المريض (رقم الهوية)</th>
+              <th>الطبيب</th>
+              <th>التاريخ</th>
+              <th>الإجراء</th>
+            </tr>
+          </thead>
+          <tbody id="records-table-body">
+            <tr>
+              <td>تقرير طبي</td>
+              <td>خالد محمود (1234567890)</td>
+              <td>د. محمد علي</td>
+              <td>2026-01-08</td>
+              <td class="actions-cell">
+                <button class="action-btn view" onclick="viewMedicalRecord(1)" title="عرض">👁️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+            <tr>
+              <td>تحليل دم شامل</td>
+              <td>01012345678</td>
+              <td>د. محمد علي</td>
+              <td>2026-01-07</td>
+              <td><button class="btn btn-small btn-outline" onclick="alert('عرض السجل - قراءة فقط')">👁️ عرض</button></td>
+            </tr>
+            <tr>
+              <td>صورة شعاعية - صدر</td>
+              <td>01098765432</td>
+              <td>د. فاطمة حسن</td>
+              <td>2026-01-07</td>
+              <td><button class="btn btn-small btn-outline" onclick="alert('عرض السجل - قراءة فقط')">👁️ عرض</button></td>
+            </tr>
+            <tr>
+              <td>وصفة طبية</td>
+              <td>01055443322</td>
+              <td>د. أحمد الأحمد</td>
+              <td>2026-01-06</td>
+              <td><button class="btn btn-small btn-outline" onclick="alert('عرض السجل - قراءة فقط')">👁️ عرض</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- ========== REPORTS & STATISTICS ========== -->
+    <section id="reports" class="health-section">
+      <div class="section-header">
+        <h2>📊 التقارير والإحصائيات</h2>
+      </div>
+      
+      <!-- Report Cards -->
+      <div class="reports-grid">
+        <div class="report-card">
+          <h3>المراجعات حسب المحافظة</h3>
+          <div class="report-item">
+            <span>دمشق</span>
+            <div class="progress-bar" style="width: 65%;"></div>
+            <span>65%</span>
+          </div>
+          <div class="report-item">
+            <span>حلب</span>
+            <div class="progress-bar" style="width: 45%;"></div>
+            <span>45%</span>
+          </div>
+          <div class="report-item">
+            <span>حمص</span>
+            <div class="progress-bar" style="width: 35%;"></div>
+            <span>35%</span>
+          </div>
+          <div class="report-item">
+            <span>اللاذقية</span>
+            <div class="progress-bar" style="width: 28%;"></div>
+            <span>28%</span>
+          </div>
+        </div>
+        
+        <div class="report-card">
+          <h3>أكثر التخصصات طلباً</h3>
+          <div class="report-item">
+            <span>طب الأسرة</span>
+            <div class="progress-bar" style="width: 90%;"></div>
+            <span>900</span>
+          </div>
+          <div class="report-item">
+            <span>الجراحة العامة</span>
+            <div class="progress-bar" style="width: 75%;"></div>
+            <span>750</span>
+          </div>
+          <div class="report-item">
+            <span>طب الأطفال</span>
+            <div class="progress-bar" style="width: 60%;"></div>
+            <span>600</span>
+          </div>
+          <div class="report-item">
+            <span>الأسنان</span>
+            <div class="progress-bar" style="width: 55%;"></div>
+            <span>550</span>
+          </div>
+        </div>
+        
+        <div class="report-card">
+          <h3>حالة المشافي</h3>
+          <div class="report-item">
+            <span>مشغولة بكامل الطاقة</span>
+            <div class="progress-bar" style="width: 40%; background: #EF4444;"></div>
+            <span>8</span>
+          </div>
+          <div class="report-item">
+            <span>معدل استخدام عالي</span>
+            <div class="progress-bar" style="width: 30%; background: #F59E0B;"></div>
+            <span>6</span>
+          </div>
+          <div class="report-item">
+            <span>معدل استخدام طبيعي</span>
+            <div class="progress-bar" style="width: 20%; background: #10B981;"></div>
+            <span>10</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Report Generation -->
+      <div class="report-actions">
+        <h3>إنشاء التقارير</h3>
+        <div class="actions-buttons">
+          <button class="btn btn-primary" onclick="generateReport('monthly')">📊 التقرير الشهري</button>
+          <button class="btn btn-outline" onclick="generateReport('performance')">📈 تقرير الأداء</button>
+          <button class="btn btn-outline" onclick="generateReport('audit')">🔍 تقرير التدقيق</button>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <!-- ========== MODALS ========== -->
+  
+  <!-- Add Facility Modal -->
+  <div id="facility-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">➕ إضافة مرفق صحي</h2>
+        <button type="button" class="modal-close" onclick="closeModal('facility-modal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>الاسم</label>
+            <input type="text" name="name" class="form-input" placeholder="مثال: مشفى الجامعة" required>
+          </div>
+          <div class="form-group">
+            <label>النوع</label>
+            <select name="type" class="form-input" required>
+              <option value="">-- اختر --</option>
+              <option value="hospital">مشفى</option>
+              <option value="center">مركز صحي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>المحافظة</label>
+            <input type="text" name="city" class="form-input" placeholder="دمشق" required>
+          </div>
+          <div class="form-group">
+            <label>عدد الأسرة</label>
+            <input type="number" name="beds" class="form-input" placeholder="150" required>
+          </div>
+          <div class="form-group">
+            <label>عدد الموظفين</label>
+            <input type="number" name="staff" class="form-input" placeholder="85" required>
+          </div>
+          <div class="form-group">
+            <label>الحالة</label>
+            <select name="status" class="form-input" required>
+              <option value="active">نشط</option>
+              <option value="inactive">معطل</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('facility-modal')">إلغاء</button>
+        <button type="button" class="btn btn-primary" onclick="document.querySelector('#facility-modal form').dispatchEvent(new Event('submit'))">حفظ</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add Department Modal -->
+  <div id="department-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">➕ إضافة قسم طبي</h2>
+        <button type="button" class="modal-close" onclick="closeModal('department-modal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>اسم القسم</label>
+            <input type="text" name="name" class="form-input" placeholder="مثال: قسم الطوارئ" required>
+          </div>
+          <div class="form-group">
+            <label>المشفى</label>
+            <select name="facility" class="form-input" required>
+              <option value="">-- اختر المشفى --</option>
+              <option value="مشفى دمشق العام">مشفى دمشق العام</option>
+              <option value="مستشفى الهلال الأحمر">مستشفى الهلال الأحمر</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>عدد الأطباء</label>
+            <input type="number" name="staff" class="form-input" placeholder="15" required>
+          </div>
+          <div class="form-group">
+            <label>الحالة</label>
+            <select name="status" class="form-input" required>
+              <option value="active">نشط</option>
+              <option value="inactive">معطل</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('department-modal')">إلغاء</button>
+        <button type="button" class="btn btn-primary" onclick="document.querySelector('#department-modal form').dispatchEvent(new Event('submit'))">حفظ</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add Staff Modal -->
+  <div id="staff-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">➕ إضافة موظف طبي</h2>
+        <button type="button" class="modal-close" onclick="closeModal('staff-modal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>الاسم الكامل</label>
+            <input type="text" name="name" class="form-input" placeholder="د. الاسم" required>
+          </div>
+          <div class="form-group">
+            <label>التخصص</label>
+            <input type="text" name="specialization" class="form-input" placeholder="مثال: جراح عام" required>
+          </div>
+          <div class="form-group">
+            <label>الجهة</label>
+            <select name="facility" class="form-input" required>
+              <option value="">-- اختر المشفى --</option>
+              <option value="مشفى دمشق العام">مشفى دمشق العام</option>
+              <option value="مركز صحي الشام">مركز صحي الشام</option>
+              <option value="مستشفى الهلال الأحمر">مستشفى الهلال الأحمر</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>رقم الترخيص</label>
+            <input type="text" name="license" class="form-input" placeholder="12345" required>
+          </div>
+          <div class="form-group">
+            <label>الحالة</label>
+            <select name="status" class="form-input" required>
+              <option value="active">نشط</option>
+              <option value="inactive">معطل</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('staff-modal')">إلغاء</button>
+        <button type="button" class="btn btn-primary" onclick="document.querySelector('#staff-modal form').dispatchEvent(new Event('submit'))">حفظ</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script src="js/health-admin.js"></script>
+  
+</body>
+</html>

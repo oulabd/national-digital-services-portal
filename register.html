@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء الهوية الرقمية الوطنية - التسجيل</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/register.css">
+</head>
+<body class="register-body">
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>الهوية الرقمية الوطنية</span>
+      </div>
+      <div class="header-nav">
+        <a href="index.html" class="btn btn-outline">تسجيل الدخول</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- MAIN CONTENT -->
+  <main class="register-container">
+    
+    <!-- Progress Steps -->
+    <div class="progress-steps">
+      <div class="step active" data-step="1">
+        <div class="step-number">1</div>
+        <div class="step-label">معلومات الهوية</div>
+      </div>
+      <div class="step" data-step="2">
+        <div class="step-number">2</div>
+        <div class="step-label">معلومات الاتصال</div>
+      </div>
+      <div class="step" data-step="3">
+        <div class="step-number">3</div>
+        <div class="step-label">أمان الحساب</div>
+      </div>
+      <div class="step" data-step="4">
+        <div class="step-number">4</div>
+        <div class="step-label">المراجعة والتأكيد</div>
+      </div>
+    </div>
+    
+    <!-- Registration Card -->
+    <div class="register-card">
+      
+      <!-- STEP 1: Identity Information -->
+      <form id="step1" class="step-form active">
+        <div class="form-header">
+          <h2>📋 معلومات الهوية</h2>
+          <p>الرجاء إدخال بياناتك الشخصية كما هي في البطاقة الوطنية</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="form-group">
+            <label for="nationalId">الرقم الوطني <span class="required">*</span></label>
+            <input type="text" id="nationalId" name="nationalId" class="form-input" placeholder="12345678901" maxlength="11" required>
+            <small class="form-help">أدخل الرقم الوطني المكون من 11 رقمًا</small>
+            <div class="error-message" id="nationalId-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="familyBook">رقم دفتر العائلة <span class="required">*</span></label>
+            <input type="text" id="familyBook" name="familyBook" class="form-input" placeholder="مثال: 123456789" required>
+            <small class="form-help">أدخل رقم دفتر العائلة كما في الوثائق الرسمية</small>
+            <div class="error-message" id="familyBook-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="fullName">الاسم الثلاثي <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" class="form-input" placeholder="الاسم الأول الأب الجد" required>
+            <div class="error-message" id="fullName-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="motherName">اسم الأم <span class="required">*</span></label>
+            <input type="text" id="motherName" name="motherName" class="form-input" placeholder="الاسم الأول للأم" required>
+            <div class="error-message" id="motherName-error"></div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="birthDate">تاريخ الولادة <span class="required">*</span></label>
+              <input type="date" id="birthDate" name="birthDate" class="form-input" required>
+              <div class="error-message" id="birthDate-error"></div>
+            </div>
+            
+            <div class="form-group">
+              <label for="gender">الجنس <span class="required">*</span></label>
+              <select id="gender" name="gender" class="form-input" required>
+                <option value="">اختر الجنس</option>
+                <option value="male">ذكر</option>
+                <option value="female">أنثى</option>
+              </select>
+              <div class="error-message" id="gender-error"></div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-primary btn-next" onclick="nextStep(1)">التالي →</button>
+        </div>
+      </form>
+      
+      <!-- STEP 2: Contact Information -->
+      <form id="step2" class="step-form">
+        <div class="form-header">
+          <h2>📞 معلومات الاتصال</h2>
+          <p>سنستخدم هذه المعلومات للتواصل معك وإرسال الإشعارات المهمة</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="form-group">
+            <label for="phone">رقم الهاتف <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="09XXXXXXXX" required>
+            <small class="form-help">أدخل رقم هاتفك المحمول</small>
+            <div class="error-message" id="phone-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="example@domain.com">
+            <small class="form-help">اختياري - يمكنك إضافته لاحقًا</small>
+            <div class="error-message" id="email-error"></div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="province">المحافظة</label>
+              <select id="province" name="province" class="form-input">
+                <option value="">اختر المحافظة</option>
+                <option value="damascus">دمشق</option>
+                <option value="aleppo">حلب</option>
+                <option value="homs">حمص</option>
+                <option value="hama">حماه</option>
+                <option value="lattakia">اللاذقية</option>
+                <option value="tartus">طرطوس</option>
+                <option value="daraa">درعا</option>
+                <option value="deir-ez-zor">دير الزور</option>
+                <option value="al-hasakah">الحسكة</option>
+                <option value="idlib">إدلب</option>
+                <option value="raqqa">الرقة</option>
+                <option value="quneitra">القنيطرة</option>
+                <option value="as-suwayda">السويداء</option>
+                <option value="rif-dimashq">ريف دمشق</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="city">المدينة</label>
+              <input type="text" id="city" name="city" class="form-input" placeholder="اسم المدينة">
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-outline" onclick="prevStep(2)">← السابق</button>
+          <button type="button" class="btn btn-primary btn-next" onclick="nextStep(2)">التالي →</button>
+        </div>
+      </form>
+      
+      <!-- STEP 3: Account Security -->
+      <form id="step3" class="step-form">
+        <div class="form-header">
+          <h2>🔐 أمان الحساب</h2>
+          <p>قم بإنشاء كلمة مرور قوية لحماية حسابك</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="form-group">
+            <label for="password">كلمة المرور <span class="required">*</span></label>
+            <input type="password" id="password" name="password" class="form-input" placeholder="أدخل كلمة مرور قوية" required>
+            <div class="password-strength">
+              <div class="strength-bar">
+                <div class="strength-fill" id="strengthFill"></div>
+              </div>
+              <small id="strengthText">ضعيفة</small>
+            </div>
+            <div class="error-message" id="password-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="confirmPassword">تأكيد كلمة المرور <span class="required">*</span></label>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="أعد إدخال كلمة المرور" required>
+            <div class="error-message" id="confirmPassword-error"></div>
+          </div>
+          
+          <div class="password-rules">
+            <h4>شروط كلمة المرور:</h4>
+            <ul>
+              <li id="rule-length">✗ 8 أحرف على الأقل</li>
+              <li id="rule-uppercase">✗ حرف كبير واحد على الأقل</li>
+              <li id="rule-lowercase">✗ حرف صغير واحد على الأقل</li>
+              <li id="rule-number">✗ رقم واحد على الأقل</li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-outline" onclick="prevStep(3)">← السابق</button>
+          <button type="button" class="btn btn-primary btn-next" onclick="nextStep(3)">التالي →</button>
+        </div>
+      </form>
+      
+      <!-- STEP 4: Review & Confirmation -->
+      <form id="step4" class="step-form">
+        <div class="form-header">
+          <h2>✅ المراجعة والتأكيد</h2>
+          <p>تأكد من صحة البيانات المدخلة قبل إنشاء الحساب</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="review-section">
+            <h3>📋 معلومات الهوية</h3>
+            <div class="review-item">
+              <span class="review-label">الرقم الوطني:</span>
+              <span class="review-value" id="review-nationalId">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">رقم دفتر العائلة:</span>
+              <span class="review-value" id="review-familyBook">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">الاسم الثلاثي:</span>
+              <span class="review-value" id="review-fullName">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">اسم الأم:</span>
+              <span class="review-value" id="review-motherName">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">تاريخ الولادة:</span>
+              <span class="review-value" id="review-birthDate">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">الجنس:</span>
+              <span class="review-value" id="review-gender">-</span>
+            </div>
+          </div>
+          
+          <div class="review-section">
+            <h3>📞 معلومات الاتصال</h3>
+            <div class="review-item">
+              <span class="review-label">رقم الهاتف:</span>
+              <span class="review-value" id="review-phone">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">البريد الإلكتروني:</span>
+              <span class="review-value" id="review-email">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">المحافظة:</span>
+              <span class="review-value" id="review-province">-</span>
+            </div>
+            <div class="review-item">
+              <span class="review-label">المدينة:</span>
+              <span class="review-value" id="review-city">-</span>
+            </div>
+          </div>
+          
+          <div class="confirmation-box">
+            <label class="checkbox-label">
+              <input type="checkbox" id="confirmData" required>
+              <span>أقر بأن البيانات المدخلة صحيحة ومطابقة للبطاقة الوطنية</span>
+            </label>
+          </div>
+          
+          <div class="info-box">
+            <h4>🔒 سياسة الخصوصية</h4>
+            <p>سيتم استخدام بياناتك لإنشاء هوية رقمية موحدة تتيح لك الوصول إلى جميع الخدمات الحكومية دون الحاجة لإعادة إدخال المعلومات الشخصية. نضمن حماية بياناتك وفقًا لأعلى معايير الأمان.</p>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-outline" onclick="prevStep(4)">← السابق</button>
+          <button type="button" class="btn btn-success btn-submit" onclick="submitRegistration()">
+            <span>إنشاء الحساب</span>
+          </button>
+        </div>
+      </form>
+      
+    </div>
+    
+    <!-- Info Panel -->
+    <div class="info-panel">
+      <div class="info-card">
+        <div class="info-icon">🎯</div>
+        <h3>هوية رقمية موحدة</h3>
+        <p>سجل مرة واحدة واستخدم جميع الخدمات الحكومية بدون إعادة إدخال البيانات</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">🔒</div>
+        <h3>أمان وخصوصية</h3>
+        <p>بياناتك محمية بأعلى معايير الأمان السيبراني والتشفير</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">⚡</div>
+        <h3>وصول سريع</h3>
+        <p>استخدم هويتك الرقمية للوصول إلى الصحة، التعليم، المرور، والسياحة</p>
+      </div>
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script src="js/register.js"></script>
+  
+</body>
+</html>

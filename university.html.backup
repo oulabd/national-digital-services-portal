@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة الجامعات - بوابة الخدمات الرقمية</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/university.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>بوابة الخدمات الوطنية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html" class="active">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> المخالفات المرورية
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+      </ul>
+      
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Title -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">🎓 بوابة الجامعات</h1>
+      <p style="color: var(--dark-gray); font-size: 1rem;">برامج أكاديمية، درجات، مقررات دراسية، وخدمات جامعية</p>
+    </section>
+    
+    <!-- University Sections Accordion -->
+    <div class="university-accordion">
+      
+      <!-- ========== SECTION 1: PUBLIC UNIVERSITIES ========== -->
+      <div class="accordion-section active">
+        <button class="accordion-header" onclick="toggleUniversityAccordion('publicUniversities')">
+          <div class="header-content">
+            <span class="header-icon">🏛️</span>
+            <div class="header-text">
+              <h2>الجامعات العامة</h2>
+              <p>الجامعات الحكومية والخدمات الأكاديمية</p>
+            </div>
+          </div>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        
+        <div id="publicUniversities" class="accordion-content" style="display: block !important;">
+          
+          <!-- Selection Section -->
+          <section style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-2xl);">
+            
+            <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">اختيار الجامعة والتخصص</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg);">
+              
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="university">الجامعة</label>
+                <select id="university" name="university" onchange="loadUniversityCourses(event)">
+                  <option value="">-- اختر الجامعة --</option>
+                  <option value="damascus">جامعة دمشق</option>
+                  <option value="baath">جامعة البعث</option>
+                  <option value="aleppo">جامعة حلب</option>
+                  <option value="tishreen">جامعة التشرين</option>
+                  <option value="latakia">جامعة اللاذقية</option>
+                </select>
+              </div>
+              
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="faculty">الكلية / المعهد</label>
+                <select id="faculty" name="faculty">
+                  <option value="">-- اختر الكلية --</option>
+                  <option value="engineering">الهندسة</option>
+                  <option value="medicine">الطب</option>
+                  <option value="science">العلوم</option>
+                  <option value="arts">الآداب</option>
+                  <option value="law">القانون</option>
+                  <option value="business">إدارة الأعمال</option>
+                </select>
+              </div>
+              
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="year">السنة الدراسية</label>
+                <select id="year" name="year">
+                  <option value="">-- اختر السنة --</option>
+                  <option value="1">السنة الأولى</option>
+                  <option value="2">السنة الثانية</option>
+                  <option value="3">السنة الثالثة</option>
+                  <option value="4">السنة الرابعة</option>
+                  <option value="5">السنة الخامسة</option>
+                </select>
+              </div>
+              
+            </div>
+            
+          </section>
+    
+    <!-- Student Info Card -->
+    <section style="background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl); box-shadow: var(--shadow-lg);">
+      
+      <h3 style="color: var(--light-gold); margin-bottom: var(--spacing-lg);">معلومات الطالب</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-xl);">
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">الاسم</div>
+          <div style="font-size: 1.25rem; font-weight: 600;">أحمد محمد علي</div>
+        </div>
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">رقم الطالب</div>
+          <div style="font-size: 1.25rem; font-weight: 600;">20210001234</div>
+        </div>
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">المعدل التراكمي</div>
+          <div style="font-size: 1.25rem; font-weight: 600; color: var(--light-gold);">3.85 / 4.00</div>
+        </div>
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">الحالة</div>
+          <div style="font-size: 1.25rem; font-weight: 600; color: #10B981;">✓ مسجل</div>
+        </div>
+        
+      </div>
+      
+    </section>
+    
+    <!-- Tabs Section -->
+    <section>
+      
+      <div class="tabs" data-tab-group="university">
+        <button type="button" class="tab" data-tab-group="university">المقررات الدراسية</button>
+        <button type="button" class="tab" data-tab-group="university">الدرجات</button>
+        <button type="button" class="tab" data-tab-group="university">الجدول الزمني</button>
+        <button type="button" class="tab" data-tab-group="university">التسجيل</button>
+      </div>
+      
+      <!-- Courses Tab -->
+      <div data-tab-content="university" data-tab="0" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">المقررات الدراسية - الفصل الأول</h2>
+        
+        <div style="overflow-x: auto;">
+          <table data-table="courses">
+            <thead>
+              <tr>
+                <th>المقرر</th>
+                <th>المدرس</th>
+                <th>الساعات</th>
+                <th>الشعبة</th>
+                <th>الموقع</th>
+                <th>الحالة</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>برمجة الويب</td>
+                <td>د. أحمد محمد</td>
+                <td><span class="badge badge-info">3 ساعات</span></td>
+                <td>أ</td>
+                <td>قاعة 101</td>
+                <td><span class="badge badge-success">مسجل</span></td>
+              </tr>
+              
+              <tr>
+                <td>هياكل البيانات</td>
+                <td>أ.د فاطمة علي</td>
+                <td><span class="badge badge-info">3 ساعات</span></td>
+                <td>ب</td>
+                <td>قاعة 205</td>
+                <td><span class="badge badge-success">مسجل</span></td>
+              </tr>
+              
+              <tr>
+                <td>قواعد البيانات</td>
+                <td>د. محمود إسماعيل</td>
+                <td><span class="badge badge-info">4 ساعات</span></td>
+                <td>أ</td>
+                <td>قاعة 301</td>
+                <td><span class="badge badge-success">مسجل</span></td>
+              </tr>
+              
+              <tr>
+                <td>الخوارزميات</td>
+                <td>أ.د علي مصطفى</td>
+                <td><span class="badge badge-info">3 ساعات</span></td>
+                <td>أ</td>
+                <td>قاعة 102</td>
+                <td><span class="badge badge-success">مسجل</span></td>
+              </tr>
+              
+              <tr>
+                <td>الشبكات</td>
+                <td>د. ليندا فارس</td>
+                <td><span class="badge badge-info">3 ساعات</span></td>
+                <td>ب</td>
+                <td>قاعة 206</td>
+                <td><span class="badge badge-success">مسجل</span></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+        <div style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md);">
+          <strong>إجمالي الساعات المسجلة:</strong> 16 ساعة
+        </div>
+        
+      </div>
+      
+      <!-- Grades Tab -->
+      <div data-tab-content="university" data-tab="1" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">درجات المقررات</h2>
+        
+        <div style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>المقرر</th>
+                <th>الامتحان النهائي</th>
+                <th>الأعمال الفصلية</th>
+                <th>المشروع</th>
+                <th>الدرجة النهائية</th>
+                <th>التقدير</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td>برمجة الويب</td>
+                <td>82</td>
+                <td>18</td>
+                <td>20</td>
+                <td><strong>88</strong></td>
+                <td><span class="badge" style="background-color: #DBEAFE; color: #0C4A6E;">ممتاز</span></td>
+              </tr>
+              
+              <tr>
+                <td>هياكل البيانات</td>
+                <td>75</td>
+                <td>16</td>
+                <td>18</td>
+                <td><strong>81</strong></td>
+                <td><span class="badge" style="background-color: #DBEAFE; color: #0C4A6E;">جيد جداً</span></td>
+              </tr>
+              
+              <tr>
+                <td>قواعد البيانات</td>
+                <td>88</td>
+                <td>19</td>
+                <td>20</td>
+                <td><strong>92</strong></td>
+                <td><span class="badge" style="background-color: #D1FAE5; color: #065F46;">ممتاز جداً</span></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      
+      <!-- Schedule Tab -->
+      <div data-tab-content="university" data-tab="2" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">الجدول الزمني</h2>
+        
+        <div style="background-color: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+            
+            <div style="padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md); border-right: 4px solid var(--gold);">
+              <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm);">السبت</div>
+              <div style="font-size: 0.9rem; color: var(--dark-gray);">
+                <div>09:00 - 10:30 برمجة الويب</div>
+                <div style="margin-top: var(--spacing-sm);">11:00 - 12:30 قواعد البيانات</div>
+              </div>
+            </div>
+            
+            <div style="padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md); border-right: 4px solid var(--gold);">
+              <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm);">الأحد</div>
+              <div style="font-size: 0.9rem; color: var(--dark-gray);">
+                <div>09:00 - 10:30 هياكل البيانات</div>
+                <div style="margin-top: var(--spacing-sm);">14:00 - 15:30 الخوارزميات</div>
+              </div>
+            </div>
+            
+            <div style="padding: var(--spacing-lg); background-color: var(--light-gray); border-radius: var(--radius-md); border-right: 4px solid var(--gold);">
+              <div style="font-weight: 600; color: var(--text-dark); margin-bottom: var(--spacing-sm);">الاثنين</div>
+              <div style="font-size: 0.9rem; color: var(--dark-gray);">
+                <div>11:00 - 12:30 الشبكات</div>
+                <div style="margin-top: var(--spacing-sm);">14:00 - 15:30 برمجة الويب</div>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      <!-- Registration Tab -->
+      <div data-tab-content="university" data-tab="3" class="tab-content">
+        
+        <h2 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">التسجيل للفصل الثاني</h2>
+        
+        <div style="background-color: #FEF3C7; border-right: 4px solid #92400E; padding: var(--spacing-lg); border-radius: var(--radius-md); margin-bottom: var(--spacing-lg);">
+          <strong style="color: #92400E;">⚠️ معلومة:</strong> فترة التسجيل من 15 يناير إلى 28 يناير 2024
+        </div>
+        
+        <form style="background-color: var(--white); padding: var(--spacing-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          
+          <div class="form-group">
+            <label>المقررات المتاحة للتسجيل</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="course" value="web2">
+                برمجة الويب المتقدمة (3 ساعات)
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="course" value="ai">
+                الذكاء الاصطناعي (3 ساعات)
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="course" value="security">
+                أمن المعلومات (4 ساعات)
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="course" value="graphics">
+                رسوميات الحاسوب (3 ساعات)
+              </label>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-lg">تسجيل المقررات</button>
+          
+        </form>
+        
+      </div>
+      
+    </section>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  
+</body>
+</html>

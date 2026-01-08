@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وزارة الداخلية - الجمهورية العربية السورية</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/traffic.css">
+  <link rel="stylesheet" href="css/interior-ministry.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>وزارة الداخلية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html" class="active">
+            <span>🏛️</span> وزارة الداخلية
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+      
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+      <h1>🏛️ وزارة الداخلية</h1>
+      <p>البوابة الإلكترونية لخدمات وزارة الداخلية</p>
+    </section>
+    
+    <!-- Accordion Sections -->
+    <div class="ministry-accordion">
+      
+      <!-- ========== SECTION 1: TRAFFIC DEPARTMENT ========== -->
+      <div class="accordion-section active">
+        <button class="accordion-header" onclick="toggleAccordion('traffic')">
+          <div class="header-content">
+            <span class="header-icon">🚗</span>
+            <div class="header-text">
+              <h2>المرور</h2>
+              <p>إدارة المخالفات المرورية والوثائق الرسمية</p>
+            </div>
+          </div>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        
+        <div id="traffic" class="accordion-content">
+          
+          <!-- Tab Navigation -->
+          <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('myViolations')">مخالفاتي</button>
+            <button class="tab-btn" onclick="switchTab('violationRecord')">سجل المخالفات</button>
+            <button class="tab-btn" onclick="switchTab('documents')">استخراج الأوراق</button>
+            <button class="tab-btn" onclick="switchTab('payment')">الدفع والمتابعة</button>
+          </div>
+    
+          <!-- ========== TAB 1: MY VIOLATIONS ========== -->
+          <div id="myViolations" class="tab-content active">
+      
+      <section class="violations-summary">
+        <h2>ملخص المخالفات</h2>
+        
+        <div class="summary-grid">
+          
+          <div class="summary-card">
+            <div class="card-icon">📊</div>
+            <div class="card-content">
+              <div class="card-label">عدد المخالفات</div>
+              <div class="card-value">12</div>
+              <small class="card-note">إجمالي المخالفات</small>
+            </div>
+          </div>
+          
+          <div class="summary-card warning">
+            <div class="card-icon">⚠️</div>
+            <div class="card-content">
+              <div class="card-label">غير مدفوعة</div>
+              <div class="card-value">5</div>
+              <small class="card-note">تحتاج إلى دفع</small>
+            </div>
+          </div>
+          
+          <div class="summary-card success">
+            <div class="card-icon">✅</div>
+            <div class="card-content">
+              <div class="card-label">مدفوعة</div>
+              <div class="card-value">7</div>
+              <small class="card-note">تم الدفع</small>
+            </div>
+          </div>
+          
+          <div class="summary-card info">
+            <div class="card-icon">💰</div>
+            <div class="card-content">
+              <div class="card-label">الإجمالي المستحق</div>
+              <div class="card-value">2,500 ل.س</div>
+              <small class="card-note">المبلغ المتبقي</small>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+      <!-- Violation Images Modal (UI only) -->
+      <div id="violationImagesModal" class="modal">
+        <div class="modal-content" style="max-width: 960px;">
+          <div class="modal-header">
+            <h2 class="modal-title">صور المخالفة / الحادث</h2>
+            <button type="button" class="modal-close">✕</button>
+          </div>
+          <div class="modal-body">
+            <!-- Gallery Grid -->
+            <div class="images-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-lg);">
+              <div class="image-main" style="background: #111; border-radius: var(--radius-lg); height: 320px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem;">🖼️</div>
+              <div class="thumbs" style="display: grid; gap: var(--spacing-md);">
+                <div style="height: 96px; background: #E5E7EB; border-radius: var(--radius-md);"></div>
+                <div style="height: 96px; background: #E5E7EB; border-radius: var(--radius-md);"></div>
+                <div style="height: 96px; background: #E5E7EB; border-radius: var(--radius-md);"></div>
+              </div>
+            </div>
+
+            <!-- Image Details -->
+            <div class="image-details" style="margin-top: var(--spacing-xl); display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-xl);">
+              <div>
+                <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">تفاصيل الصورة</h3>
+                <div style="display: grid; gap: var(--spacing-sm); color: var(--dark-gray);">
+                  <div><strong>نوع الصورة:</strong> مخالفة</div>
+                  <div><strong>تاريخ الالتقاط:</strong> 2024-12-15</div>
+                  <div><strong>موقع المخالفة:</strong> شارع النيل - دمشق</div>
+                  <div><strong>رقم المخالفة:</strong> VIO-2024-00156</div>
+                </div>
+              </div>
+              <div>
+                <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">التنقل بين الصور</h3>
+                <div style="display: flex; gap: var(--spacing-md);">
+                  <button class="btn btn-outline">⬅ السابق</button>
+                  <button class="btn btn-outline">التالي ➡</button>
+                  <button class="btn btn-outline">🔍 تكبير</button>
+                  <button class="btn btn-outline">🔎 تصغير</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline modal-close">إغلاق</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Violations -->
+      <section class="recent-violations">
+        <h2>آخر المخالفات</h2>
+        
+        <div class="violations-list">
+          
+          <div class="violation-item unpaid">
+            <div class="violation-header">
+              <h3>تجاوز السرعة المسموحة</h3>
+              <span class="violation-badge unpaid">غير مدفوعة</span>
+            </div>
+            <div class="violation-details">
+              <div class="detail-row">
+                <span class="label">رقم المخالفة:</span>
+                <span class="value">VIO-2024-00156</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">التاريخ:</span>
+                <span class="value">2024-12-15</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">المكان:</span>
+                <span class="value">شارع الثورة - دمشق</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">القيمة:</span>
+                <span class="value highlight">500 ل.س</span>
+              </div>
+            </div>
+            <div class="violation-actions">
+              <button class="btn btn-small btn-primary" onclick="viewViolationDetails('VIO-2024-00156')">عرض التفاصيل</button>
+              <button class="btn btn-small btn-outline" onclick="openPaymentModal('VIO-2024-00156', 500)">دفع الآن</button>
+            </div>
+          </div>
+          
+          <div class="violation-item paid">
+            <div class="violation-header">
+              <h3>إيقاف خاطئ على الرصيف</h3>
+              <span class="violation-badge paid">مدفوعة</span>
+            </div>
+            <div class="violation-details">
+              <div class="detail-row">
+                <span class="label">رقم المخالفة:</span>
+                <span class="value">VIO-2024-00155</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">التاريخ:</span>
+                <span class="value">2024-12-10</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">المكان:</span>
+                <span class="value">شارع بغداد - دمشق</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">القيمة:</span>
+                <span class="value">300 ل.س</span>
+              </div>
+            </div>
+            <div class="violation-actions">
+              <button class="btn btn-small btn-primary" onclick="viewViolationDetails('VIO-2024-00155')">عرض التفاصيل</button>
+              <button class="btn btn-small btn-outline" onclick="alert('تم الدفع')">تم الدفع</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+      <div style="text-align: center; margin-top: var(--spacing-2xl);">
+        <button class="btn btn-primary btn-lg" onclick="switchTab('violationRecord')">عرض جميع المخالفات →</button>
+      </div>
+      
+          </div>
+    
+    <!-- ========== TAB 2: VIOLATION RECORD ========== -->
+    <div id="violationRecord" class="tab-content">
+      
+      <section class="violations-filters">
+        <h2>سجل المخالفات</h2>
+        
+        <div class="filter-container">
+          <div class="filter-group">
+            <label for="vehicleNumber">رقم السيارة</label>
+            <input type="text" id="vehicleNumber" class="form-input" placeholder="أدخل رقم السيارة">
+          </div>
+          
+          <div class="filter-group">
+            <label for="dateFrom">من التاريخ</label>
+            <input type="date" id="dateFrom" class="form-input">
+          </div>
+          
+          <div class="filter-group">
+            <label for="dateTo">إلى التاريخ</label>
+            <input type="date" id="dateTo" class="form-input">
+          </div>
+          
+          <div class="filter-group">
+            <label for="violationType">نوع المخالفة</label>
+            <select id="violationType" class="form-input">
+              <option value="">جميع الأنواع</option>
+              <option value="speeding">تجاوز السرعة</option>
+              <option value="parking">مخالفة إيقاف</option>
+              <option value="traffic-light">جرام الإشارة</option>
+              <option value="insurance">بدون تأمين</option>
+              <option value="license">بدون رخصة</option>
+              <option value="inspection">بدون فحص</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="status">الحالة</label>
+            <select id="status" class="form-input">
+              <option value="">الكل</option>
+              <option value="paid">مدفوعة</option>
+              <option value="unpaid">غير مدفوعة</option>
+            </select>
+          </div>
+          
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="applyFilters()">🔍 بحث</button>
+            <button class="btn btn-outline" onclick="clearFilters()">🔄 إعادة تعيين</button>
+          </div>
+        </div>
+        
+        <div class="results-info">
+          تم العثور على <strong>12</strong> مخالفة
+          <button class="btn btn-small btn-outline" onclick="exportTableAsCSV()">📥 تصدير</button>
+        </div>
+      </section>
+      
+      <!-- Violations Table -->
+      <section class="violations-table-section">
+        <div class="table-responsive">
+          <table class="violations-table">
+            <thead>
+              <tr>
+                <th>رقم المخالفة</th>
+                <th>نوع المخالفة</th>
+                <th>التاريخ</th>
+                <th>المكان</th>
+                <th>القيمة</th>
+                <th>الحالة</th>
+                <th>الصور</th>
+                <th>الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="violation-row unpaid">
+                <td class="violation-id">VIO-2024-00156</td>
+                <td>تجاوز السرعة</td>
+                <td>2024-12-15</td>
+                <td>شارع النيل</td>
+                <td>500 ل.س</td>
+                <td><span class="status-badge unpaid">غير مدفوعة</span></td>
+                <td class="images-cell">
+                  <button class="action-btn" data-modal-target="violationImagesModal" title="عرض الصور">📷 عرض الصور</button>
+                </td>
+                <td class="actions-cell">
+                  <button class="action-btn" onclick="viewViolationDetails('VIO-2024-00156')" title="عرض">👁️</button>
+                  <button class="action-btn" onclick="printViolation('VIO-2024-00156')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              
+              <tr class="violation-row paid">
+                <td class="violation-id">VIO-2024-00155</td>
+                <td>إيقاف خاطئ</td>
+                <td>2024-12-10</td>
+                <td>شارع بغداد</td>
+                <td>300 ل.س</td>
+                <td><span class="status-badge paid">مدفوعة</span></td>
+                <td class="images-cell">
+                  <button class="action-btn" data-modal-target="violationImagesModal" title="عرض الصور">📷 عرض الصور</button>
+                </td>
+                <td class="actions-cell">
+                  <button class="action-btn" onclick="viewViolationDetails('VIO-2024-00155')" title="عرض">👁️</button>
+                  <button class="action-btn" onclick="printViolation('VIO-2024-00155')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              
+              <tr class="violation-row unpaid">
+                <td class="violation-id">VIO-2024-00154</td>
+                <td>جرام الإشارة</td>
+                <td>2024-12-05</td>
+                <td>الميدان/td>
+                <td>400 ل.س</td>
+                <td><span class="status-badge unpaid">غير مدفوعة</span></td>
+                <td class="images-cell">
+                  <span style="color: var(--dark-gray);">لا توجد صور</span>
+                </td>
+                <td class="actions-cell">
+                  <button class="action-btn" onclick="viewViolationDetails('VIO-2024-00154')" title="عرض">👁️</button>
+                  <button class="action-btn" onclick="printViolation('VIO-2024-00154')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              
+              <tr class="violation-row paid">
+                <td class="violation-id">VIO-2024-00153</td>
+                <td>بدون تأمين</td>
+                <td>2024-11-30</td>
+                <td>دمشق _ الميدان</td>
+                <td>1,000 ل.س</td>
+                <td><span class="status-badge paid">مدفوعة</span></td>
+                <td class="images-cell">
+                  <button class="action-btn" data-modal-target="violationImagesModal" title="عرض الصور">📷 عرض الصور</button>
+                </td>
+                <td class="actions-cell">
+                  <button class="action-btn" onclick="viewViolationDetails('VIO-2024-00153')" title="عرض">👁️</button>
+                  <button class="action-btn" onclick="printViolation('VIO-2024-00153')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              
+              <tr class="violation-row unpaid">
+                <td class="violation-id">VIO-2024-00152</td>
+                <td>بدون رخصة</td>
+                <td>2024-11-25</td>
+                <td>دمشق _ الميدان</td>
+                <td>500 ل.س</td>
+                <td><span class="status-badge unpaid">غير مدفوعة</span></td>
+                <td class="images-cell">
+                  <button class="action-btn" data-modal-target="violationImagesModal" title="عرض الصور">📷 عرض الصور</button>
+                </td>
+                <td class="actions-cell">
+                  <button class="action-btn" onclick="viewViolationDetails('VIO-2024-00152')" title="عرض">👁️</button>
+                  <button class="action-btn" onclick="printViolation('VIO-2024-00152')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+          </div>
+          
+          <!-- ========== TAB 3: DOCUMENT EXTRACTION ========== -->
+          <div id="documents" class="tab-content">
+      
+      <section class="documents-section">
+        <h2>استخراج الأوراق الرسمية</h2>
+        <p class="section-description">اختر الوثيقة المطلوبة واستخرجها مباشرة أو اطبعها</p>
+        
+        <div class="documents-grid">
+          
+          <div class="document-card">
+            <div class="doc-icon">📋</div>
+            <h3>بيان المخالفات المرورية</h3>
+            <p>قائمة شاملة بجميع مخالفاتك المرورية مع التفاصيل</p>
+            <div class="doc-actions">
+              <button class="btn btn-primary btn-small" onclick="generateDocument('violations-statement')">استخراج</button>
+              <button class="btn btn-outline btn-small" onclick="generateDocument('violations-statement', true)">طباعة</button>
+            </div>
+          </div>
+          
+          <div class="document-card">
+            <div class="doc-icon">📄</div>
+            <h3>إشعار مخالفة</h3>
+            <p>إشعار رسمي لمخالفة محددة مع التفاصيل الكاملة</p>
+            <div class="doc-actions">
+              <button class="btn btn-primary btn-small" onclick="generateDocument('violation-notice')">استخراج</button>
+              <button class="btn btn-outline btn-small" onclick="generateDocument('violation-notice', true)">طباعة</button>
+            </div>
+          </div>
+          
+          <div class="document-card">
+            <div class="doc-icon">✅</div>
+            <h3>إثبات عدم وجود مخالفات</h3>
+            <p>شهادة رسمية تثبت عدم وجود مخالفات نشطة</p>
+            <div class="doc-actions">
+              <button class="btn btn-primary btn-small" onclick="generateDocument('no-violations-cert')">استخراج</button>
+              <button class="btn btn-outline btn-small" onclick="generateDocument('no-violations-cert', true)">طباعة</button>
+            </div>
+          </div>
+          
+          <div class="document-card">
+            <div class="doc-icon">📖</div>
+            <h3>السجل الكامل</h3>
+            <p>تقرير شامل يتضمن كل السجلات التاريخية</p>
+            <div class="doc-actions">
+              <button class="btn btn-primary btn-small" onclick="generateDocument('full-record')">استخراج</button>
+              <button class="btn btn-outline btn-small" onclick="generateDocument('full-record', true)">طباعة</button>
+            </div>
+          </div>
+          
+          <div class="document-card">
+            <div class="doc-icon">💳</div>
+            <h3>إقرار بالمبالغ المستحقة</h3>
+            <p>وثيقة تفصيلية بكل المبالغ المستحقة عليك</p>
+            <div class="doc-actions">
+              <button class="btn btn-primary btn-small" onclick="generateDocument('amounts-due')">استخراج</button>
+              <button class="btn btn-outline btn-small" onclick="generateDocument('amounts-due', true)">طباعة</button>
+            </div>
+          </div>
+          
+          <div class="document-card">
+            <div class="doc-icon">🔐</div>
+            <h3>شهادة السياقة الآمنة</h3>
+            <p>شهادة من الجهات المختصة حول السياقة الآمنة</p>
+            <div class="doc-actions">
+              <button class="btn btn-primary btn-small" onclick="generateDocument('safe-driving-cert')">استخراج</button>
+              <button class="btn btn-outline btn-small" onclick="generateDocument('safe-driving-cert', true)">طباعة</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+          </div>
+          
+          <!-- ========== TAB 4: PAYMENT & TRACKING ========== -->
+          <div id="payment" class="tab-content">
+      
+      <section class="payment-section">
+        <h2>الدفع والمتابعة</h2>
+        
+        <!-- Payment Status Summary -->
+        <div class="payment-summary">
+          <div class="summary-item">
+            <span class="label">المخالفات القابلة للدفع:</span>
+            <span class="value">5</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">المجموع الكلي:</span>
+            <span class="value highlight">2,500 ل.س</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">آخر موعد للدفع:</span>
+            <span class="value">2025-01-15</span>
+          </div>
+        </div>
+        
+        <!-- Unpaid Violations -->
+        <h3 style="margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">المخالفات غير المدفوعة</h3>
+        
+        <div class="payment-list">
+          
+          <div class="payment-item">
+            <div class="item-header">
+              <div class="item-info">
+                <h4>VIO-2024-00156 - تجاوز السرعة</h4>
+                <p>شارع النيل - 2024-12-15</p>
+              </div>
+              <div class="item-amount">500 ل.س</div>
+            </div>
+            <div class="item-actions">
+              <button class="btn btn-primary btn-small" onclick="openPaymentModal('VIO-2024-00156', 500)">دفع الآن</button>
+              <button class="btn btn-outline btn-small" onclick="viewViolationDetails('VIO-2024-00156')">عرض التفاصيل</button>
+            </div>
+          </div>
+          
+          <div class="payment-item">
+            <div class="item-header">
+              <div class="item-info">
+                <h4>VIO-2024-00154 - جرام الإشارة</h4>
+                <p>دمشق _ الميدان - 2024-12-05</p>
+              </div>
+              <div class="item-amount">400 ل.س</div>
+            </div>
+            <div class="item-actions">
+              <button class="btn btn-primary btn-small" onclick="openPaymentModal('VIO-2024-00154', 400)">دفع الآن</button>
+              <button class="btn btn-outline btn-small" onclick="viewViolationDetails('VIO-2024-00154')">عرض التفاصيل</button>
+            </div>
+          </div>
+          
+          <div class="payment-item">
+            <div class="item-header">
+              <div class="item-info">
+                <h4>VIO-2024-00152 - بدون رخصة</h4>
+                <p>دمشق _ الميدان - 2024-11-25</p>
+              </div>
+              <div class="item-amount">500 ل.س</div>
+            </div>
+            <div class="item-actions">
+              <button class="btn btn-primary btn-small" onclick="openPaymentModal('VIO-2024-00152', 500)">دفع الآن</button>
+              <button class="btn btn-outline btn-small" onclick="viewViolationDetails('VIO-2024-00152')">عرض التفاصيل</button>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Payment Instructions -->
+        <div class="payment-instructions">
+          <h3>طرق الدفع المتاحة</h3>
+          <ul>
+            <li><strong>💳 البطاقة الائتمانية:</strong> Visa, Mastercard</li>
+            <li><strong>📱 المحفظة الرقمية:</strong> Apple Pay, Google Pay</li>
+            <li><strong>🏦 التحويل البنكي:</strong> من حسابك البنكي مباشرة</li>
+            <li><strong>📍 السداد الفوري:</strong> في مكاتب التجديد والمرور</li>
+          </ul>
+        </div>
+        
+      </section>
+      
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- ========== SECTION 2: CIVIL REGISTRY ========== -->
+      <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleAccordion('civilRegistry')">
+          <div class="header-content">
+            <span class="header-icon">📋</span>
+            <div class="header-text">
+              <h2>الأحوال المدنية</h2>
+              <p>خدمات القيد الفردي والعائلي وبيانات الهوية</p>
+            </div>
+          </div>
+          <span class="accordion-arrow">◀</span>
+        </button>
+        
+        <div id="civilRegistry" class="accordion-content">
+          
+          <section class="services-section">
+            <h2>الخدمات المتاحة</h2>
+            <p class="section-description">اختر الخدمة المطلوبة للاطلاع على التفاصيل أو تقديم الطلب</p>
+            
+            <div class="services-grid">
+              
+              <!-- Service Card 1: Individual Registry -->
+              <div class="service-card">
+                <div class="service-icon">👤</div>
+                <h3>قيد فردي</h3>
+                <p class="service-description">استخراج قيد فردي مفصّل يتضمن كافة البيانات الشخصية المسجلة في سجلات الأحوال المدنية</p>
+                <div class="service-details">
+                  <div class="detail-item">
+                    <span class="detail-icon">📄</span>
+                    <span>وثيقة رسمية معتمدة</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">⏱️</span>
+                    <span>تصدر فوراً</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">🖨️</span>
+                    <span>قابلة للطباعة</span>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="openCivilService('individual')">عرض الخدمة</button>
+              </div>
+              
+              <!-- Service Card 2: Family Registry -->
+              <div class="service-card">
+                <div class="service-icon">👨‍👩‍👧‍👦</div>
+                <h3>قيد عائلي</h3>
+                <p class="service-description">استخراج قيد عائلي شامل لجميع أفراد الأسرة مع البيانات الكاملة وصلات القرابة</p>
+                <div class="service-details">
+                  <div class="detail-item">
+                    <span class="detail-icon">📄</span>
+                    <span>وثيقة عائلية شاملة</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">⏱️</span>
+                    <span>تصدر فوراً</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">🖨️</span>
+                    <span>قابلة للطباعة</span>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="openCivilService('family')">عرض الخدمة</button>
+              </div>
+              
+              <!-- Service Card 3: Identity Data -->
+              <div class="service-card">
+                <div class="service-icon">🆔</div>
+                <h3>بيانات الهوية</h3>
+                <p class="service-description">الاطلاع على بيانات الهوية الوطنية الكاملة والتحقق من صحة المعلومات المسجلة</p>
+                <div class="service-details">
+                  <div class="detail-item">
+                    <span class="detail-icon">✓</span>
+                    <span>بيانات محدثة</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">🔒</span>
+                    <span>آمنة ومحمية</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">📱</span>
+                    <span>استعراض فوري</span>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="openCivilService('identity')">عرض الخدمة</button>
+              </div>
+              
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="info-box">
+              <div class="info-icon">ℹ️</div>
+              <div class="info-content">
+                <h4>معلومات هامة</h4>
+                <ul>
+                  <li>جميع الوثائق الصادرة معتمدة رسمياً من وزارة الداخلية</li>
+                  <li>يمكن طباعة الوثائق مباشرة أو حفظها بصيغة PDF</li>
+                  <li>البيانات محمية وفق أعلى معايير الأمان والخصوصية</li>
+                  <li>للاستفسارات والدعم الفني يرجى التواصل مع خدمة العملاء</li>
+                </ul>
+              </div>
+            </div>
+            
+          </section>
+          
+        </div>
+      </div>
+      
+      <!-- ========== SECTION 3: CRIMINAL RECORD ========== -->
+      <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleAccordion('criminalRecord')">
+          <div class="header-content">
+            <span class="header-icon">⚖️</span>
+            <div class="header-text">
+              <h2>السجل العدلي</h2>
+              <p>استعلام عن السجل العدلي وطلب الشهادات القانونية</p>
+            </div>
+          </div>
+          <span class="accordion-arrow">◀</span>
+        </button>
+        
+        <div id="criminalRecord" class="accordion-content">
+          
+          <section class="services-section">
+            <h2>الخدمات القانونية</h2>
+            <p class="section-description">خدمات السجل العدلي والشهادات القانونية الرسمية</p>
+            
+            <div class="services-grid two-columns">
+              
+              <!-- Service Card 1: No Criminal Record -->
+              <div class="service-card legal">
+                <div class="service-icon legal">✓</div>
+                <h3>لا حكم عليه</h3>
+                <p class="service-description">شهادة رسمية تثبت عدم وجود أحكام قضائية أو سوابق جنائية مسجلة</p>
+                
+                <div class="service-details">
+                  <div class="detail-item">
+                    <span class="detail-icon">📜</span>
+                    <span>شهادة رسمية معتمدة</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">⚖️</span>
+                    <span>صادرة من السجل العدلي</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">🔐</span>
+                    <span>رقم تحقق إلكتروني</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">⏱️</span>
+                    <span>صالحة لمدة 3 أشهر</span>
+                  </div>
+                </div>
+                
+                <div class="service-uses">
+                  <h4>الاستخدامات الشائعة:</h4>
+                  <ul>
+                    <li>التوظيف الحكومي والخاص</li>
+                    <li>استخراج جواز السفر</li>
+                    <li>الدراسة في الخارج</li>
+                    <li>المعاملات الرسمية</li>
+                  </ul>
+                </div>
+                
+                <div class="service-actions">
+                  <button class="btn btn-primary btn-block" onclick="requestCriminalRecord('noCriminal')">طلب الشهادة</button>
+                  <button class="btn btn-outline btn-block" onclick="viewCriminalRecordSample('noCriminal')">عرض نموذج</button>
+                </div>
+              </div>
+              
+              <!-- Service Card 2: Criminal Record Status -->
+              <div class="service-card legal">
+                <div class="service-icon legal">📋</div>
+                <h3>حالة الصحيفة العدلية</h3>
+                <p class="service-description">الاطلاع على حالة السجل العدلي الكامل مع تفاصيل الأحكام إن وجدت</p>
+                
+                <div class="service-details">
+                  <div class="detail-item">
+                    <span class="detail-icon">📊</span>
+                    <span>تقرير شامل ومفصل</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">🔍</span>
+                    <span>معلومات محدثة</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">🖨️</span>
+                    <span>قابل للطباعة</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-icon">🔒</span>
+                    <span>سرية تامة</span>
+                  </div>
+                </div>
+                
+                <div class="service-uses">
+                  <h4>معلومات الصحيفة:</h4>
+                  <ul>
+                    <li>الأحكام القضائية المسجلة</li>
+                    <li>تواريخ الأحكام وأنواعها</li>
+                    <li>حالة التنفيذ والإسقاط</li>
+                    <li>ملاحظات قانونية</li>
+                  </ul>
+                </div>
+                
+                <div class="service-actions">
+                  <button class="btn btn-primary btn-block" onclick="requestCriminalRecord('status')">عرض الحالة</button>
+                  <button class="btn btn-outline btn-block" onclick="printCriminalRecord('status')">طباعة التقرير</button>
+                </div>
+              </div>
+              
+            </div>
+            
+            <!-- Legal Notice -->
+            <div class="info-box legal-notice">
+              <div class="info-icon">⚠️</div>
+              <div class="info-content">
+                <h4>تنبيه قانوني</h4>
+                <ul>
+                  <li>جميع الشهادات والمستندات صادرة عن الجهات القضائية المختصة</li>
+                  <li>استخدام الشهادات لغير الأغراض المشروعة يعرض صاحبها للمساءلة القانونية</li>
+                  <li>يمكن التحقق من صحة الشهادات إلكترونياً عبر رقم التحقق المرفق</li>
+                  <li>مدة صلاحية شهادة "لا حكم عليه" هي 3 أشهر من تاريخ الإصدار</li>
+                  <li>البيانات محمية وفق قوانين حماية البيانات الشخصية</li>
+                </ul>
+              </div>
+            </div>
+            
+          </section>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </main>
+  
+  <!-- Payment Modal -->
+  <div id="paymentModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+      <h2>إتمام الدفع</h2>
+      <div id="paymentContent">
+        <div class="payment-details">
+          <div class="detail-row">
+            <span>رقم المخالفة:</span>
+            <span id="paymentViolationId">-</span>
+          </div>
+          <div class="detail-row">
+            <span>المبلغ المستحق:</span>
+            <span id="paymentAmount">-</span>
+          </div>
+        </div>
+        <div style="margin: var(--spacing-lg) 0; padding: var(--spacing-lg); background-color: #f0f8f7; border-radius: var(--radius-lg); border-right: 3px solid var(--gold); text-align: center;">
+          <p style="font-size: 0.9rem; color: var(--dark-gray); margin: 0;">
+            🔐 هذا العرض التجريبي. في الإنتاج، سيتم الربط مع بوابة الدفع الآمنة
+          </p>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="simulatePayment()">متابعة الدفع</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script src="js/traffic.js"></script>
+  <script src="js/interior-ministry.js"></script>
+  
+</body>
+</html>

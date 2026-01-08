@@ -1,0 +1,419 @@
+/* ============================================
+   Verification Status Styles
+   Arabic RTL - Citizen Digital Identity
+   ============================================ */
+
+.verification-body {
+  background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%);
+  min-height: 100vh;
+}
+
+.verification-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+}
+
+/* ============================================
+   Verification Card
+   ============================================ */
+.verification-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* ============================================
+   Status Header
+   ============================================ */
+.status-header {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.status-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--spacing-xl);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-icon.pending {
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+}
+
+.status-icon.verified {
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+}
+
+.status-icon.rejected {
+  background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+#statusTitle {
+  color: var(--dark-olive);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+#statusMessage {
+  color: var(--dark-gray);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Timeline
+   ============================================ */
+.timeline {
+  padding: var(--spacing-2xl);
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 40px;
+  width: 2px;
+  height: 100%;
+  background: var(--gray);
+}
+
+.timeline-item {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-marker {
+  width: 80px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--gray);
+  color: var(--dark-gray);
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-item.completed .timeline-icon {
+  background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.timeline-item.active .timeline-icon {
+  background: linear-gradient(135deg, var(--warning) 0%, #D97706 100%);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.timeline-icon.loading {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.timeline-content {
+  flex: 1;
+  padding-top: var(--spacing-sm);
+}
+
+.timeline-content h3 {
+  color: var(--dark-olive);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.timeline-content p {
+  color: var(--dark-gray);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.timeline-content small {
+  color: var(--dark-gray);
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.timeline-item.active .timeline-content h3 {
+  color: var(--warning);
+  font-weight: 700;
+}
+
+.timeline-item.completed .timeline-content h3 {
+  color: var(--success);
+}
+
+/* ============================================
+   Time Estimate
+   ============================================ */
+.time-estimate {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border-top: 3px solid var(--warning);
+  border-bottom: 3px solid var(--warning);
+}
+
+.estimate-icon {
+  font-size: 3rem;
+}
+
+.estimate-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.estimate-text strong {
+  color: var(--dark-olive);
+  font-size: 1rem;
+}
+
+.estimate-text span {
+  color: var(--warning);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ============================================
+   Action Buttons
+   ============================================ */
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl);
+  background: var(--light-gray);
+}
+
+.action-buttons .btn {
+  flex: 1;
+}
+
+/* ============================================
+   Status Examples
+   ============================================ */
+.status-examples {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.status-examples h2 {
+  color: var(--dark-olive);
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.examples-subtitle {
+  text-align: center;
+  color: var(--dark-gray);
+  margin-bottom: var(--spacing-xl);
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.example-card {
+  background: var(--white);
+  border: 2px solid var(--gray);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.example-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--gold);
+}
+
+.example-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.example-card h3 {
+  color: var(--dark-olive);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.example-card p {
+  color: var(--dark-gray);
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   Information Section
+   ============================================ */
+.info-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.info-block {
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-block h3 {
+  color: var(--dark-olive);
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--gold);
+}
+
+.info-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-block li {
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+  padding: var(--spacing-sm) 0;
+  padding-right: var(--spacing-lg);
+  position: relative;
+  line-height: 1.6;
+}
+
+.info-block li::before {
+  content: '•';
+  position: absolute;
+  right: 0;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+  .verification-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .status-header {
+    padding: var(--spacing-xl);
+  }
+  
+  .status-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+  
+  #statusTitle {
+    font-size: 1.5rem;
+  }
+  
+  #statusMessage {
+    font-size: 1rem;
+  }
+  
+  .timeline {
+    padding: var(--spacing-lg);
+  }
+  
+  .timeline::before {
+    right: 25px;
+  }
+  
+  .timeline-marker {
+    width: 50px;
+  }
+  
+  .timeline-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1rem;
+  }
+  
+  .timeline-content p {
+    font-size: 0.85rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .examples-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-section {
+    grid-template-columns: 1fr;
+  }
+}

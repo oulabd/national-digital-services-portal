@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ministry of Awqaf Portal - Feature Showcase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .feature-showcase {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-2xl);
+    }
+    
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-2xl);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .showcase-card {
+      background: linear-gradient(135deg, #fff9f3 0%, white 100%);
+      border: 2px solid var(--primary-gold);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-2xl);
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(200, 162, 74, 0.2);
+    }
+    
+    .showcase-icon {
+      font-size: 3rem;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .showcase-card h3 {
+      color: var(--dark-olive);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .showcase-card p {
+      color: var(--dark-gray);
+      line-height: 1.6;
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .showcase-card a {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%);
+      color: white;
+      padding: var(--spacing-md) var(--spacing-2xl);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .showcase-card a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(14, 47, 43, 0.3);
+    }
+    
+    .features-list {
+      background-color: #f5f5f5;
+      padding: var(--spacing-2xl);
+      border-radius: var(--radius-lg);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .features-list h2 {
+      color: var(--dark-olive);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .features-list ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-lg);
+    }
+    
+    .features-list li {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-md);
+      border-right: 3px solid var(--primary-gold);
+    }
+    
+    .features-list li::before {
+      content: '✓ ';
+      color: var(--primary-gold);
+      font-weight: bold;
+      margin-right: var(--spacing-sm);
+    }
+    
+    .header-showcase {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+    
+    .header-showcase h1 {
+      color: var(--dark-olive);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .header-showcase p {
+      color: var(--dark-gray);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body style="background-color: #fafafa;">
+  
+  <main class="feature-showcase">
+    
+    <!-- Header -->
+    <section class="header-showcase">
+      <h1>🏛️ Ministry of Awqaf Portal</h1>
+      <p>نظام متكامل لتقديم خدمات وزارة الأوقاف والشؤون الإسلامية</p>
+      <p style="color: var(--dark-gray); font-size: 0.95rem; margin-top: var(--spacing-lg);">
+        بوابة رقمية شاملة تجمع خدمات تسجيل الحج، متابعة الطلبات، والبحث عن دروس الجوامع
+      </p>
+    </section>
+    
+    <!-- Main Features -->
+    <section class="showcase-grid">
+      
+      <!-- Feature 1: Hajj Registration -->
+      <div class="showcase-card">
+        <div class="showcase-icon">✈️</div>
+        <h3>التسجيل على الحج</h3>
+        <p>
+          نموذج تسجيل الحج المتقدم بـ 4 خطوات:
+          البيانات الشخصية، الموقع الجغرافي، التفضيلات، والمراجعة
+        </p>
+        <a href="hajj-register.html">ابدأ التسجيل →</a>
+      </div>
+      
+      <!-- Feature 2: Hajj Tracking -->
+      <div class="showcase-card">
+        <div class="showcase-icon">📋</div>
+        <h3>متابعة طلب الحج</h3>
+        <p>
+          نظام متابعة شامل يعرض حالة الطلب، المراحل، المستندات المطلوبة،
+          والتواريخ المهمة
+        </p>
+        <a href="hajj-tracking.html">تابع الطلب →</a>
+      </div>
+      
+      <!-- Feature 3: Mosque Lessons -->
+      <div class="showcase-card">
+        <div class="showcase-icon">🎓</div>
+        <h3>دروس الجوامع</h3>
+        <p>
+          محرك بحث متقدم عن الدروس الإسلامية بالجوامع مع فلاتر البحث
+          حسب المحافظة والنوع والوقت
+        </p>
+        <a href="mosque-lessons.html">ابحث عن الدروس →</a>
+      </div>
+      
+      <!-- Feature 4: Main Portal -->
+      <div class="showcase-card">
+        <div class="showcase-icon">🏠</div>
+        <h3>لوحة التحكم</h3>
+        <p>
+          الصفحة الرئيسية للخدمات التي تعرض جميع الخدمات المتاحة
+          والإحصائيات والمعلومات المهمة
+        </p>
+        <a href="awqaf.html">اذهب للبوابة →</a>
+      </div>
+      
+    </section>
+    
+    <!-- Features List -->
+    <section class="features-list">
+      <h2>✨ المميزات الرئيسية</h2>
+      <ul>
+        <li><strong>تسجيل الحج:</strong> نموذج 4 خطوات مع ملء تلقائي من الملف الشخصي</li>
+        <li><strong>التحقق من البيانات:</strong> تحقق فوري من صحة جميع المدخلات</li>
+        <li><strong>متابعة الحالة:</strong> خط زمني شامل لجميع مراحل المعالجة</li>
+        <li><strong>البحث المتقدم:</strong> بحث عن دروس الجوامع بعدة معايير</li>
+        <li><strong>التصميم المسؤول:</strong> متوافق تماماً مع الهواتف والأجهزة اللوحية</li>
+        <li><strong>واجهة عربية:</strong> كاملة باللغة العربية وتخطيط RTL صحيح</li>
+        <li><strong>الحفظ التلقائي:</strong> حفظ البيانات أثناء التنقل بين الخطوات</li>
+        <li><strong>تقارير قابلة للطباعة:</strong> طباعة حالة الطلب والتقارير</li>
+        <li><strong>الإخطارات:</strong> نظام إشعارات للتحديثات المهمة</li>
+        <li><strong>المشاركة السهلة:</strong> شارك رقم طلبك مع العائلة والأصدقاء</li>
+      </ul>
+    </section>
+    
+    <!-- Technical Details -->
+    <section class="features-list" style="margin-top: var(--spacing-2xl); background-color: #f0f8f7;">
+      <h2>🛠️ التفاصيل التقنية</h2>
+      <ul>
+        <li><strong>HTML/CSS/JavaScript:</strong> تطبيق بدون أطر عمل</li>
+        <li><strong>نظام الألوان:</strong> أخضر داكن/ذهبي (متطابق مع البوابة الرئيسية)</li>
+        <li><strong>الخطوط:</strong> Cairo للعناوين و Tajawal للنصوص</li>
+        <li><strong>التخزين:</strong> localStorage للبيانات التجريبية</li>
+        <li><strong>التصميم:</strong> CSS Grid + Flexbox للتخطيطات المرنة</li>
+        <li><strong>الشريط الجانبي:</strong> شريط جانبي ثابت قابل للطي على اليمين</li>
+        <li><strong>الرسوم المتحركة:</strong> انتقالات سلسة و تأثيرات hover</li>
+        <li><strong>المدقق:</strong> تحقق شامل من النماذج مع رسائل خطأ واضحة</li>
+        <li><strong>نقاط الاستجابة:</strong> سطح المكتب (1200px) + الجهاز اللوحي (768px) + الهاتف (480px)</li>
+        <li><strong>الأداء:</strong> تحميل سريع وواجهة سلسة</li>
+      </ul>
+    </section>
+    
+    <!-- Quick Links -->
+    <section style="margin-top: var(--spacing-2xl); padding: var(--spacing-2xl); background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); border-radius: var(--radius-lg); text-align: center;">
+      <h2 style="color: white; margin-bottom: var(--spacing-lg);">🚀 الروابط السريعة</h2>
+      <div style="display: flex; gap: var(--spacing-lg); justify-content: center; flex-wrap: wrap;">
+        <a href="dashboard.html" style="color: white; text-decoration: none; padding: var(--spacing-md) var(--spacing-lg); background: rgba(255,255,255,0.2); border-radius: var(--radius-md); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">الرئيسية</a>
+        <a href="awqaf.html" style="color: white; text-decoration: none; padding: var(--spacing-md) var(--spacing-lg); background: rgba(255,255,255,0.2); border-radius: var(--radius-md); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">بوابة الأوقاف</a>
+        <a href="index.html" style="color: white; text-decoration: none; padding: var(--spacing-md) var(--spacing-lg); background: rgba(255,255,255,0.2); border-radius: var(--radius-md); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">تسجيل الدخول</a>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <section style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-2xl); border-top: 1px solid #ddd; text-align: center; color: var(--dark-gray);">
+      <p>وزارة الأوقاف والشؤون الإسلامية &copy; 2024</p>
+      <p style="font-size: 0.9rem; margin-top: var(--spacing-md);">جميع الخدمات متاحة 24/7 | For support contact: support@awqaf.gov.sa</p>
+    </section>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>

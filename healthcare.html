@@ -1,0 +1,802 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صحتي - وزارة الصحة</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/healthcare.css">
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏥</span>
+        <span>وزارة الصحة - صحتي</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم الوطني: 12345678901</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة" onclick="toggleSidebar()"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html" class="active">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+      
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+      <h1>🏥 صحتي</h1>
+      <p>السجل الطبي الإلكتروني الموحد</p>
+    </section>
+    
+    <!-- Tab Navigation -->
+    <div class="health-tabs">
+      <button class="tab-btn active" onclick="switchHealthTab('summary')">
+        <span>📊</span> نتائجي الطبية
+      </button>
+      <button class="tab-btn" onclick="switchHealthTab('appointments')">
+        <span>📅</span> حجز المواعيد
+      </button>
+      <button class="tab-btn" onclick="switchHealthTab('labs')">
+        <span>🧪</span> التحاليل المخبرية
+      </button>
+      <button class="tab-btn" onclick="switchHealthTab('radiology')">
+        <span>📷</span> الصور الشعاعية
+      </button>
+      <button class="tab-btn" onclick="switchHealthTab('prescriptions')">
+        <span>💊</span> الوصفات الطبية
+      </button>
+    </div>
+    
+    <!-- TAB 1: SUMMARY -->
+    <div id="summary" class="tab-content active">
+      
+      <section class="summary-section">
+        <h2>ملخص السجل الطبي</h2>
+        
+        <div class="summary-grid">
+          
+          <div class="summary-card">
+            <div class="summary-icon">🧪</div>
+            <div class="summary-content">
+              <h3>التحاليل المخبرية</h3>
+              <div class="summary-number">24</div>
+              <p>تحليل مخبري مسجل</p>
+              <button class="btn btn-primary" onclick="switchHealthTab('labs')">عرض التفاصيل</button>
+            </div>
+          </div>
+          
+          <div class="summary-card">
+            <div class="summary-icon">📷</div>
+            <div class="summary-content">
+              <h3>الصور الشعاعية</h3>
+              <div class="summary-number">8</div>
+              <p>صورة شعاعية مسجلة</p>
+              <button class="btn btn-primary" onclick="switchHealthTab('radiology')">عرض التفاصيل</button>
+            </div>
+          </div>
+          
+          <div class="summary-card">
+            <div class="summary-icon">💊</div>
+            <div class="summary-content">
+              <h3>الوصفات الطبية</h3>
+              <div class="summary-number">12</div>
+              <p>وصفة طبية مسجلة</p>
+              <button class="btn btn-primary" onclick="switchHealthTab('prescriptions')">عرض التفاصيل</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+      <section class="recent-activity">
+        <h2>النشاط الطبي الأخير</h2>
+        
+        <div class="activity-timeline">
+          
+          <div class="activity-item">
+            <div class="activity-icon">🧪</div>
+            <div class="activity-content">
+              <h4>تحليل دم شامل</h4>
+              <p>مشفى الأسد الجامعي - دمشق</p>
+              <small>منذ 3 أيام</small>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="viewLabResult('LAB001')">عرض</button>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">💊</div>
+            <div class="activity-content">
+              <h4>وصفة طبية جديدة</h4>
+              <p>د. محمد حسن - عيادة القلب</p>
+              <small>منذ أسبوع</small>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="viewPrescriptionDetail('PRES001')">عرض</button>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">📷</div>
+            <div class="activity-content">
+              <h4>صورة أشعة سينية للصدر</h4>
+              <p>مركز التصوير الطبي - حلب</p>
+              <small>منذ أسبوعين</small>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="viewRadiologyImage('RAD001')">عرض</button>
+          </div>
+          
+        </div>
+      </section>
+      
+    </div>
+    
+    <!-- TAB 2: APPOINTMENTS - حجز المواعيد -->
+    <div id="appointments" class="tab-content">
+      
+      <!-- Search Section -->
+      <section class="filters-section">
+        <h2>البحث عن موعد طبي</h2>
+        
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label>المدينة</label>
+            <select class="form-input" id="citySelect" onchange="filterAppointments()">
+              <option value="">جميع المدن</option>
+              <option value="damascus">دمشق</option>
+              <option value="aleppo">حلب</option>
+              <option value="homs">حمص</option>
+              <option value="latakia">اللاذقية</option>
+              <option value="tartus">طرطوس</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label>التخصص الطبي</label>
+            <select class="form-input" id="specialtySelect" onchange="filterAppointments()">
+              <option value="">جميع التخصصات</option>
+              <option value="cardiology">أمراض القلب</option>
+              <option value="pediatrics">طب الأطفال</option>
+              <option value="orthopedics">جراحة العظام</option>
+              <option value="dermatology">الأمراض الجلدية</option>
+              <option value="neurology">الأمراض العصبية</option>
+              <option value="general">الطب العام</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label>المشفى</label>
+            <select class="form-input" id="hospitalSelect" onchange="filterAppointments()">
+              <option value="">جميع المشافي</option>
+              <option value="assad">مشفى الأسد الجامعي</option>
+              <option value="bassel">مشفى الباسل</option>
+              <option value="mouwasat">مشفى المواساة</option>
+              <option value="children">مشفى الأطفال</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label>التاريخ المفضل</label>
+            <input type="date" class="form-input" id="preferredDate">
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button class="btn btn-primary" onclick="searchAppointments()">🔍 بحث</button>
+          <button class="btn btn-outline" onclick="resetAppointmentSearch()">إعادة تعيين</button>
+        </div>
+      </section>
+      
+      <!-- My Appointments -->
+      <section class="results-section" style="margin-bottom: var(--spacing-2xl);">
+        <h2>مواعيدي القادمة</h2>
+        
+        <div class="appointments-list">
+          
+          <!-- Appointment Card 1 -->
+          <div class="appointment-card upcoming">
+            <div class="appointment-header">
+              <div class="appointment-icon">📅</div>
+              <div class="appointment-main">
+                <h3>د. محمد حسن أحمد</h3>
+                <p><strong>التخصص:</strong> أمراض القلب</p>
+                <p><strong>المشفى:</strong> مشفى الأسد الجامعي - دمشق</p>
+              </div>
+              <div class="appointment-status">
+                <span class="badge badge-info">قادم</span>
+              </div>
+            </div>
+            
+            <div class="appointment-body">
+              <div class="appointment-detail">
+                <span class="detail-label">📅 التاريخ:</span>
+                <span class="detail-value">2026-01-15</span>
+              </div>
+              <div class="appointment-detail">
+                <span class="detail-label">🕐 الوقت:</span>
+                <span class="detail-value">10:00 صباحاً</span>
+              </div>
+              <div class="appointment-detail">
+                <span class="detail-label">📍 الموقع:</span>
+                <span class="detail-value">العيادة 203 - الطابق الثاني</span>
+              </div>
+            </div>
+            
+            <div class="appointment-actions">
+              <button class="btn btn-outline" onclick="cancelAppointment('APT001')">إلغاء الموعد</button>
+              <button class="btn btn-primary" onclick="viewAppointmentDetails('APT001')">التفاصيل</button>
+            </div>
+          </div>
+          
+          <!-- Appointment Card 2 -->
+          <div class="appointment-card upcoming">
+            <div class="appointment-header">
+              <div class="appointment-icon">📅</div>
+              <div class="appointment-main">
+                <h3>د. فاطمة علي</h3>
+                <p><strong>التخصص:</strong> الطب العام</p>
+                <p><strong>المشفى:</strong> مركز المواساة الطبي - حلب</p>
+              </div>
+              <div class="appointment-status">
+                <span class="badge badge-info">قادم</span>
+              </div>
+            </div>
+            
+            <div class="appointment-body">
+              <div class="appointment-detail">
+                <span class="detail-label">📅 التاريخ:</span>
+                <span class="detail-value">2026-01-20</span>
+              </div>
+              <div class="appointment-detail">
+                <span class="detail-label">🕐 الوقت:</span>
+                <span class="detail-value">02:30 مساءً</span>
+              </div>
+              <div class="appointment-detail">
+                <span class="detail-label">📍 الموقع:</span>
+                <span class="detail-value">العيادة 105 - الطابق الأول</span>
+              </div>
+            </div>
+            
+            <div class="appointment-actions">
+              <button class="btn btn-outline" onclick="cancelAppointment('APT002')">إلغاء الموعد</button>
+              <button class="btn btn-primary" onclick="viewAppointmentDetails('APT002')">التفاصيل</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+      <!-- Available Appointments -->
+      <section class="results-section">
+        <h2>المواعيد المتاحة</h2>
+        
+        <div id="availableAppointments" class="available-appointments-grid">
+          
+          <!-- Doctor Card 1 -->
+          <div class="doctor-card" data-city="damascus" data-specialty="cardiology" data-hospital="assad">
+            <div class="doctor-photo">👨‍⚕️</div>
+            <div class="doctor-info">
+              <h3>د. محمد حسن أحمد</h3>
+              <p class="doctor-specialty">أمراض القلب والأوعية الدموية</p>
+              <p class="doctor-hospital">🏥 مشفى الأسد الجامعي - دمشق</p>
+              <p class="doctor-experience">⭐ 15 سنة خبرة</p>
+              <div class="doctor-times">
+                <span class="time-slot">الأحد 10:00</span>
+                <span class="time-slot">الثلاثاء 14:00</span>
+                <span class="time-slot">الخميس 11:00</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="bookAppointment('DOC001')">حجز موعد</button>
+            </div>
+          </div>
+          
+          <!-- Doctor Card 2 -->
+          <div class="doctor-card" data-city="damascus" data-specialty="pediatrics" data-hospital="children">
+            <div class="doctor-photo">👩‍⚕️</div>
+            <div class="doctor-info">
+              <h3>د. سارة أحمد</h3>
+              <p class="doctor-specialty">طب الأطفال</p>
+              <p class="doctor-hospital">🏥 مشفى الأطفال - دمشق</p>
+              <p class="doctor-experience">⭐ 10 سنوات خبرة</p>
+              <div class="doctor-times">
+                <span class="time-slot">السبت 09:00</span>
+                <span class="time-slot">الاثنين 13:00</span>
+                <span class="time-slot">الأربعاء 10:00</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="bookAppointment('DOC002')">حجز موعد</button>
+            </div>
+          </div>
+          
+          <!-- Doctor Card 3 -->
+          <div class="doctor-card" data-city="aleppo" data-specialty="orthopedics" data-hospital="bassel">
+            <div class="doctor-photo">👨‍⚕️</div>
+            <div class="doctor-info">
+              <h3>د. خالد يوسف</h3>
+              <p class="doctor-specialty">جراحة العظام والمفاصل</p>
+              <p class="doctor-hospital">🏥 مشفى الباسل - حلب</p>
+              <p class="doctor-experience">⭐ 12 سنة خبرة</p>
+              <div class="doctor-times">
+                <span class="time-slot">الأحد 14:00</span>
+                <span class="time-slot">الثلاثاء 10:00</span>
+                <span class="time-slot">الخميس 15:00</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="bookAppointment('DOC003')">حجز موعد</button>
+            </div>
+          </div>
+          
+          <!-- Doctor Card 4 -->
+          <div class="doctor-card" data-city="damascus" data-specialty="dermatology" data-hospital="mouwasat">
+            <div class="doctor-photo">👩‍⚕️</div>
+            <div class="doctor-info">
+              <h3>د. ليلى حسن</h3>
+              <p class="doctor-specialty">الأمراض الجلدية والتجميل</p>
+              <p class="doctor-hospital">🏥 مشفى المواساة - دمشق</p>
+              <p class="doctor-experience">⭐ 8 سنوات خبرة</p>
+              <div class="doctor-times">
+                <span class="time-slot">السبت 11:00</span>
+                <span class="time-slot">الاثنين 14:00</span>
+                <span class="time-slot">الأربعاء 12:00</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="bookAppointment('DOC004')">حجز موعد</button>
+            </div>
+          </div>
+          
+          <!-- Doctor Card 5 -->
+          <div class="doctor-card" data-city="homs" data-specialty="neurology" data-hospital="assad">
+            <div class="doctor-photo">👨‍⚕️</div>
+            <div class="doctor-info">
+              <h3>د. أحمد كمال</h3>
+              <p class="doctor-specialty">الأمراض العصبية والدماغية</p>
+              <p class="doctor-hospital">🏥 مشفى الأسد الجامعي - حمص</p>
+              <p class="doctor-experience">⭐ 20 سنة خبرة</p>
+              <div class="doctor-times">
+                <span class="time-slot">الأحد 13:00</span>
+                <span class="time-slot">الثلاثاء 09:00</span>
+                <span class="time-slot">الخميس 14:00</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="bookAppointment('DOC005')">حجز موعد</button>
+            </div>
+          </div>
+          
+          <!-- Doctor Card 6 -->
+          <div class="doctor-card" data-city="aleppo" data-specialty="general" data-hospital="mouwasat">
+            <div class="doctor-photo">👩‍⚕️</div>
+            <div class="doctor-info">
+              <h3>د. فاطمة علي</h3>
+              <p class="doctor-specialty">الطب العام</p>
+              <p class="doctor-hospital">🏥 مركز المواساة الطبي - حلب</p>
+              <p class="doctor-experience">⭐ 7 سنوات خبرة</p>
+              <div class="doctor-times">
+                <span class="time-slot">السبت 10:00</span>
+                <span class="time-slot">الاثنين 15:00</span>
+                <span class="time-slot">الأربعاء 11:00</span>
+              </div>
+              <button class="btn btn-primary btn-block" onclick="bookAppointment('DOC006')">حجز موعد</button>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div id="noResults" style="display: none; text-align: center; padding: var(--spacing-2xl); color: var(--dark-gray);">
+          <p style="font-size: 3rem; margin-bottom: var(--spacing-md);">🔍</p>
+          <p style="font-size: 1.2rem;">لا توجد مواعيد متاحة تطابق معايير البحث</p>
+          <p style="margin-top: var(--spacing-md);">الرجاء تغيير معايير البحث والمحاولة مرة أخرى</p>
+        </div>
+      </section>
+      
+    </div>
+    
+    <!-- TAB 3: LAB RESULTS -->
+    <div id="labs" class="tab-content">
+      
+      <section class="filters-section">
+        <h2>فلترة التحاليل</h2>
+        
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label>نوع التحليل</label>
+            <select class="form-input">
+              <option value="">جميع التحاليل</option>
+              <option value="blood">تحاليل الدم</option>
+              <option value="urine">تحاليل البول</option>
+              <option value="hormones">تحاليل هرمونية</option>
+              <option value="other">أخرى</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label>من تاريخ</label>
+            <input type="date" class="form-input">
+          </div>
+          
+          <div class="filter-group">
+            <label>إلى تاريخ</label>
+            <input type="date" class="form-input">
+          </div>
+          
+          <div class="filter-group">
+            <label>الجهة الطبية</label>
+            <input type="text" class="form-input" placeholder="ابحث عن مشفى أو مخبر">
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button class="btn btn-primary">تطبيق الفلترة</button>
+          <button class="btn btn-outline">إعادة تعيين</button>
+        </div>
+      </section>
+      
+      <section class="results-section">
+        <h2>نتائج التحاليل المخبرية</h2>
+        
+        <div class="table-responsive">
+          <table class="health-table">
+            <thead>
+              <tr>
+                <th>اسم التحليل</th>
+                <th>تاريخ الإجراء</th>
+                <th>الجهة الطبية</th>
+                <th>الحالة</th>
+                <th>الإجراءات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>تحليل دم شامل (CBC)</td>
+                <td>2026-01-05</td>
+                <td>مشفى الأسد الجامعي</td>
+                <td><span class="badge badge-success">مكتمل</span></td>
+                <td>
+                  <button class="btn-icon" onclick="viewLabResult('LAB001')" title="عرض">👁️</button>
+                  <button class="btn-icon" onclick="printLabResult('LAB001')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              <tr>
+                <td>تحليل وظائف الكلى</td>
+                <td>2026-01-03</td>
+                <td>مخبر الشام الطبي</td>
+                <td><span class="badge badge-success">مكتمل</span></td>
+                <td>
+                  <button class="btn-icon" onclick="viewLabResult('LAB002')" title="عرض">👁️</button>
+                  <button class="btn-icon" onclick="printLabResult('LAB002')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              <tr>
+                <td>تحليل سكر الدم</td>
+                <td>2025-12-28</td>
+                <td>مركز الفحص الشامل</td>
+                <td><span class="badge badge-success">مكتمل</span></td>
+                <td>
+                  <button class="btn-icon" onclick="viewLabResult('LAB003')" title="عرض">👁️</button>
+                  <button class="btn-icon" onclick="printLabResult('LAB003')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              <tr>
+                <td>تحليل الكوليسترول</td>
+                <td>2025-12-20</td>
+                <td>مشفى الباسل</td>
+                <td><span class="badge badge-success">مكتمل</span></td>
+                <td>
+                  <button class="btn-icon" onclick="viewLabResult('LAB004')" title="عرض">👁️</button>
+                  <button class="btn-icon" onclick="printLabResult('LAB004')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+              <tr>
+                <td>تحليل فيتامين د</td>
+                <td>2025-12-15</td>
+                <td>مخبر النور الطبي</td>
+                <td><span class="badge badge-warning">قيد المراجعة</span></td>
+                <td>
+                  <button class="btn-icon" onclick="viewLabResult('LAB005')" title="عرض">👁️</button>
+                  <button class="btn-icon" onclick="printLabResult('LAB005')" title="طباعة">🖨️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+    </div>
+    
+    <!-- TAB 4: RADIOLOGY -->
+    <div id="radiology" class="tab-content">
+      
+      <section class="filters-section">
+        <h2>فلترة الصور الشعاعية</h2>
+        
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label>نوع الصورة</label>
+            <select class="form-input">
+              <option value="">جميع الأنواع</option>
+              <option value="xray">أشعة سينية</option>
+              <option value="mri">رنين مغناطيسي</option>
+              <option value="ct">تصوير طبقي محوري</option>
+              <option value="ultrasound">إيكو</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label>من تاريخ</label>
+            <input type="date" class="form-input">
+          </div>
+          
+          <div class="filter-group">
+            <label>إلى تاريخ</label>
+            <input type="date" class="form-input">
+          </div>
+          
+          <div class="filter-group">
+            <label>المشفى / المركز</label>
+            <input type="text" class="form-input" placeholder="ابحث عن مركز تصوير">
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button class="btn btn-primary">تطبيق الفلترة</button>
+          <button class="btn btn-outline">إعادة تعيين</button>
+        </div>
+      </section>
+      
+      <section class="radiology-section">
+        <h2>الصور الشعاعية</h2>
+        
+        <div class="radiology-grid">
+          
+          <div class="radiology-card">
+            <div class="radiology-thumbnail">
+              <div class="thumbnail-placeholder">📷</div>
+            </div>
+            <div class="radiology-info">
+              <h4>أشعة سينية للصدر</h4>
+              <p><strong>النوع:</strong> X-Ray</p>
+              <p><strong>التاريخ:</strong> 2025-12-22</p>
+              <p><strong>المركز:</strong> مركز التصوير الطبي - حلب</p>
+              <button class="btn btn-primary btn-block" onclick="viewRadiologyImage('RAD001')">عرض الصورة</button>
+            </div>
+          </div>
+          
+          <div class="radiology-card">
+            <div class="radiology-thumbnail">
+              <div class="thumbnail-placeholder">📷</div>
+            </div>
+            <div class="radiology-info">
+              <h4>رنين مغناطيسي للرأس</h4>
+              <p><strong>النوع:</strong> MRI</p>
+              <p><strong>التاريخ:</strong> 2025-12-10</p>
+              <p><strong>المركز:</strong> مشفى الأسد الجامعي</p>
+              <button class="btn btn-primary btn-block" onclick="viewRadiologyImage('RAD002')">عرض الصورة</button>
+            </div>
+          </div>
+          
+          <div class="radiology-card">
+            <div class="radiology-thumbnail">
+              <div class="thumbnail-placeholder">📷</div>
+            </div>
+            <div class="radiology-info">
+              <h4>تصوير طبقي محوري للبطن</h4>
+              <p><strong>النوع:</strong> CT Scan</p>
+              <p><strong>التاريخ:</strong> 2025-11-28</p>
+              <p><strong>المركز:</strong> مركز الشام للتصوير</p>
+              <button class="btn btn-primary btn-block" onclick="viewRadiologyImage('RAD003')">عرض الصورة</button>
+            </div>
+          </div>
+          
+          <div class="radiology-card">
+            <div class="radiology-thumbnail">
+              <div class="thumbnail-placeholder">📷</div>
+            </div>
+            <div class="radiology-info">
+              <h4>إيكو قلبي</h4>
+              <p><strong>النوع:</strong> Ultrasound</p>
+              <p><strong>التاريخ:</strong> 2025-11-15</p>
+              <p><strong>المركز:</strong> مركز القلب - دمشق</p>
+              <button class="btn btn-primary btn-block" onclick="viewRadiologyImage('RAD004')">عرض الصورة</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+    </div>
+    
+    <!-- TAB 5: PRESCRIPTIONS -->
+    <div id="prescriptions" class="tab-content">
+      
+      <section class="prescriptions-section">
+        <h2>الوصفات الطبية</h2>
+        
+        <div class="prescriptions-list">
+          
+          <div class="prescription-card">
+            <div class="prescription-header">
+              <div class="prescription-icon">💊</div>
+              <div class="prescription-main">
+                <h3>وصفة طبية - أدوية القلب</h3>
+                <p><strong>الطبيب:</strong> د. محمد حسن أحمد</p>
+                <p><strong>التخصص:</strong> أمراض القلب</p>
+              </div>
+              <div class="prescription-status">
+                <span class="badge badge-success">سارية</span>
+              </div>
+            </div>
+            
+            <div class="prescription-body">
+              <div class="prescription-detail">
+                <span class="detail-label">📅 تاريخ الإصدار:</span>
+                <span class="detail-value">2026-01-02</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="detail-label">🏥 الجهة الطبية:</span>
+                <span class="detail-value">مشفى الأسد الجامعي - دمشق</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="detail-label">📝 عدد الأدوية:</span>
+                <span class="detail-value">3 أدوية</span>
+              </div>
+            </div>
+            
+            <div class="prescription-actions">
+              <button class="btn btn-primary" onclick="viewPrescriptionDetail('PRES001')">عرض الوصفة</button>
+              <button class="btn btn-outline" onclick="printPrescription('PRES001')">طباعة</button>
+            </div>
+          </div>
+          
+          <div class="prescription-card">
+            <div class="prescription-header">
+              <div class="prescription-icon">💊</div>
+              <div class="prescription-main">
+                <h3>وصفة طبية - مضادات حيوية</h3>
+                <p><strong>الطبيب:</strong> د. فاطمة علي</p>
+                <p><strong>التخصص:</strong> الطب العام</p>
+              </div>
+              <div class="prescription-status">
+                <span class="badge badge-warning">منتهية</span>
+              </div>
+            </div>
+            
+            <div class="prescription-body">
+              <div class="prescription-detail">
+                <span class="detail-label">📅 تاريخ الإصدار:</span>
+                <span class="detail-value">2025-12-15</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="detail-label">🏥 الجهة الطبية:</span>
+                <span class="detail-value">عيادة الشفاء - حلب</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="detail-label">📝 عدد الأدوية:</span>
+                <span class="detail-value">2 دواء</span>
+              </div>
+            </div>
+            
+            <div class="prescription-actions">
+              <button class="btn btn-primary" onclick="viewPrescriptionDetail('PRES002')">عرض الوصفة</button>
+              <button class="btn btn-outline" onclick="printPrescription('PRES002')">طباعة</button>
+            </div>
+          </div>
+          
+          <div class="prescription-card">
+            <div class="prescription-header">
+              <div class="prescription-icon">💊</div>
+              <div class="prescription-main">
+                <h3>وصفة طبية - علاج السكري</h3>
+                <p><strong>الطبيب:</strong> د. أحمد كمال</p>
+                <p><strong>التخصص:</strong> الغدد الصماء</p>
+              </div>
+              <div class="prescription-status">
+                <span class="badge badge-success">سارية</span>
+              </div>
+            </div>
+            
+            <div class="prescription-body">
+              <div class="prescription-detail">
+                <span class="detail-label">📅 تاريخ الإصدار:</span>
+                <span class="detail-value">2025-12-28</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="detail-label">🏥 الجهة الطبية:</span>
+                <span class="detail-value">مركز السكري - دمشق</span>
+              </div>
+              <div class="prescription-detail">
+                <span class="detail-label">📝 عدد الأدوية:</span>
+                <span class="detail-value">4 أدوية</span>
+              </div>
+            </div>
+            
+            <div class="prescription-actions">
+              <button class="btn btn-primary" onclick="viewPrescriptionDetail('PRES003')">عرض الوصفة</button>
+              <button class="btn btn-outline" onclick="printPrescription('PRES003')">طباعة</button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script src="js/healthcare.js"></script>
+  
+</body>
+</html>
+

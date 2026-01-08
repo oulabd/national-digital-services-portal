@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التسجيل على الحج - وزارة الأوقاف</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/awqaf.css">
+  <style>
+    /* hajj-register.html specific */
+    .form-body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-lg);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏛️</span>
+        <span>وزارة الأوقاف والشؤون الإسلامية</span>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" aria-label="تبديل القائمة">☰</button>
+        <div style="text-align: right;">
+          <div style="font-weight: 600; margin-bottom: 0.25rem;">أحمد محمد علي</div>
+          <small style="opacity: 0.8;">الرقم: 123456</small>
+        </div>
+        <button class="logout-btn" onclick="logoutUser()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- SIDEBAR -->
+  <aside>
+    
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    
+    <nav class="sidebar-nav">
+      
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <span>🏠</span> الرئيسية
+          </a>
+        </li>
+        
+        <li>
+          <a href="school.html">
+            <span>📚</span> مدرستي
+          </a>
+        </li>
+        
+        <li>
+          <a href="healthcare.html">
+            <span>🏥</span> صحتي
+          </a>
+        </li>
+        
+        <li>
+          <a href="university.html">
+            <span>🎓</span> زدني علماً
+          </a>
+        </li>
+        
+        <li>
+          <a href="tourism.html">
+            <span>✈️</span> السياحة
+          </a>
+        </li>
+        
+        <li>
+          <a href="traffic-violations.html">
+            <span>🚨</span> الشؤون الداخليه
+          </a>
+        </li>
+        
+        <li>
+          <a href="awqaf.html" class="active">
+            <span>🕌</span> وزارة الأوقاف
+          </a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-title">إضافي</div>
+      
+      <ul>
+        <li>
+          <a href="#settings">
+            <span>⚙️</span> الإعدادات
+          </a>
+        </li>
+        
+        <li>
+          <a href="#help">
+            <span>❓</span> المساعدة
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+  </aside>
+  
+  <!-- MAIN CONTENT -->
+  <main>
+    
+    <!-- Page Header -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <h1 style="color: var(--dark-olive); margin-bottom: var(--spacing-sm);">✈️ التسجيل على الحج</h1>
+      <p style="color: var(--dark-gray); font-size: 1rem;">اتبع الخطوات البسيطة لتقديم طلب الحج</p>
+    </section>
+    
+    <!-- Progress Steps -->
+    <section style="margin-bottom: var(--spacing-2xl);">
+      <div class="hajj-steps">
+        <div class="hajj-step active" data-step="1">
+          <div class="step-number">1</div>
+          <div class="step-label">البيانات الشخصية</div>
+        </div>
+        <div class="hajj-step" data-step="2">
+          <div class="step-number">2</div>
+          <div class="step-label">الموقع الجغرافي</div>
+        </div>
+        <div class="hajj-step" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-label">تفضيلات الحج</div>
+        </div>
+        <div class="hajj-step" data-step="4">
+          <div class="step-number">4</div>
+          <div class="step-label">التأكيد والإرسال</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Form Container -->
+    <div class="hajj-form-container">
+      
+      <!-- STEP 1: Personal Information -->
+      <form id="step1" class="hajj-form-step active">
+        <div class="form-header">
+          <h2>📋 البيانات الشخصية</h2>
+          <p>هذه البيانات مأخوذة من ملفك الشخصي</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="form-group">
+            <label for="fullName">الاسم الكامل</label>
+            <input type="text" id="fullName" name="fullName" class="form-input" value="أحمد محمد علي" disabled>
+            <small>تم جلب البيانات من ملفك الشخصي</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="nationalId">الرقم الوطني</label>
+            <input type="text" id="nationalId" name="nationalId" class="form-input" value="12345678901" disabled>
+          </div>
+          
+          <div class="form-group">
+            <label for="birthDate">تاريخ الميلاد</label>
+            <input type="date" id="birthDate" name="birthDate" class="form-input" value="1990-05-15" disabled>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">رقم الهاتف <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="09XXXXXXXX" required>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-primary btn-next" onclick="nextHajjStep(1)">التالي →</button>
+        </div>
+      </form>
+      
+      <!-- STEP 2: Location -->
+      <form id="step2" class="hajj-form-step">
+        <div class="form-header">
+          <h2>📍 الموقع الجغرافي</h2>
+          <p>حدد محافظتك والمنطقة التي تقيم فيها</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="form-group">
+            <label for="province">المحافظة <span class="required">*</span></label>
+            <select id="province" name="province" class="form-input" required>
+              <option value="">اختر المحافظة</option>
+              <option value="damascus">دمشق</option>
+              <option value="aleppo">حلب</option>
+              <option value="homs">حمص</option>
+              <option value="hama">حماه</option>
+              <option value="lattakia">اللاذقية</option>
+              <option value="tartus">طرطوس</option>
+              <option value="daraa">درعا</option>
+              <option value="deir-ez-zor">دير الزور</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="district">المنطقة / المدينة <span class="required">*</span></label>
+            <input type="text" id="district" name="district" class="form-input" placeholder="أدخل اسم المنطقة أو المدينة" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="address">العنوان التفصيلي (اختياري)</label>
+            <textarea id="address" name="address" class="form-input" placeholder="الشارع، رقم البناء، إلخ" rows="3"></textarea>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-outline" onclick="prevHajjStep(2)">← السابق</button>
+          <button type="button" class="btn btn-primary btn-next" onclick="nextHajjStep(2)">التالي →</button>
+        </div>
+      </form>
+      
+      <!-- STEP 3: Hajj Preferences -->
+      <form id="step3" class="hajj-form-step">
+        <div class="form-header">
+          <h2>🕌 تفضيلات الحج</h2>
+          <p>حدد نوع الحج والتفاصيل الإضافية</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="form-group">
+            <label for="hajjType">نوع الحج <span class="required">*</span></label>
+            <select id="hajjType" name="hajjType" class="form-input" required>
+              <option value="">اختر نوع الحج</option>
+              <option value="hajj">حج (موسم الحج)</option>
+              <option value="umrah">عمرة</option>
+              <option value="both">حج وعمرة</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="companion">هل تريد مرافقاً؟ <span class="required">*</span></label>
+            <div style="display: flex; gap: var(--spacing-lg); margin-top: var(--spacing-md);">
+              <label style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                <input type="radio" name="companion" value="no" checked> لا
+              </label>
+              <label style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                <input type="radio" name="companion" value="yes"> نعم
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-group" id="companionDetails" style="display: none;">
+            <label for="companionName">اسم المرافق <span class="required">*</span></label>
+            <input type="text" id="companionName" name="companionName" class="form-input" placeholder="أدخل اسم المرافق">
+            
+            <label for="companionRelation" style="margin-top: var(--spacing-lg);">العلاقة بك <span class="required">*</span></label>
+            <input type="text" id="companionRelation" name="companionRelation" class="form-input" placeholder="مثال: الزوجة، الابن، الأخ">
+          </div>
+          
+          <div class="form-group">
+            <label for="notes">ملاحظات إضافية (اختياري)</label>
+            <textarea id="notes" name="notes" class="form-input" placeholder="أي معلومات أو احتياجات خاصة" rows="3"></textarea>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-outline" onclick="prevHajjStep(3)">← السابق</button>
+          <button type="button" class="btn btn-primary btn-next" onclick="nextHajjStep(3)">التالي →</button>
+        </div>
+      </form>
+      
+      <!-- STEP 4: Review & Confirmation -->
+      <form id="step4" class="hajj-form-step">
+        <div class="form-header">
+          <h2>✅ المراجعة والتأكيد</h2>
+          <p>تأكد من صحة جميع البيانات قبل الإرسال</p>
+        </div>
+        
+        <div class="form-body">
+          
+          <div class="review-box">
+            <h3>📋 البيانات الشخصية</h3>
+            <div class="review-row">
+              <span>الاسم:</span>
+              <span id="review-fullName">-</span>
+            </div>
+            <div class="review-row">
+              <span>الرقم الوطني:</span>
+              <span id="review-nationalId">-</span>
+            </div>
+            <div class="review-row">
+              <span>الهاتف:</span>
+              <span id="review-phone">-</span>
+            </div>
+          </div>
+          
+          <div class="review-box">
+            <h3>📍 الموقع الجغرافي</h3>
+            <div class="review-row">
+              <span>المحافظة:</span>
+              <span id="review-province">-</span>
+            </div>
+            <div class="review-row">
+              <span>المنطقة:</span>
+              <span id="review-district">-</span>
+            </div>
+          </div>
+          
+          <div class="review-box">
+            <h3>🕌 تفضيلات الحج</h3>
+            <div class="review-row">
+              <span>نوع الحج:</span>
+              <span id="review-hajjType">-</span>
+            </div>
+            <div class="review-row">
+              <span>المرافق:</span>
+              <span id="review-companion">-</span>
+            </div>
+          </div>
+          
+          <div class="confirmation-checkbox" style="margin-top: var(--spacing-xl);">
+            <label style="display: flex; align-items: flex-start; gap: var(--spacing-md); cursor: pointer;">
+              <input type="checkbox" id="confirmData" required style="margin-top: 0.25rem;">
+              <span>أقر بأن البيانات المدخلة صحيحة وأوافق على شروط التسجيل</span>
+            </label>
+          </div>
+          
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-outline" onclick="prevHajjStep(4)">← السابق</button>
+          <button type="button" class="btn btn-success" onclick="submitHajjForm()">تقديم الطلب</button>
+        </div>
+      </form>
+      
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script src="js/awqaf.js"></script>
+  
+</body>
+</html>
+

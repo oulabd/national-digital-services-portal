@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نتيجة تحليل مخبري - وزارة الصحة</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/healthcare.css">
+  <style>
+    @media print {
+      aside, header .header-actions, .document-actions {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <span style="font-size: 2rem;">🏥</span>
+        <span>وزارة الصحة - السجل الطبي</span>
+      </div>
+      <div class="header-actions">
+        <button class="logout-btn" onclick="window.location.href='healthcare.html'">عودة للسجل</button>
+      </div>
+    </div>
+  </header>
+  
+  <aside>
+    <button class="sidebar-toggle" aria-label="فتح القائمة"></button>
+    <nav class="sidebar-nav">
+      <div class="sidebar-title">القائمة الرئيسية</div>
+      <ul>
+        <li><a href="dashboard.html"><span>🏠</span> الرئيسية</a></li>
+        <li><a href="school.html"><span>📚</span> مدرستي</a></li>
+        <li><a href="healthcare.html" class="active"><span>🏥</span> صحتي</a></li>
+        <li><a href="university.html"><span>🎓</span> زدني علماً</a></li>
+        <li><a href="tourism.html"><span>✈️</span> السياحة</a></li>
+        <li><a href="traffic-violations.html"><span>🚨</span> الشؤون الداخليه</a></li>
+        <li><a href="awqaf.html"><span>🕌</span> وزارة الأوقاف</a></li>
+      </ul>
+    </nav>
+  </aside>
+  
+  <main>
+    
+    <div class="medical-document">
+      
+      <!-- Document Header -->
+      <div class="document-header">
+        <div class="document-logo">🏥</div>
+        <h1 class="document-title">الجمهورية العربية السورية<br>وزارة الصحة</h1>
+        <h2 class="document-subtitle">نتيجة تحليل مخبري</h2>
+        <p style="color: var(--dark-gray); margin-top: var(--spacing-md);">
+          <strong>رقم النتيجة:</strong> LAB-2026-001234
+        </p>
+      </div>
+      
+      <!-- Patient Information -->
+      <div class="patient-info">
+        <h3>بيانات المريض</h3>
+        <div class="info-row">
+          <span class="info-label">الاسم الكامل:</span>
+          <span class="info-value">أحمد محمد علي</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">الرقم الوطني:</span>
+          <span class="info-value">12345678901</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">تاريخ الميلاد:</span>
+          <span class="info-value">1990-05-15</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">الجنس:</span>
+          <span class="info-value">ذكر</span>
+        </div>
+      </div>
+      
+      <!-- Test Information -->
+      <div class="patient-info">
+        <h3>بيانات التحليل</h3>
+        <div class="info-row">
+          <span class="info-label">اسم التحليل:</span>
+          <span class="info-value">تحليل دم شامل (Complete Blood Count - CBC)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">تاريخ أخذ العينة:</span>
+          <span class="info-value">2026-01-05 الساعة 08:30</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">تاريخ إصدار النتيجة:</span>
+          <span class="info-value">2026-01-05 الساعة 14:00</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">الجهة المنفذة:</span>
+          <span class="info-value">مشفى الأسد الجامعي - دمشق</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">رقم الترخيص:</span>
+          <span class="info-value">LAB-DM-2024-089</span>
+        </div>
+      </div>
+      
+      <!-- Test Results -->
+      <div class="document-content">
+        <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">نتائج التحليل</h3>
+        
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>الفحص</th>
+              <th>النتيجة</th>
+              <th>الوحدة</th>
+              <th>المجال الطبيعي</th>
+              <th>الحالة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>كريات الدم البيضاء (WBC)</td>
+              <td>7.2</td>
+              <td>10³/μL</td>
+              <td>4.0 - 11.0</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+            <tr>
+              <td>كريات الدم الحمراء (RBC)</td>
+              <td>4.8</td>
+              <td>10⁶/μL</td>
+              <td>4.5 - 5.5</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+            <tr>
+              <td>الهيموغلوبين (HGB)</td>
+              <td>14.5</td>
+              <td>g/dL</td>
+              <td>13.0 - 17.0</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+            <tr>
+              <td>الهيماتوكريت (HCT)</td>
+              <td>42.3</td>
+              <td>%</td>
+              <td>40.0 - 50.0</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+            <tr>
+              <td>الصفائح الدموية (PLT)</td>
+              <td>245</td>
+              <td>10³/μL</td>
+              <td>150 - 400</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+            <tr>
+              <td>متوسط حجم الكرية (MCV)</td>
+              <td>88</td>
+              <td>fL</td>
+              <td>80 - 100</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+            <tr>
+              <td>العدلات (Neutrophils)</td>
+              <td>58</td>
+              <td>%</td>
+              <td>40 - 70</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+            <tr>
+              <td>اللمفاويات (Lymphocytes)</td>
+              <td>32</td>
+              <td>%</td>
+              <td>20 - 40</td>
+              <td style="color: var(--success); font-weight: 600;">✓ طبيعي</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Notes -->
+      <div style="background: var(--light-gray); padding: var(--spacing-xl); border-radius: var(--radius-md); margin-bottom: var(--spacing-2xl);">
+        <h4 style="color: var(--dark-olive); margin-bottom: var(--spacing-md);">ملاحظات:</h4>
+        <p style="color: var(--text-dark); line-height: 1.8;">
+          جميع النتائج ضمن الحدود الطبيعية. لا توجد مؤشرات تستدعي القلق. يُنصح بالمتابعة الدورية حسب توجيهات الطبيب المعالج.
+        </p>
+      </div>
+      
+      <!-- Document Footer -->
+      <div class="document-footer">
+        <p style="color: var(--dark-gray); margin-bottom: var(--spacing-xl);">
+          <strong>تاريخ الإصدار:</strong> 2026-01-05<br>
+          <strong>رقم الوثيقة:</strong> LAB-2026-001234
+        </p>
+        
+        <div class="signature-section">
+          <div class="signature-box">
+            <div class="signature-line">📝</div>
+            <p style="font-weight: 600;">توقيع الطبيب المخبري</p>
+            <small>د. خالد أحمد</small>
+          </div>
+          
+          <div class="signature-box">
+            <div class="signature-line">✅</div>
+            <p style="font-weight: 600;">ختم المخبر</p>
+            <small>مشفى الأسد الجامعي</small>
+          </div>
+        </div>
+        
+        <p style="margin-top: var(--spacing-2xl); color: var(--dark-gray); font-size: 0.9rem;">
+          هذه الوثيقة صادرة إلكترونياً من وزارة الصحة السورية وتعتبر رسمية
+        </p>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="document-actions print-hide">
+        <button class="btn btn-primary" onclick="window.print()">
+          🖨️ طباعة النتيجة
+        </button>
+        <button class="btn btn-outline" onclick="downloadPDF()">
+          📥 تحميل PDF
+        </button>
+        <button class="btn btn-outline" onclick="window.location.href='healthcare.html'">
+          ↩️ عودة للسجل
+        </button>
+      </div>
+      
+    </div>
+    
+  </main>
+  
+  <script src="js/main.js"></script>
+  <script>
+    function downloadPDF() {
+      alert('سيتم تحميل النتيجة بصيغة PDF');
+      // In real implementation, this would trigger PDF generation
+    }
+  </script>
+  
+</body>
+</html>
+
