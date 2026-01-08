@@ -3,12 +3,12 @@
 // Tab Management and Navigation Functions
 // ============================================
 
-// Toggle Sidebar
+// Toggle Sidebar (responsive: mobile uses 'active', desktop uses 'expanded')
 function toggleSidebar() {
   const sidebar = document.querySelector('aside');
-  if (sidebar) {
-    sidebar.classList.toggle('expanded');
-  }
+  if (!sidebar) return;
+  const isMobile = window.innerWidth <= 768;
+  sidebar.classList.toggle(isMobile ? 'active' : 'expanded');
 }
 
 // Tab Switching Function
@@ -86,31 +86,42 @@ function logoutUser() {
 // Initialize page when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   
-  // Sidebar toggle functionality
+  // Sidebar toggle functionality (aligned with global behavior)
   const sidebarToggle = document.querySelector('.sidebar-toggle');
   const aside = document.querySelector('aside');
   
   if (sidebarToggle && aside) {
-    sidebarToggle.addEventListener('click', function() {
-      aside.classList.toggle('expanded');
+    sidebarToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isMobile = window.innerWidth <= 768;
+      aside.classList.toggle(isMobile ? 'active' : 'expanded');
     });
     
     // Close sidebar when clicking outside on mobile
     document.addEventListener('click', function(event) {
       const isClickInside = aside.contains(event.target);
-      if (!isClickInside && aside.classList.contains('expanded') && window.innerWidth < 768) {
-        aside.classList.remove('expanded');
+      const isMobile = window.innerWidth <= 768;
+      if (!isClickInside) {
+        if (isMobile && aside.classList.contains('active')) {
+          aside.classList.remove('active');
+        } else if (!isMobile && aside.classList.contains('expanded')) {
+          aside.classList.remove('expanded');
+        }
       }
     });
   }
   
-  // Add smooth scroll behavior
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // Add smooth scroll behavior (skip modal trigger links)
+  document.querySelectorAll('a[href^="#"]:not([data-modal-target])').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+      const href = this.getAttribute('href');
+      // Avoid invalid selector like '#'
+      if (href && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     });
   });
@@ -169,13 +180,17 @@ document.addEventListener('DOMContentLoaded', function() {
 // Mobile responsiveness helper
 function handleResize() {
   const aside = document.querySelector('aside');
-  if (window.innerWidth > 768) {
-    // Desktop: ensure sidebar can expand
-    aside.style.display = 'block';
-  } else {
-    // Mobile: collapse sidebar by default
+  if (!aside) return;
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    // Mobile: ensure expanded state is cleared
     if (aside.classList.contains('expanded')) {
       aside.classList.remove('expanded');
+    }
+  } else {
+    // Desktop: ensure mobile active state is cleared
+    if (aside.classList.contains('active')) {
+      aside.classList.remove('active');
     }
   }
 }

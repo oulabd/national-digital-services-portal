@@ -269,23 +269,6 @@ function initializeModals() {
       openModal(this.dataset.modalTarget);
     });
   });
-
-  // Sidebar Settings/Help links
-  const settingsLinks = document.querySelectorAll('a[href="#settings"]');
-  settingsLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      openModal('settings-modal');
-    });
-  });
-
-  const helpLinks = document.querySelectorAll('a[href="#help"]');
-  helpLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      openModal('help-modal');
-    });
-  });
 }
 
 // Create shared Settings/Help modals if missing
