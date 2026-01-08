@@ -129,7 +129,7 @@
     </section>
     
     <!-- Student Info Card -->
-    <section style="background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl); box-shadow: var(--shadow-lg);">
+    <section id="student-info-section" style="background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl); box-shadow: var(--shadow-lg);">
       
       <h3 style="color: var(--light-gold); margin-bottom: var(--spacing-lg);">معلومات الطالب</h3>
       
@@ -160,7 +160,7 @@
     </section>
     
     <!-- Tabs Section -->
-    <section>
+    <section id="tabs-section">
       
       <div class="tabs" data-tab-group="school">
         <button type="button" class="tab" data-tab-group="school">العلامات</button>
@@ -464,9 +464,9 @@
       const schoolSelect = document.getElementById('school');
       const selectedSchool = schoolSelect.value;
       
-      // Get all content sections
-      const studentInfoSection = document.querySelector('section[style*="linear-gradient"]');
-      const tabsSection = document.querySelector('.tabs[data-tab-group="school"]');
+      // Get all content sections using IDs
+      const studentInfoSection = document.getElementById('student-info-section');
+      const tabsSection = document.getElementById('tabs-section');
       const tabContents = document.querySelectorAll('[data-tab-content="school"]');
       
       // Show or hide all sections based on school selection
@@ -502,8 +502,8 @@
     
     // Initialize on page load - hide all content until school is selected
     document.addEventListener('DOMContentLoaded', function() {
-      const studentInfoSection = document.querySelector('section[style*="linear-gradient"]');
-      const tabsSection = document.querySelector('.tabs[data-tab-group="school"]');
+      const studentInfoSection = document.getElementById('student-info-section');
+      const tabsSection = document.getElementById('tabs-section');
       const tabContents = document.querySelectorAll('[data-tab-content="school"]');
       
       if (studentInfoSection) studentInfoSection.style.display = 'none';
