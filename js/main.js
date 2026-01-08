@@ -20,6 +20,12 @@ function initializeApp() {
   if (window.location.hash === '#settings' || window.location.hash === '#help') {
     window.history.replaceState(null, '', window.location.pathname);
   }
+  
+  // Ensure all modals are hidden on page load (safeguard)
+  const allModals = document.querySelectorAll('.modal');
+  allModals.forEach(modal => {
+    modal.classList.remove('active');
+  });
 }
 
 // Setup mobile sidebar toggle
@@ -285,7 +291,9 @@ function ensureUtilityModals() {
   if (!document.getElementById('settings-modal')) {
     const settingsModal = document.createElement('div');
     settingsModal.id = 'settings-modal';
-    settingsModal.className = 'modal';
+    settingsModal.className = 'modal'; // Explicitly not 'modal active'
+    settingsModal.setAttribute('role', 'dialog');
+    settingsModal.setAttribute('aria-hidden', 'true');
     settingsModal.innerHTML = `
       <div class="modal-content">
         <div class="modal-header">
@@ -328,7 +336,9 @@ function ensureUtilityModals() {
   if (!document.getElementById('help-modal')) {
     const helpModal = document.createElement('div');
     helpModal.id = 'help-modal';
-    helpModal.className = 'modal';
+    helpModal.className = 'modal'; // Explicitly not 'modal active'
+    helpModal.setAttribute('role', 'dialog');
+    helpModal.setAttribute('aria-hidden', 'true');
     helpModal.innerHTML = `
       <div class="modal-content">
         <div class="modal-header">
@@ -371,6 +381,7 @@ function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
     // Disable body scroll
     document.body.style.overflow = 'hidden';
   }
@@ -380,6 +391,7 @@ function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     // Enable body scroll
     document.body.style.overflow = 'auto';
   }
@@ -389,6 +401,7 @@ function closeNearestModal(e) {
   const modal = this.closest('.modal');
   if (modal) {
     modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = 'auto';
   }
 }
