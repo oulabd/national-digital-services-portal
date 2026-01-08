@@ -15,6 +15,11 @@ function initializeApp() {
   initializeModals();
   setActiveNavigation();
   setupMobileSidebar();
+  
+  // Clear any modal-related hashes from URL to prevent auto-opening
+  if (window.location.hash === '#settings' || window.location.hash === '#help') {
+    window.history.replaceState(null, '', window.location.pathname);
+  }
 }
 
 // Setup mobile sidebar toggle
