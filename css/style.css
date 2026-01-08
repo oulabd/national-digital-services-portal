@@ -521,6 +521,17 @@ aside.expanded .sidebar-nav {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Mobile open state mirrors expanded behavior */
+aside.active .sidebar-nav {
+  max-height: calc(100vh - 200px);
+  opacity: 1;
+  padding: 0 0 var(--spacing-lg) 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Custom scrollbar styling for sidebar */
 aside.expanded .sidebar-nav::-webkit-scrollbar {
   width: 6px;
@@ -556,6 +567,11 @@ aside.expanded .sidebar-nav::-webkit-scrollbar-thumb:hover {
 }
 
 aside.expanded .sidebar-nav li {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+aside.active .sidebar-nav li {
   transform: translateX(0);
   opacity: 1;
 }
@@ -618,6 +634,11 @@ aside.expanded .sidebar-nav li:nth-child(6) { transition-delay: 0.35s; }
 }
 
 aside.expanded .sidebar-title {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+aside.active .sidebar-title {
   opacity: 1;
   transform: translateX(0);
 }
