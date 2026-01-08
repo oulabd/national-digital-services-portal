@@ -46,6 +46,10 @@ function setupMobileSidebar() {
   
   // Close sidebar when clicking outside
   document.addEventListener('click', (e) => {
+    // Don't close sidebar when interacting with form elements
+    if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+      return;
+    }
     if (sidebar && !sidebar.contains(e.target) && sidebar.classList.contains('expanded')) {
       sidebar.classList.remove('expanded');
     }
