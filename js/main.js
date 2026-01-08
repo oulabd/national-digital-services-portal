@@ -309,6 +309,16 @@ function ensureUtilityModals() {
         </div>
       </div>`;
     document.body.appendChild(settingsModal);
+    
+    // Attach close listeners to dynamically created modal
+    settingsModal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal('settings-modal');
+      }
+    });
+    settingsModal.querySelector('.modal-close').addEventListener('click', function() {
+      closeModal('settings-modal');
+    });
   }
 
   if (!document.getElementById('help-modal')) {
@@ -340,6 +350,16 @@ function ensureUtilityModals() {
         </div>
       </div>`;
     document.body.appendChild(helpModal);
+    
+    // Attach close listeners to dynamically created modal
+    helpModal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal('help-modal');
+      }
+    });
+    helpModal.querySelector('.modal-close').addEventListener('click', function() {
+      closeModal('help-modal');
+    });
   }
 }
 
