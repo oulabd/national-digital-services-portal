@@ -15,6 +15,7 @@ function initializeApp() {
   initializeModals();
   setActiveNavigation();
   setupMobileSidebar();
+  hideSidebarLinksOnSpecificPages();
   
   // Clear any modal-related hashes from URL to prevent auto-opening
   if (window.location.hash === '#settings' || window.location.hash === '#help') {
@@ -26,6 +27,30 @@ function initializeApp() {
   allModals.forEach(modal => {
     modal.classList.remove('active');
   });
+}
+
+// Hide sidebar links on specific pages
+function hideSidebarLinksOnSpecificPages() {
+  const currentPage = window.location.pathname.split('/').pop();
+  const pagesWithoutSidebarLinks = ['awqaf.html', 'hajj-register.html', 'hajj-tracking.html', 'mosque-lessons.html'];
+  
+  if (pagesWithoutSidebarLinks.includes(currentPage)) {
+    const sidebarNav = document.querySelector('.sidebar-nav');
+    if (sidebarNav) {
+      // Find and hide the "إضافي" (Additional) section and its links
+      const sidebarTitles = sidebarNav.querySelectorAll('.sidebar-title');
+      sidebarTitles.forEach(title => {
+        if (title.textContent.includes('إضافي')) {
+          title.style.display = 'none';
+          // Hide the next ul after this title
+          const nextUl = title.nextElementSibling;
+          if (nextUl && nextUl.tagName === 'UL') {
+            nextUl.style.display = 'none';
+          }
+        }
+      });
+    }
+  }
 }
 
 // Setup mobile sidebar toggle
