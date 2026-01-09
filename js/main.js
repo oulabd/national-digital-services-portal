@@ -288,9 +288,10 @@ function initializeModals() {
 
 // Create shared Settings/Help modals if missing
 function ensureUtilityModals() {
-  // Skip modal creation on awqaf.html page
+  // Skip modal creation on specific pages
   const currentPage = window.location.pathname.split('/').pop();
-  if (currentPage === 'awqaf.html') {
+  const pagesWithoutModals = ['awqaf.html', 'hajj-register.html', 'hajj-tracking.html', 'mosque-lessons.html'];
+  if (pagesWithoutModals.includes(currentPage)) {
     return;
   }
   
