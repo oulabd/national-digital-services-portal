@@ -467,6 +467,26 @@
             } else {
               tab.classList.remove('active');
             }
+            
+            // Add click event listener to each tab
+            tab.addEventListener('click', function() {
+              const tabGroup = 'school';
+              const tabIndex = Array.from(tabsSection.querySelectorAll('.tab')).indexOf(this);
+              
+              // Remove active from all tabs
+              tabs.forEach(t => t.classList.remove('active'));
+              
+              // Remove active from all content
+              tabContents.forEach(content => content.classList.remove('active'));
+              
+              // Add active to clicked tab
+              this.classList.add('active');
+              
+              // Add active to corresponding content
+              if (tabContents[tabIndex]) {
+                tabContents[tabIndex].classList.add('active');
+              }
+            });
           });
           
           tabContents.forEach((content, index) => {
