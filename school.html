@@ -484,6 +484,26 @@
           tabsSection.style.opacity = '0';
           tabsSection.style.transition = 'opacity 0.5s ease-in';
           setTimeout(() => { tabsSection.style.opacity = '1'; }, 10);
+          
+          // Re-initialize tabs after showing them
+          setTimeout(() => {
+            const tabs = tabsSection.querySelectorAll('.tab');
+            tabs.forEach((tab, index) => {
+              if (index === 0) {
+                tab.classList.add('active');
+              } else {
+                tab.classList.remove('active');
+              }
+            });
+            
+            tabContents.forEach((content, index) => {
+              if (index === 0) {
+                content.classList.add('active');
+              } else {
+                content.classList.remove('active');
+              }
+            });
+          }, 50);
         }
         
         tabContents.forEach(content => {

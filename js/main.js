@@ -288,6 +288,12 @@ function initializeModals() {
 
 // Create shared Settings/Help modals if missing
 function ensureUtilityModals() {
+  // Skip modal creation on awqaf.html page
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage === 'awqaf.html') {
+    return;
+  }
+  
   if (!document.getElementById('settings-modal')) {
     const settingsModal = document.createElement('div');
     settingsModal.id = 'settings-modal';
