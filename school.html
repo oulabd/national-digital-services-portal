@@ -102,38 +102,17 @@
           <a href="school.html" class="active">
             <span>📚</span> مدرستي
     
-    <!-- School Selector -->
-    <section style="background-color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); margin-bottom: var(--spacing-2xl);">
-      
-      <h3 style="color: var(--dark-olive); margin-bottom: var(--spacing-lg);">اختر المدرسة</h3>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg); align-items: flex-end;">
-        
-        <div class="form-group" style="margin-bottom: 0; position: relative; z-index: 100;">
-          <label for="school">المدرسة</label>
-          <select id="school" name="school" style="position: relative; z-index: 101;">
-            <option value="">-- اختر المدرسة --</option>
-            <option value="school1">مدرسة النور الثانوية</option>
-            <option value="school2">مدرسة الفارابي الابتدائية</option>
-            <option value="school3">مدرسة ابن سينا الإعدادية</option>
-            <option value="school4">مدرسة الرازي الثانوية</option>
-          </select>
-        </div>
-        
-        <button type="button" class="btn btn-primary" onclick="loadStudentInfo()" style="width: 100%;">
-          🔍 عرض بيانات الطالب
-        </button>
-        
-      </div>
-      
-    </section>
-    
     <!-- Student Info Card -->
     <section id="student-info-section" style="background: linear-gradient(135deg, var(--dark-olive) 0%, var(--primary-olive) 100%); color: var(--white); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl); box-shadow: var(--shadow-lg);">
       
       <h3 style="color: var(--light-gold); margin-bottom: var(--spacing-lg);">معلومات الطالب</h3>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-xl);">
+        
+        <div>
+          <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">المدرسة</div>
+          <div style="font-size: 1.25rem; font-weight: 600;">عبد القادر الحسيني</div>
+        </div>
         
         <div>
           <div style="font-size: 0.875rem; opacity: 0.8; text-transform: uppercase; margin-bottom: var(--spacing-sm);">الاسم</div>
@@ -459,76 +438,53 @@
   <script src="js/main.js"></script>
   
   <script>
-    // Load student information when school is selected
-    function loadStudentInfo() {
-      const schoolSelect = document.getElementById('school');
-      const selectedSchool = schoolSelect.value;
-      
-      // Get all content sections using IDs
-      const studentInfoSection = document.getElementById('student-info-section');
-      const tabsSection = document.getElementById('tabs-section');
-      const tabContents = document.querySelectorAll('[data-tab-content="school"]');
-      
-      // Show or hide all sections based on school selection
-      if (selectedSchool) {
-        // Show all content with fade-in effect
-        if (studentInfoSection) {
-          studentInfoSection.style.display = 'block';
-          studentInfoSection.style.opacity = '0';
-          studentInfoSection.style.transition = 'opacity 0.5s ease-in';
-          setTimeout(() => { studentInfoSection.style.opacity = '1'; }, 10);
-        }
-        
-        if (tabsSection) {
-          tabsSection.style.display = 'block';
-          tabsSection.style.opacity = '0';
-          tabsSection.style.transition = 'opacity 0.5s ease-in';
-          setTimeout(() => { tabsSection.style.opacity = '1'; }, 10);
-          
-          // Re-initialize tabs after showing them
-          setTimeout(() => {
-            const tabs = tabsSection.querySelectorAll('.tab');
-            tabs.forEach((tab, index) => {
-              if (index === 0) {
-                tab.classList.add('active');
-              } else {
-                tab.classList.remove('active');
-              }
-            });
-            
-            tabContents.forEach((content, index) => {
-              if (index === 0) {
-                content.classList.add('active');
-              } else {
-                content.classList.remove('active');
-              }
-            });
-          }, 50);
-        }
-        
-        tabContents.forEach(content => {
-          content.style.display = 'block';
-          content.style.opacity = '0';
-          content.style.transition = 'opacity 0.5s ease-in';
-          setTimeout(() => { content.style.opacity = '1'; }, 10);
-        });
-      } else {
-        // Hide all content
-        if (studentInfoSection) studentInfoSection.style.display = 'none';
-        if (tabsSection) tabsSection.style.display = 'none';
-        tabContents.forEach(content => { content.style.display = 'none'; });
-      }
-    }
-    
-    // Initialize on page load - hide all content until school is selected
+    // Initialize on page load - display all content by default
     document.addEventListener('DOMContentLoaded', function() {
       const studentInfoSection = document.getElementById('student-info-section');
       const tabsSection = document.getElementById('tabs-section');
       const tabContents = document.querySelectorAll('[data-tab-content="school"]');
       
-      if (studentInfoSection) studentInfoSection.style.display = 'none';
-      if (tabsSection) tabsSection.style.display = 'none';
-      tabContents.forEach(content => { content.style.display = 'none'; });
+      // Show all content by default
+      if (studentInfoSection) {
+        studentInfoSection.style.display = 'block';
+        studentInfoSection.style.opacity = '0';
+        studentInfoSection.style.transition = 'opacity 0.5s ease-in';
+        setTimeout(() => { studentInfoSection.style.opacity = '1'; }, 10);
+      }
+      
+      if (tabsSection) {
+        tabsSection.style.display = 'block';
+        tabsSection.style.opacity = '0';
+        tabsSection.style.transition = 'opacity 0.5s ease-in';
+        setTimeout(() => { tabsSection.style.opacity = '1'; }, 10);
+        
+        // Initialize tabs
+        setTimeout(() => {
+          const tabs = tabsSection.querySelectorAll('.tab');
+          tabs.forEach((tab, index) => {
+            if (index === 0) {
+              tab.classList.add('active');
+            } else {
+              tab.classList.remove('active');
+            }
+          });
+          
+          tabContents.forEach((content, index) => {
+            if (index === 0) {
+              content.classList.add('active');
+            } else {
+              content.classList.remove('active');
+            }
+          });
+        }, 50);
+      }
+      
+      tabContents.forEach(content => {
+        content.style.display = 'block';
+        content.style.opacity = '0';
+        content.style.transition = 'opacity 0.5s ease-in';
+        setTimeout(() => { content.style.opacity = '1'; }, 10);
+      });
     });
   </script>
   
