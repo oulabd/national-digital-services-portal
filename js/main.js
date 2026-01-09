@@ -292,6 +292,11 @@ function ensureUtilityModals() {
   const currentPage = window.location.pathname.split('/').pop();
   const pagesWithoutModals = ['awqaf.html', 'hajj-register.html', 'hajj-tracking.html', 'mosque-lessons.html'];
   if (pagesWithoutModals.includes(currentPage)) {
+    // Remove any existing modals and modal triggers from these pages
+    const helpLink = document.querySelector('[data-modal-target="help-modal"]');
+    const settingsLink = document.querySelector('[data-modal-target="settings-modal"]');
+    if (helpLink) helpLink.parentElement.remove();
+    if (settingsLink) settingsLink.parentElement.remove();
     return;
   }
   
